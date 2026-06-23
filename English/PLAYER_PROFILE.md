@@ -14,9 +14,9 @@
 
 | Stat | Value |
 |------|-------|
-| Level | 1 |
-| XP | 0 / 100 |
-| Streak | 0 days |
+| Level | 2 |
+| XP | 135 total (35 into Lv 2) |
+| Streak | 1 day |
 | Estimated TOEIC | 250–400 |
 | Listening | ~125–200 / 495 |
 | Reading | ~125–200 / 495 |
@@ -61,4 +61,6 @@
 ---
 
 ## Achievements Unlocked
-- ✅ `FIRST_STEP` — Completed placement test
+- ✅ `FIRST_STEP` — Completed placement test (2026-06-23)
+- ✅ `PHOTO_DETECTIVE_PERFECT` — Part 1 perfect score 5/5 (2026-06-23)
+- ✅ `LEVEL_2_REACHED` — Leveled up to Level 2 (2026-06-23)

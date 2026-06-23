@@ -28,6 +28,7 @@
 | Date       | Event            | Estimated Score | Notes                        |
 |------------|------------------|-----------------|------------------------------|
 | 2026-06-23 | Placement Test   | 250–400         | Vocab & Grammar need urgent work |
+| 2026-06-23 | Day 1 Complete   | 250–400         | 135 XP · Vocab 4/5 · Part 1 5/5 · Part 5 7/10 |
 
 ---
 
@@ -36,6 +37,7 @@
 | Week | Date | Estimated Score | Listening | Reading | Notes |
 |------|------|-----------------|-----------|---------|-------|
 | 0    | 2026-06-23 | 250–400 | — | — | Baseline |
+| 1    | 2026-06-23 | 250–400 | Part 1: 5/5 ✅ | Part 5: 7/10 | Day 1 · Level 2 · 135 XP |
 
 ---
 

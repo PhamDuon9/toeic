@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grammar Lab 01 — Verb Tenses · Word Forms · Dependent Prepositions</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0f1e;color:#e8e8f0;font-family:'Segoe UI',sans-serif;min-height:100vh;padding:16px}
+h1,h2,h3{font-weight:700}
+a{color:#7c6fff;text-decoration:none}
+
+/* HUD */
+.hud{background:linear-gradient(135deg,#1a1f3e,#0d1228);border:1px solid #2a2f5e;border-radius:14px;padding:14px 20px;margin-bottom:18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hud-name{font-size:1.1rem;font-weight:700;color:#fff}
+.hud-sub{font-size:.78rem;color:#888;margin-top:1px}
+.xp-bar-wrap{flex:1;min-width:120px}
+.xp-label{font-size:.72rem;color:#aaa;margin-bottom:3px}
+.xp-bar{height:8px;background:#1a1f3e;border-radius:4px;overflow:hidden}
+.xp-fill{height:100%;background:linear-gradient(90deg,#7c6fff,#ff6fff);border-radius:4px;transition:width .5s ease}
+.xp-text{font-size:.72rem;color:#aaa;margin-top:2px}
+
+/* Topic tabs */
+.topic-tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.topic-tab{padding:10px 18px;border-radius:10px;border:2px solid #2a2f5e;background:#111827;color:#aaa;cursor:pointer;font-size:.88rem;font-weight:600;transition:all .2s}
+.topic-tab.active{border-color:#7c6fff;background:#1a1540;color:#fff}
+.topic-tab.done{border-color:#22c55e;color:#22c55e;background:#0f2a1a}
+
+/* Section tabs (Theory / Practice) */
+.sec-tabs{display:flex;gap:6px;margin-bottom:14px}
+.sec-tab{padding:7px 16px;border-radius:8px;border:1px solid #2a2f5e;background:#111827;color:#aaa;cursor:pointer;font-size:.82rem;font-weight:600;transition:all .2s}
+.sec-tab.active{border-color:#7c6fff;background:#1a1540;color:#fff}
+
+/* Cards */
+.card{background:#111827;border:1px solid #1e2448;border-radius:14px;padding:22px;margin-bottom:14px}
+.card h2{font-size:1.1rem;color:#fff;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h3{font-size:.92rem;color:#7c6fff;margin:14px 0 8px}
+
+/* Theory tables */
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin:8px 0}
+th{background:#1a1f3e;color:#aaa;padding:7px 10px;text-align:left;border-bottom:1px solid #2a2f5e}
+td{padding:7px 10px;border-bottom:1px solid #1e2448;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.badge-of{background:#1a3a2e;color:#4ade80;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-with{background:#1a2a3e;color:#60a5fa;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-in{background:#2a1a3e;color:#c084fc;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-for{background:#3e1a1a;color:#f87171;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-to{background:#3e2a1a;color:#fb923c;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-on{background:#1a3e3e;color:#22d3ee;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-at{background:#2a3e1a;color:#a3e635;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-by{background:#3e1a3e;color:#e879f9;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-about{background:#3e3a1a;color:#fbbf24;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge-from{background:#1a1a3e;color:#a5b4fc;padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700}
+
+example-block{display:block;background:#0a0f1e;border-left:3px solid #7c6fff;padding:8px 12px;margin:6px 0;border-radius:0 6px 6px 0;font-size:.82rem;font-style:italic;color:#ccc}
+.trap-block{background:#2a0f0f;border:1px solid #f87171;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:.82rem}
+.trap-block .trap-title{color:#f87171;font-weight:700;margin-bottom:4px}
+.correct{color:#4ade80}
+.wrong{color:#f87171;text-decoration:line-through}
+
+/* Quiz */
+.question-card{background:#111827;border:1px solid #1e2448;border-radius:12px;padding:18px;margin-bottom:12px}
+.q-num{font-size:.72rem;color:#7c6fff;font-weight:700;margin-bottom:5px}
+.q-text{font-size:.9rem;color:#e8e8f0;margin-bottom:12px;line-height:1.5}
+.options{display:flex;flex-direction:column;gap:7px}
+.opt{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:8px;border:1px solid #2a2f5e;background:#0d1228;cursor:pointer;transition:all .15s;font-size:.85rem}
+.opt:hover{border-color:#7c6fff;background:#1a1540}
+.opt.selected{border-color:#7c6fff;background:#1a1540}
+.opt.correct-ans{border-color:#22c55e!important;background:#0f2a1a!important}
+.opt.wrong-ans{border-color:#f87171!important;background:#2a0f0f!important}
+.opt-label{font-weight:700;color:#7c6fff;min-width:18px}
+.explanation{font-size:.78rem;padding:10px 12px;border-radius:8px;margin-top:8px;display:none;line-height:1.5}
+.explanation.show{display:block}
+.explanation.correct-exp{background:#0f2a1a;border:1px solid #22c55e;color:#86efac}
+.explanation.wrong-exp{background:#2a0f0f;border:1px solid #f87171;color:#fca5a5}
+
+.btn{padding:10px 22px;border-radius:9px;border:none;cursor:pointer;font-size:.88rem;font-weight:700;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,#7c6fff,#5540e0);color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-outline{background:transparent;border:2px solid #7c6fff;color:#7c6fff}
+.btn-outline:hover{background:#1a1540}
+.score-bar-wrap{margin:12px 0}
+.score-bar{height:10px;background:#1a1f3e;border-radius:5px;overflow:hidden}
+.score-fill{height:100%;border-radius:5px;transition:width .8s ease}
+
+/* Result panel */
+.result-panel{background:#111827;border:1px solid #2a2f5e;border-radius:14px;padding:24px;text-align:center;display:none}
+.result-panel.show{display:block}
+.result-xp{font-size:2.2rem;font-weight:900;color:#fbbf24;margin:10px 0}
+.result-stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:16px 0}
+.stat-box{background:#0a0f1e;border-radius:10px;padding:12px 20px;text-align:center}
+.stat-num{font-size:1.5rem;font-weight:900;color:#fff}
+.stat-label{font-size:.72rem;color:#888;margin-top:2px}
+
+/* Section hidden */
+.section{display:none}
+.section.show{display:block}
+.panel{display:none}
+.panel.show{display:block}
+
+/* Progress dots */
+.q-dots{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+.dot{width:10px;height:10px;border-radius:50%;background:#1e2448;transition:all .3s}
+.dot.answered{background:#7c6fff}
+.dot.correct{background:#22c55e}
+.dot.wrong{background:#f87171}
+
+.suffix-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:500px){.suffix-grid{grid-template-columns:1fr}}
+.suffix-card{background:#0a0f1e;border:1px solid #2a2f5e;border-radius:8px;padding:10px 12px}
+.suffix-card h4{color:#7c6fff;font-size:.8rem;margin-bottom:5px}
+.suffix-card p{font-size:.75rem;color:#aaa;line-height:1.6}
+.suffix-tag{display:inline-block;background:#1a1f3e;color:#c084fc;padding:1px 6px;border-radius:4px;font-size:.7rem;margin:1px;font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- HUD -->
+<div class="hud">
+  <div>
+    <div class="hud-name">Duong · TOEIC Rookie</div>
+    <div class="hud-sub">Grammar Lab 01 · Day 2</div>
+  </div>
+  <div class="xp-bar-wrap">
+    <div class="xp-label">XP Progress</div>
+    <div class="xp-bar"><div class="xp-fill" id="xpFill" style="width:35%"></div></div>
+    <div class="xp-text"><span id="xpDisplay">35</span> / 100 (Lv 2)</div>
+  </div>
+  <div style="font-size:.8rem;color:#aaa">🔥 Streak: <strong style="color:#ff8c42">1</strong></div>
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+    <button class="btn btn-outline" id="connectBtn" style="padding:5px 11px;font-size:.74rem" onclick="AutoSave.connect()">🔗 Kết nối thư mục</button>
+    <span id="autosave-status" style="font-size:.72rem"></span>
+  </div>
+</div>
+
+<div style="margin-bottom:8px;font-size:.78rem;color:#888">
+  📚 Refs:
+  <a href="../PART5/lesson_03_verb_tenses.md">Verb Tenses</a> ·
+  <a href="../PART5/lesson_01_word_form.md">Word Forms</a> ·
+  <a href="../PART5/lesson_04_dependent_prepositions.md">Dependent Prepositions</a>
+</div>
+
+<!-- Topic Tabs -->
+<div class="topic-tabs">
+  <button class="topic-tab active" id="tabTenses" onclick="switchTopic('tenses')">⏱ Verb Tenses</button>
+  <button class="topic-tab" id="tabWordform" onclick="switchTopic('wordform')">🔤 Word Forms</button>
+  <button class="topic-tab" id="tabPrep" onclick="switchTopic('prep')">🔗 Dep. Prepositions</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TOPIC 1: VERB TENSES
+══════════════════════════════════════════ -->
+<div class="section show" id="sec-tenses">
+  <div class="sec-tabs">
+    <button class="sec-tab active" id="st-theory" onclick="switchSecTab('tenses','theory')">📖 Theory</button>
+    <button class="sec-tab" id="st-practice" onclick="switchSecTab('tenses','practice')">⚔️ Practice (10 câu · +100 XP)</button>
+  </div>
+
+  <!-- Theory -->
+  <div class="panel show" id="tenses-theory">
+    <div class="card">
+      <h2>⏱ Verb Forms and Tenses</h2>
+      <h3>Present Time</h3>
+      <table>
+        <tr><th>Tense</th><th>Use for</th><th>Example</th></tr>
+        <tr><td><strong>Present Simple</strong></td><td>routines · habits · always true</td><td><em>Ian never <strong>opens</strong> his mail until lunchtime.</em></td></tr>
+        <tr><td><strong>Present Continuous</strong><br><small>am/is/are + -ing</small></td><td>happening now · around now</td><td><em>Naomi <strong>is giving</strong> a presentation in Room 5.</em></td></tr>
+        <tr><td><strong>Present Perfect</strong><br><small>have/has + p.p.</small></td><td>began in past → continues now · general experience · very recent events</td><td><em>Daryl <strong>has lived</strong> in New York for three years.</em></td></tr>
+        <tr><td><strong>Present Perfect Continuous</strong><br><small>have/has been + -ing</small></td><td>longer past actions → continue now · past action has present result</td><td><em>I'm tired because I <strong>have been playing</strong> tennis.</em></td></tr>
+      </table>
+
+      <h3>Past Time</h3>
+      <table>
+        <tr><th>Tense</th><th>Use for</th><th>Example</th></tr>
+        <tr><td><strong>Past Simple</strong></td><td>completed actions · consecutive actions · past habits</td><td><em>I <strong>left</strong> DX International two months ago.</em></td></tr>
+        <tr><td><strong>Past Continuous</strong><br><small>was/were + -ing</small></td><td>longer actions in past · interrupted actions</td><td><em>Steve <strong>was studying</strong> hard all weekend.</em></td></tr>
+        <tr><td><strong>Past Perfect</strong><br><small>had + p.p.</small></td><td>action before another past action</td><td><em>When we arrived, the meeting <strong>had</strong> already <strong>started</strong>.</em></td></tr>
+      </table>
+
+      <h3>Future Time</h3>
+      <table>
+        <tr><th>Form</th><th>Use for</th><th>Example</th></tr>
+        <tr><td><strong>Present Simple</strong></td><td>scheduled events · time clauses (when/if/before/as soon as)</td><td><em>When Sharon <strong>arrives</strong>, please call me.</em></td></tr>
+        <tr><td><strong>Present Continuous</strong></td><td>arrangements</td><td><em>We<strong>'re meeting</strong> Mr. Watanabe at 3 o'clock.</em></td></tr>
+        <tr><td><strong>going to</strong></td><td>plans · intentions · predictions</td><td><em>When are you <strong>going to buy</strong> a copy machine?</em></td></tr>
+        <tr><td><strong>will / will be + -ing</strong></td><td>predictions · future actions in progress</td><td><em>Sales <strong>will improve</strong> steadily over the summer.</em></td></tr>
+        <tr><td><strong>will have + p.p.</strong></td><td>complete before a future time</td><td><em>I <strong>will have finished</strong> this report by Friday.</em></td></tr>
+      </table>
+
+      <div class="trap-block">
+        <div class="trap-title">⚠️ TOEIC TRAP — Time Clauses</div>
+        <span class="correct">✅ When she <strong>arrives</strong>, I will call her.</span><br>
+        <span class="wrong">❌ When she <strong>will arrive</strong>, I will call her.</span><br>
+        <small style="color:#888">Sau when/if/as soon as/before/after → dùng Present Simple, KHÔNG dùng will.</small>
+      </div>
+
+      <div style="margin-top:16px;text-align:center">
+        <button class="btn btn-primary" onclick="switchSecTab('tenses','practice')">⚔️ Bắt đầu Practice →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Practice -->
+  <div class="panel" id="tenses-practice">
+    <div class="card">
+      <h2>⚔️ Verb Tenses Drill — 10 câu</h2>
+      <div class="q-dots" id="tenses-dots"></div>
+    </div>
+    <div id="tenses-questions"></div>
+    <div style="text-align:center;margin:16px 0">
+      <button class="btn btn-primary" id="tenses-submit" onclick="submitQuiz('tenses')" disabled>Submit Answers</button>
+    </div>
+    <div class="result-panel" id="tenses-result">
+      <div style="font-size:1.4rem">⏱ Verb Tenses Result</div>
+      <div class="result-xp" id="tenses-xp-earned">+0 XP</div>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num" id="tenses-score">—</div><div class="stat-label">SCORE</div></div>
+        <div class="stat-box"><div class="stat-num" id="tenses-pct">—</div><div class="stat-label">ACCURACY</div></div>
+      </div>
+      <div class="score-bar-wrap">
+        <div class="score-bar"><div class="score-fill" id="tenses-score-bar" style="width:0%;background:linear-gradient(90deg,#7c6fff,#22c55e)"></div></div>
+      </div>
+      <button class="btn btn-outline" style="margin-top:12px" onclick="switchSecTab('tenses','theory')">📖 Review Theory</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TOPIC 2: WORD FORMS
+══════════════════════════════════════════ -->
+<div class="section" id="sec-wordform">
+  <div class="sec-tabs">
+    <button class="sec-tab active" id="wf-theory" onclick="switchSecTab('wordform','theory')">📖 Theory</button>
+    <button class="sec-tab" id="wf-practice" onclick="switchSecTab('wordform','practice')">⚔️ Practice (10 câu · +100 XP)</button>
+  </div>
+
+  <div class="panel show" id="wordform-theory">
+    <div class="card">
+      <h2>🔤 Word Forms</h2>
+      <p style="font-size:.82rem;color:#aaa;margin-bottom:12px">Identify the correct part of speech (verb / noun / adjective / adverb) by looking at the suffixes.</p>
+
+      <h3>4-Step Strategy</h3>
+      <table>
+        <tr><th>Position in sentence</th><th>Form needed</th><th>Signals</th></tr>
+        <tr><td>Subject / Object</td><td><strong>NOUN</strong></td><td>after <em>the / a / an / my / this</em></td></tr>
+        <tr><td>After be/seem/become + before noun</td><td><strong>ADJECTIVE</strong></td><td>describes a noun</td></tr>
+        <tr><td>Modifies verb or adjective</td><td><strong>ADVERB</strong></td><td>usually ends <em>-ly / -ally</em></td></tr>
+        <tr><td>Main action in clause</td><td><strong>VERB</strong></td><td>after <em>to / modal / subject</em></td></tr>
+      </table>
+
+      <h3>Suffix Reference</h3>
+      <div class="suffix-grid">
+        <div class="suffix-card">
+          <h4>⚡ VERB suffixes</h4>
+          <p>actions, feelings, events</p>
+          <span class="suffix-tag">-en</span><span class="suffix-tag">-ize</span><span class="suffix-tag">-ify</span><span class="suffix-tag">-ate</span>
+          <p style="margin-top:6px;color:#ddd;font-size:.75rem">strengthen, prioritize, intensify, aggravate</p>
+        </div>
+        <div class="suffix-card">
+          <h4>📦 NOUN suffixes</h4>
+          <p>people, objects, places</p>
+          <span class="suffix-tag">-tion</span><span class="suffix-tag">-sion</span><span class="suffix-tag">-ance</span><span class="suffix-tag">-ence</span><span class="suffix-tag">-ment</span><span class="suffix-tag">-ness</span><span class="suffix-tag">-ity</span><span class="suffix-tag">-ship</span><span class="suffix-tag">-or</span><span class="suffix-tag">-ist</span>
+          <p style="margin-top:6px;color:#ddd;font-size:.75rem">reduction, independence, accomplishment, membership</p>
+        </div>
+        <div class="suffix-card">
+          <h4>🎨 ADJECTIVE suffixes</h4>
+          <p>describe nouns</p>
+          <span class="suffix-tag">-ful</span><span class="suffix-tag">-able</span><span class="suffix-tag">-ible</span><span class="suffix-tag">-worthy</span><span class="suffix-tag">-al</span><span class="suffix-tag">-ical</span><span class="suffix-tag">-ous</span><span class="suffix-tag">-ish</span><span class="suffix-tag">-ic</span><span class="suffix-tag">-ary</span>
+          <p style="margin-top:6px;color:#ddd;font-size:.75rem">resourceful, understandable, tactical, foolish</p>
+        </div>
+        <div class="suffix-card">
+          <h4>🏃 ADVERB suffixes</h4>
+          <p>describe verbs or adjectives</p>
+          <span class="suffix-tag">-ly</span><span class="suffix-tag">-ally</span>
+          <p style="margin-top:6px;color:#ddd;font-size:.75rem">hurriedly, faintly, enthusiastically</p>
+          <p style="margin-top:4px;color:#f87171;font-size:.72rem">⚠️ hard, fast — không có -ly</p>
+        </div>
+      </div>
+
+      <div class="trap-block" style="margin-top:14px">
+        <div class="trap-title">⚠️ TOEIC TRAP — Adverb "hard" vs "hardly"</div>
+        <span class="correct">✅ All the apprentices tried <strong>hard</strong> to do well.</span> (hard = adverb: cố gắng)<br>
+        <span class="wrong">❌ All the apprentices tried <strong>hardly</strong>...</span> (hardly = hầu như không — nghĩa ngược)
+      </div>
+
+      <div style="margin-top:16px;text-align:center">
+        <button class="btn btn-primary" onclick="switchSecTab('wordform','practice')">⚔️ Bắt đầu Practice →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="wordform-practice">
+    <div class="card">
+      <h2>⚔️ Word Forms Drill — 10 câu</h2>
+      <div class="q-dots" id="wordform-dots"></div>
+    </div>
+    <div id="wordform-questions"></div>
+    <div style="text-align:center;margin:16px 0">
+      <button class="btn btn-primary" id="wordform-submit" onclick="submitQuiz('wordform')" disabled>Submit Answers</button>
+    </div>
+    <div class="result-panel" id="wordform-result">
+      <div style="font-size:1.4rem">🔤 Word Forms Result</div>
+      <div class="result-xp" id="wordform-xp-earned">+0 XP</div>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num" id="wordform-score">—</div><div class="stat-label">SCORE</div></div>
+        <div class="stat-box"><div class="stat-num" id="wordform-pct">—</div><div class="stat-label">ACCURACY</div></div>
+      </div>
+      <div class="score-bar-wrap">
+        <div class="score-bar"><div class="score-fill" id="wordform-score-bar" style="width:0%;background:linear-gradient(90deg,#7c6fff,#22c55e)"></div></div>
+      </div>
+      <button class="btn btn-outline" style="margin-top:12px" onclick="switchSecTab('wordform','theory')">📖 Review Theory</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TOPIC 3: DEPENDENT PREPOSITIONS
+══════════════════════════════════════════ -->
+<div class="section" id="sec-prep">
+  <div class="sec-tabs">
+    <button class="sec-tab active" id="pp-theory" onclick="switchSecTab('prep','theory')">📖 Theory</button>
+    <button class="sec-tab" id="pp-practice" onclick="switchSecTab('prep','practice')">⚔️ Practice (10 câu · +100 XP)</button>
+  </div>
+
+  <div class="panel show" id="prep-theory">
+    <div class="card">
+      <h2>🔗 Dependent Prepositions</h2>
+      <p style="font-size:.82rem;color:#aaa;margin-bottom:12px">Prepositions that <strong>always follow</strong> specific nouns, adjectives, or verbs. Must memorize!</p>
+
+      <h3>Nouns + Prepositions</h3>
+      <table>
+        <tr><th>Prep</th><th>Nouns</th></tr>
+        <tr><td><span class="badge-of">+ of</span></td><td style="font-size:.78rem">advantage, awareness, cause, danger, effect, example, idea, knowledge, possibility, probability, quality, result, source, supply, variety</td></tr>
+        <tr><td><span class="badge-with">+ with</span></td><td style="font-size:.78rem">agreement, appointment, contact, connection, contract, involvement, meeting, negotiations, problem, satisfaction</td></tr>
+        <tr><td><span class="badge-in">+ in</span></td><td style="font-size:.78rem">belief, change, decrease, improvement, increase, interest, participation, rise</td></tr>
+        <tr><td><span class="badge-for">+ for</span></td><td style="font-size:.78rem">cure, demand, excuse, explanation, need, reason, reputation, responsibility, time</td></tr>
+        <tr><td><span class="badge-to">+ to</span></td><td style="font-size:.78rem">approach, contribution, exception, <strong>solution</strong></td></tr>
+        <tr><td><span class="badge-on">+ on</span></td><td style="font-size:.78rem">effect, impact, influence, reliance</td></tr>
+      </table>
+
+      <h3>Adjectives + Prepositions (most tested)</h3>
+      <table>
+        <tr><th>Prep</th><th>Adjectives</th></tr>
+        <tr><td><span class="badge-of">+ of</span></td><td style="font-size:.78rem">afraid, aware, capable, certain, full, proud, short, sure, tired, typical</td></tr>
+        <tr><td><span class="badge-by">+ by</span></td><td style="font-size:.78rem">amazed, annoyed, disappointed, excited, impressed, inspired, shocked, surprised</td></tr>
+        <tr><td><span class="badge-about">+ about</span></td><td style="font-size:.78rem">anxious, confused, enthusiastic, happy, optimistic, sorry</td></tr>
+        <tr><td><span class="badge-with">+ with</span></td><td style="font-size:.78rem">angry, bored, compatible, content, pleased, <strong>satisfied</strong>, unfamiliar</td></tr>
+        <tr><td><span class="badge-in">+ in</span></td><td style="font-size:.78rem">interested, involved, proficient, rich, specialized, successful</td></tr>
+        <tr><td><span class="badge-to">+ to</span></td><td style="font-size:.78rem">accustomed, attached, essential, identical, inferior, preferable, related, similar, <strong>superior</strong></td></tr>
+        <tr><td><span class="badge-at">+ at</span></td><td style="font-size:.78rem">expert, frustrated, good, terrible, useless</td></tr>
+        <tr><td><span class="badge-for">+ for</span></td><td style="font-size:.78rem">eligible, famous, necessary, ready, <strong>responsible</strong>, suitable</td></tr>
+        <tr><td><span class="badge-on">+ on</span></td><td style="font-size:.78rem">based, dependent, insistent</td></tr>
+      </table>
+
+      <h3>Verbs + Prepositions (most tested)</h3>
+      <table>
+        <tr><th>Prep</th><th>Verbs</th></tr>
+        <tr><td><span class="badge-from">+ from</span></td><td style="font-size:.78rem">differ, emerge, escape, learn, recover, retire, separate, suffer, withdraw</td></tr>
+        <tr><td><span class="badge-for">+ for</span></td><td style="font-size:.78rem">account, apologize, apply, check, hope, pay, prepare, search, wait, wish</td></tr>
+        <tr><td><span class="badge-in">+ in</span></td><td style="font-size:.78rem">believe, engage, invest, participate, result, specialize, succeed</td></tr>
+        <tr><td><span class="badge-on">+ on</span></td><td style="font-size:.78rem">concentrate, count, decide, depend, insist, plan, rely, spend</td></tr>
+        <tr><td><span class="badge-with">+ with</span></td><td style="font-size:.78rem">agree, compete, consult, cooperate, deal, interfere, provide, replace</td></tr>
+        <tr><td><span class="badge-of">+ of</span></td><td style="font-size:.78rem">accuse, approve, consist, dream, think</td></tr>
+      </table>
+
+      <div class="trap-block" style="margin-top:14px">
+        <div class="trap-title">⚠️ Top 5 TOEIC Traps</div>
+        <span class="correct">✅ responsible <strong>for</strong></span> · <span class="wrong">❌ responsible <em>of</em></span><br>
+        <span class="correct">✅ solution <strong>to</strong></span> · <span class="wrong">❌ solution <em>for</em></span><br>
+        <span class="correct">✅ superior <strong>to</strong></span> · <span class="wrong">❌ superior <em>than</em></span><br>
+        <span class="correct">✅ differ <strong>from</strong></span> · <span class="wrong">❌ differ <em>with</em></span><br>
+        <span class="correct">✅ satisfied <strong>with</strong></span> · <span class="wrong">❌ satisfied <em>of</em></span>
+      </div>
+
+      <div style="margin-top:16px;text-align:center">
+        <button class="btn btn-primary" onclick="switchSecTab('prep','practice')">⚔️ Bắt đầu Practice →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="prep-practice">
+    <div class="card">
+      <h2>⚔️ Dependent Prepositions Drill — 10 câu</h2>
+      <div class="q-dots" id="prep-dots"></div>
+    </div>
+    <div id="prep-questions"></div>
+    <div style="text-align:center;margin:16px 0">
+      <button class="btn btn-primary" id="prep-submit" onclick="submitQuiz('prep')" disabled>Submit Answers</button>
+    </div>
+    <div class="result-panel" id="prep-result">
+      <div style="font-size:1.4rem">🔗 Dependent Prepositions Result</div>
+      <div class="result-xp" id="prep-xp-earned">+0 XP</div>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num" id="prep-score">—</div><div class="stat-label">SCORE</div></div>
+        <div class="stat-box"><div class="stat-num" id="prep-pct">—</div><div class="stat-label">ACCURACY</div></div>
+      </div>
+      <div class="score-bar-wrap">
+        <div class="score-bar"><div class="score-fill" id="prep-score-bar" style="width:0%;background:linear-gradient(90deg,#7c6fff,#22c55e)"></div></div>
+      </div>
+      <button class="btn btn-outline" style="margin-top:12px" onclick="switchSecTab('prep','theory')">📖 Review Theory</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── AUTO-SAVE (File System Access API) ──
+const AutoSave = {
+  DB: 'toeic_lab', STORE: 'handles',
+
+  openDB() {
+    return new Promise((res, rej) => {
+      const r = indexedDB.open(this.DB, 1);
+      r.onupgradeneeded = e => e.target.result.createObjectStore(this.STORE);
+      r.onsuccess = e => res(e.target.result);
+      r.onerror = rej;
+    });
+  },
+
+  async getHandle() {
+    const db = await this.openDB();
+    return new Promise(res => {
+      const tx = db.transaction(this.STORE, 'readonly');
+      const r = tx.objectStore(this.STORE).get('dir');
+      r.onsuccess = e => res(e.target.result || null);
+      r.onerror = () => res(null);
+    });
+  },
+
+  async setHandle(handle) {
+    const db = await this.openDB();
+    return new Promise(res => {
+      const tx = db.transaction(this.STORE, 'readwrite');
+      tx.objectStore(this.STORE).put(handle, 'dir');
+      tx.oncomplete = res;
+    });
+  },
+
+  async connect() {
+    if (!('showDirectoryPicker' in window)) {
+      this.status('❌ Dùng Chrome/Edge để dùng tính năng này', 'err'); return false;
+    }
+    try {
+      const h = await window.showDirectoryPicker({ mode: 'readwrite' });
+      await this.setHandle(h);
+      this.status('✅ Đã kết nối!', 'ok');
+      document.getElementById('connectBtn').textContent = '✅ Đã kết nối';
+      document.getElementById('connectBtn').style.borderColor = '#22c55e';
+      document.getElementById('connectBtn').style.color = '#22c55e';
+      return true;
+    } catch(e) {
+      if (e.name !== 'AbortError') this.status('❌ ' + e.message, 'err');
+      return false;
+    }
+  },
+
+  async save(filename, data) {
+    let h = await this.getHandle();
+    if (!h) { const ok = await this.connect(); if (!ok) return false; h = await this.getHandle(); }
+    try {
+      const perm = await h.queryPermission({ mode: 'readwrite' });
+      if (perm !== 'granted') await h.requestPermission({ mode: 'readwrite' });
+      const resultsDir = await h.getDirectoryHandle('RESULTS', { create: true });
+      const fh = await resultsDir.getFileHandle(filename + '.json', { create: true });
+      const w = await fh.createWritable();
+      await w.write(JSON.stringify(data, null, 2));
+      await w.close();
+      this.status('💾 Đã lưu tự động!', 'ok');
+      return true;
+    } catch(e) {
+      this.status('⚠️ Lỗi lưu: ' + e.message, 'err'); return false;
+    }
+  },
+
+  status(msg, type) {
+    const el = document.getElementById('autosave-status');
+    if (!el) return;
+    el.textContent = msg;
+    el.style.color = type === 'ok' ? '#22c55e' : '#f87171';
+    clearTimeout(this._t);
+    this._t = setTimeout(() => { el.textContent = ''; }, 5000);
+  },
+
+  async init() {
+    const h = await this.getHandle();
+    if (h) {
+      document.getElementById('connectBtn').textContent = '✅ Đã kết nối';
+      document.getElementById('connectBtn').style.borderColor = '#22c55e';
+      document.getElementById('connectBtn').style.color = '#22c55e';
+    }
+  }
+};
+
+// ── QUESTION DATA ──
+
+const questions = {
+
+tenses: [
+  {
+    q: 'She ___ in this company since 2018.',
+    opts: ['worked','has worked','is working','had worked'],
+    ans: 1,
+    exp: '✅ <strong>has worked</strong> — Present Perfect. "Since 2018" chỉ khoảng thời gian bắt đầu từ quá khứ và TIẾP TỤC đến hiện tại → have/has + past participle.'
+  },
+  {
+    q: 'The train ___ at 9 AM every morning.',
+    opts: ['has departed','is departing','departs','will depart'],
+    ans: 2,
+    exp: '✅ <strong>departs</strong> — Present Simple. Lịch trình cố định (scheduled/routine) dùng Present Simple. "Every morning" là signal rõ.'
+  },
+  {
+    q: 'When we arrived at the office, the meeting ___ already ___.',
+    opts: ['has already started','had already started','was already starting','already started'],
+    ans: 1,
+    exp: '✅ <strong>had already started</strong> — Past Perfect. Cuộc họp bắt đầu TRƯỚC khi chúng ta đến → had + past participle.'
+  },
+  {
+    q: 'I ___ a client at 2 PM this afternoon.',
+    opts: ['meet','will meet','am meeting','have met'],
+    ans: 2,
+    exp: '✅ <strong>am meeting</strong> — Present Continuous cho arrangements (đã sắp xếp trước). "This afternoon" confirm đây là kế hoạch đã định.'
+  },
+  {
+    q: 'Sales ___ steadily over the summer.',
+    opts: ['improve','are improving','will improve','improved'],
+    ans: 2,
+    exp: '✅ <strong>will improve</strong> — Future Simple (will) cho dự đoán (prediction). Câu này là dự đoán về tương lai.'
+  },
+  {
+    q: 'He ___ on the phone all morning. That is why he cannot speak now.',
+    opts: ['talked','was talking','has been talking','is talking'],
+    ans: 2,
+    exp: '✅ <strong>has been talking</strong> — Present Perfect Continuous. Hành động KÉO DÀI từ quá khứ và có KẾT QUẢ ở hiện tại (he cannot speak now). Signal: "all morning".'
+  },
+  {
+    q: 'By next Friday, she ___ the project report.',
+    opts: ['will finish','finishes','will have finished','is finishing'],
+    ans: 2,
+    exp: '✅ <strong>will have finished</strong> — Future Perfect. "By next Friday" = trước một thời điểm trong tương lai → will have + past participle.'
+  },
+  {
+    q: 'When you ___ in Italy, where did you live?',
+    opts: ['work','have worked','were working','worked'],
+    ans: 3,
+    exp: '✅ <strong>worked</strong> — Past Simple. Cả hai vế đều nói về quá khứ đã kết thúc. "Did you live" (past simple) → câu hỏi phụ cũng dùng past simple.'
+  },
+  {
+    q: 'Please call me as soon as Mr. Chen ___.',
+    opts: ['arrives','will arrive','is arriving','arrived'],
+    ans: 0,
+    exp: '✅ <strong>arrives</strong> — Present Simple trong mệnh đề thời gian. Sau "as soon as / when / before / after" → KHÔNG dùng will, dùng Present Simple.'
+  },
+  {
+    q: 'They ___ to upgrade the entire network next month.',
+    opts: ['will','are going','are going to','go'],
+    ans: 2,
+    exp: '✅ <strong>are going to</strong> — "going to" cho plans and intentions (đã có kế hoạch/ý định cụ thể). "Next month" + kế hoạch định sẵn → going to.'
+  }
+],
+
+wordform: [
+  {
+    q: 'Plans for a ___ in income tax were welcomed.',
+    opts: ['reduce','reduction','reduced','reductive'],
+    ans: 1,
+    exp: '✅ <strong>reduction</strong> — NOUN. Sau "a" (mạo từ) → cần danh từ. reduce (verb) → reduction (noun) với suffix -tion.'
+  },
+  {
+    q: 'The storm is expected to ___ overnight.',
+    opts: ['intense','intensity','intensify','intensely'],
+    ans: 2,
+    exp: '✅ <strong>intensify</strong> — VERB. Sau "to" (infinitive marker) → cần động từ. intense (adj) → intensify (verb) với suffix -ify.'
+  },
+  {
+    q: 'Brian is a very ___ and ___ employee.',
+    opts: ['resource / trust','resourceful / trustworthy','resourcefully / trustworthily','resourced / trusted'],
+    ans: 1,
+    exp: '✅ <strong>resourceful / trustworthy</strong> — ADJECTIVE. Đứng trước noun "employee" → cần tính từ. Suffix -ful và -worthy tạo adjective.'
+  },
+  {
+    q: 'Time was short, so we ___ put together a proposal.',
+    opts: ['hurry','hurried','hurriedly','hurrying'],
+    ans: 2,
+    exp: '✅ <strong>hurriedly</strong> — ADVERB. Mô tả động từ "put together" → cần trạng từ. hurry → hurried → hurriedly (suffix -ly).'
+  },
+  {
+    q: 'The ___ of the senate is vitally important.',
+    opts: ['independent','independently','independency','independence'],
+    ans: 3,
+    exp: '✅ <strong>independence</strong> — NOUN. Sau "The" và trước "of" → cần danh từ. independent (adj) → independence (noun) với suffix -ence.'
+  },
+  {
+    q: 'Dana sent an ___ letter explaining her resignation.',
+    opts: ['apology','apologize','apologetic','apologetically'],
+    ans: 2,
+    exp: '✅ <strong>apologetic</strong> — ADJECTIVE. Đứng trước noun "letter" → cần tính từ. apologize (verb) → apology (noun) → apologetic (adjective) với suffix -ic.'
+  },
+  {
+    q: 'Their refusal to accept our offer is ___.',
+    opts: ['understand','understanding','understandably','understandable'],
+    ans: 3,
+    exp: '✅ <strong>understandable</strong> — ADJECTIVE. Sau "is" (linking verb) → cần tính từ mô tả chủ ngữ. suffix -able tạo adjective: understandable.'
+  },
+  {
+    q: 'News of the merger was greeted ___.',
+    opts: ['enthusiastic','enthusiasm','enthusiastically','enthusiast'],
+    ans: 2,
+    exp: '✅ <strong>enthusiastically</strong> — ADVERB. Mô tả động từ "greeted" (passive) → cần trạng từ. enthusiastic (adj) → enthusiastically (adverb) với suffix -ally.'
+  },
+  {
+    q: 'Scoring first in the exam was a huge ___.',
+    opts: ['accomplish','accomplished','accomplishment','accomplishing'],
+    ans: 2,
+    exp: '✅ <strong>accomplishment</strong> — NOUN. Sau "a huge" (mạo từ + tính từ) → cần danh từ. accomplish (verb) → accomplishment (noun) với suffix -ment.'
+  },
+  {
+    q: '___ to the research facility is strictly controlled.',
+    opts: ['Admit','Admittance','Admitted','Admittingly'],
+    ans: 1,
+    exp: '✅ <strong>Admittance</strong> — NOUN. Làm chủ ngữ của câu → cần danh từ. admit (verb) → admittance (noun) với suffix -ance.'
+  }
+],
+
+prep: [
+  {
+    q: 'She is responsible ___ the entire project.',
+    opts: ['of','for','with','to'],
+    ans: 1,
+    exp: '✅ <strong>responsible for</strong> — Cố định. "Responsible" luôn đi với "for". Đây là TOEIC trap phổ biến nhất: KHÔNG dùng "responsible of".'
+  },
+  {
+    q: 'We need to find a solution ___ this problem.',
+    opts: ['of','for','to','with'],
+    ans: 2,
+    exp: '✅ <strong>solution to</strong> — Cố định. "Solution" + "to" (KHÔNG phải "for"). Tương tự: approach to, exception to, contribution to.'
+  },
+  {
+    q: 'Are you satisfied ___ the results of the survey?',
+    opts: ['of','about','for','with'],
+    ans: 3,
+    exp: '✅ <strong>satisfied with</strong> — Adjective + with. Nhóm "with": satisfied, pleased, content, angry, bored, acquainted, compatible.'
+  },
+  {
+    q: 'He is not aware ___ the recent policy changes.',
+    opts: ['of','about','in','for'],
+    ans: 0,
+    exp: '✅ <strong>aware of</strong> — Cố định. "Aware" luôn đi với "of". Nhóm "of": afraid of, proud of, capable of, sure of, tired of, typical of.'
+  },
+  {
+    q: 'Our company specializes ___ cloud security solutions.',
+    opts: ['on','for','in','with'],
+    ans: 2,
+    exp: '✅ <strong>specialize in</strong> — Verb + in. Nhóm "in": specialize, believe, invest, participate, succeed, engage, result.'
+  },
+  {
+    q: 'We would like to apologize ___ the delay in delivery.',
+    opts: ['about','for','of','with'],
+    ans: 1,
+    exp: '✅ <strong>apologize for</strong> — Verb + for. Nhóm "for": apologize, apply, account, check, hope, pay, prepare, search, wait, wish.'
+  },
+  {
+    q: 'The new product is superior ___ its competitors.',
+    opts: ['than','over','to','from'],
+    ans: 2,
+    exp: '✅ <strong>superior to</strong> — Cố định. Không dùng "than" như comparative adjective. Nhóm "to": superior, inferior, identical, similar, related, preferable, essential, accustomed.'
+  },
+  {
+    q: 'The CEO is very interested ___ expanding into Southeast Asia.',
+    opts: ['about','in','for','on'],
+    ans: 1,
+    exp: '✅ <strong>interested in</strong> — Cố định. "Interested" + "in" (KHÔNG phải "about"). Phân biệt: interested in = quan tâm đến; anxious about = lo lắng về.'
+  },
+  {
+    q: 'The entire strategy was based ___ customer feedback.',
+    opts: ['in','with','on','at'],
+    ans: 2,
+    exp: '✅ <strong>based on</strong> — Cố định. "Based" + "on". Nhóm "on": based, dependent, insistent. Cũng nhớ: rely on, depend on, concentrate on.'
+  },
+  {
+    q: 'His management style differs greatly ___ that of his predecessor.',
+    opts: ['with','from','in','about'],
+    ans: 1,
+    exp: '✅ <strong>differ from</strong> — Verb + from. Nhóm "from": differ, emerge, escape, learn, recover, retire, separate, suffer, withdraw.'
+  }
+]
+
+};
+
+// ── STATE ──
+const state = {
+  tenses:  { answers: {}, submitted: false, xp: 0 },
+  wordform:{ answers: {}, submitted: false, xp: 0 },
+  prep:    { answers: {}, submitted: false, xp: 0 }
+};
+let currentTopic = 'tenses';
+let totalXP = 35;
+
+// ── RENDER QUESTIONS ──
+function renderQuiz(topic) {
+  const qs = questions[topic];
+  const container = document.getElementById(topic + '-questions');
+  if (!container || container.children.length > 0) return;
+
+  // dots
+  const dotsEl = document.getElementById(topic + '-dots');
+  dotsEl.innerHTML = qs.map((_,i) => `<div class="dot" id="${topic}-dot-${i}"></div>`).join('');
+
+  container.innerHTML = qs.map((q, i) => `
+    <div class="question-card">
+      <div class="q-num">Question ${i+1} / ${qs.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options" id="${topic}-opts-${i}">
+        ${q.opts.map((o,j) => `
+          <div class="opt" id="${topic}-opt-${i}-${j}" onclick="selectOpt('${topic}',${i},${j})">
+            <span class="opt-label">${'ABCD'[j]}</span>
+            <span>${o}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="explanation" id="${topic}-exp-${i}">${q.exp}</div>
+    </div>
+  `).join('');
+}
+
+function selectOpt(topic, qi, oi) {
+  if (state[topic].submitted) return;
+  const qs = questions[topic];
+  // deselect all in this question
+  for (let j = 0; j < qs[qi].opts.length; j++) {
+    document.getElementById(`${topic}-opt-${qi}-${j}`).classList.remove('selected');
+  }
+  document.getElementById(`${topic}-opt-${qi}-${oi}`).classList.add('selected');
+  state[topic].answers[qi] = oi;
+
+  // update dot
+  document.getElementById(`${topic}-dot-${qi}`).classList.add('answered');
+  document.getElementById(`${topic}-dot-${qi}`).classList.remove('correct','wrong');
+
+  // enable submit if all answered
+  const total = qs.length;
+  const answered = Object.keys(state[topic].answers).length;
+  document.getElementById(`${topic}-submit`).disabled = answered < total;
+}
+
+// ── SUBMIT ──
+function submitQuiz(topic) {
+  if (state[topic].submitted) return;
+  state[topic].submitted = true;
+  document.getElementById(`${topic}-submit`).disabled = true;
+
+  const qs = questions[topic];
+  let correct = 0;
+
+  qs.forEach((q, i) => {
+    const chosen = state[topic].answers[i];
+    const isCorrect = chosen === q.ans;
+    if (isCorrect) correct++;
+
+    // highlight options
+    document.getElementById(`${topic}-opt-${i}-${q.ans}`).classList.add('correct-ans');
+    if (!isCorrect) {
+      document.getElementById(`${topic}-opt-${i}-${chosen}`).classList.add('wrong-ans');
+    }
+
+    // show explanation
+    const expEl = document.getElementById(`${topic}-exp-${i}`);
+    expEl.classList.add('show');
+    expEl.classList.add(isCorrect ? 'correct-exp' : 'wrong-exp');
+
+    // dot
+    const dot = document.getElementById(`${topic}-dot-${i}`);
+    dot.classList.remove('answered');
+    dot.classList.add(isCorrect ? 'correct' : 'wrong');
+  });
+
+  const pct = Math.round(correct / qs.length * 100);
+  const xpEarned = correct >= 9 ? 100 : correct >= 7 ? 80 : correct >= 5 ? 60 : correct >= 3 ? 40 : 20;
+  state[topic].xp = xpEarned;
+  totalXP += xpEarned;
+
+  // show result
+  document.getElementById(`${topic}-result`).classList.add('show');
+  document.getElementById(`${topic}-xp-earned`).textContent = `+${xpEarned} XP`;
+  document.getElementById(`${topic}-score`).textContent = `${correct}/${qs.length}`;
+  document.getElementById(`${topic}-pct`).textContent = `${pct}%`;
+  setTimeout(() => {
+    document.getElementById(`${topic}-score-bar`).style.width = pct + '%';
+  }, 100);
+
+  // update HUD
+  updateXP();
+
+  // mark topic tab as done
+  document.getElementById(`tab${capitalize(topic)}`).classList.add('done');
+
+  // auto-save to RESULTS folder
+  AutoSave.save(`day2_grammar_lab_${topic}`, {
+    file: `day2_grammar_lab_${topic}`,
+    topic,
+    date: new Date().toISOString(),
+    score: correct,
+    total: qs.length,
+    pct,
+    xp: xpEarned,
+    details: qs.map((q, i) => ({
+      question: q.q,
+      chosen: q.opts[state[topic].answers[i]],
+      correct: q.opts[q.ans],
+      isCorrect: state[topic].answers[i] === q.ans
+    }))
+  });
+}
+
+function capitalize(s) {
+  if (s === 'tenses') return 'Tenses';
+  if (s === 'wordform') return 'Wordform';
+  if (s === 'prep') return 'Prep';
+  return s;
+}
+
+function updateXP() {
+  const xp = totalXP % 100;
+  document.getElementById('xpFill').style.width = xp + '%';
+  document.getElementById('xpDisplay').textContent = totalXP;
+}
+
+// ── NAV ──
+function switchTopic(topic) {
+  currentTopic = topic;
+  ['tenses','wordform','prep'].forEach(t => {
+    document.getElementById('sec-'+t).classList.toggle('show', t===topic);
+  });
+  document.getElementById('tabTenses').classList.toggle('active', topic==='tenses');
+  document.getElementById('tabWordform').classList.toggle('active', topic==='wordform');
+  document.getElementById('tabPrep').classList.toggle('active', topic==='prep');
+
+  // lazy render quiz
+  renderQuiz(topic);
+}
+
+function switchSecTab(topic, tab) {
+  const isTheory = tab === 'theory';
+  const prefix = topic === 'tenses' ? 'st' : topic === 'wordform' ? 'wf' : 'pp';
+  document.getElementById(`${prefix}-theory`).classList.toggle('active', isTheory);
+  document.getElementById(`${prefix}-practice`).classList.toggle('active', !isTheory);
+  document.getElementById(`${topic}-theory`).classList.toggle('show', isTheory);
+  document.getElementById(`${topic}-practice`).classList.toggle('show', !isTheory);
+
+  if (!isTheory) renderQuiz(topic);
+}
+
+// Init
+renderQuiz('tenses');
+AutoSave.init();
+</script>
+</body>
+</html>
