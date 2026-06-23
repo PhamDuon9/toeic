@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Day 1 — TOEIC Quest</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0a0f1e;color:#e2e8f0;min-height:100vh;padding:24px 16px}
+.container{max-width:820px;margin:0 auto}
+
+/* HUD */
+.hud{display:flex;align-items:center;justify-content:space-between;background:#111827;border:1px solid #1e3a5f;border-radius:12px;padding:12px 20px;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.hud-name{font-weight:700;color:#38bdf8;font-size:1rem}
+.hud-stat{display:flex;align-items:center;gap:6px;font-size:0.85rem;color:#94a3b8}
+.hud-stat span{color:#e2e8f0;font-weight:600}
+.xp-bar-wrap{flex:1;min-width:120px;max-width:200px}
+.xp-bar{height:8px;background:#1e293b;border-radius:99px;overflow:hidden}
+.xp-fill{height:100%;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:99px;transition:width .4s}
+
+/* Quest map */
+.quest-map{display:flex;gap:8px;margin-bottom:28px;overflow-x:auto;padding-bottom:4px}
+.quest-tab{padding:8px 16px;border-radius:8px;border:1px solid #334155;background:#111827;cursor:pointer;font-size:0.82rem;font-weight:600;color:#64748b;white-space:nowrap;transition:all .2s}
+.quest-tab.active{border-color:#7c3aed;background:#1e1040;color:#a78bfa}
+.quest-tab.done{border-color:#16a34a;background:#052e16;color:#86efac}
+.quest-tab.done::before{content:'✓ '}
+
+/* Sections */
+.section{display:none}
+.section.active{display:block}
+
+h2{font-size:1.3rem;color:#a78bfa;margin-bottom:4px}
+.section-desc{color:#64748b;font-size:0.88rem;margin-bottom:20px}
+.xp-badge{display:inline-block;background:#1e1040;border:1px solid #7c3aed;color:#a78bfa;font-size:0.75rem;font-weight:700;padding:2px 10px;border-radius:99px;margin-left:8px;vertical-align:middle}
+
+/* Vocab cards */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px}
+.vocab-card{background:#111827;border:1px solid #1e3a5f;border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;position:relative;user-select:none}
+.vocab-card:hover{border-color:#38bdf8;transform:translateY(-2px)}
+.vocab-card.flipped{background:#0c4a6e;border-color:#0284c7}
+.vocab-en{font-weight:700;font-size:1rem;color:#e2e8f0;margin-bottom:4px}
+.vocab-pos{font-size:0.72rem;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.vocab-vi{font-size:0.9rem;color:#38bdf8;display:none}
+.vocab-card.flipped .vocab-vi{display:block}
+.vocab-example{font-size:0.78rem;color:#94a3b8;margin-top:6px;display:none;font-style:italic}
+.vocab-card.flipped .vocab-example{display:block}
+.flip-hint{font-size:0.75rem;color:#334155;text-align:center;margin-bottom:16px}
+
+/* Grammar lesson */
+.lesson-box{background:#111827;border:1px solid #334155;border-radius:10px;padding:20px;margin-bottom:16px}
+.lesson-box h3{color:#f59e0b;margin-bottom:12px;font-size:1rem}
+.lesson-box p,.lesson-box li{font-size:0.92rem;line-height:1.7;color:#cbd5e1}
+.lesson-box ul{padding-left:20px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th{background:#1e293b;color:#94a3b8;font-size:0.8rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 12px;text-align:left}
+td{padding:8px 12px;border-bottom:1px solid #1e293b;font-size:0.88rem;color:#e2e8f0}
+tr:hover td{background:#1e293b}
+.tag-n{color:#38bdf8}.tag-v{color:#f59e0b}.tag-adj{color:#a78bfa}.tag-adv{color:#86efac}
+
+/* Questions */
+.question{background:#111827;border:1px solid #334155;border-radius:10px;padding:18px 20px;margin-bottom:14px;transition:border-color .2s}
+.question.answered{border-color:#38bdf8}
+.question.correct{border-color:#22c55e;background:#052e16}
+.question.wrong{border-color:#ef4444;background:#2d0a0a}
+.q-num{font-size:0.72rem;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.q-text{font-size:0.97rem;line-height:1.6;color:#e2e8f0;margin-bottom:14px}
+.q-text strong{color:#f59e0b}
+.options{display:flex;flex-direction:column;gap:7px}
+.option{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:8px;background:#0a0f1e;border:1px solid #334155;cursor:pointer;transition:all .15s;font-size:0.92rem}
+.option:hover{border-color:#38bdf8;background:#0c2a4a}
+.option.selected{border-color:#38bdf8;background:#0c4a6e}
+.option.show-correct{border-color:#22c55e!important;background:#052e16!important;color:#86efac!important}
+.option.show-wrong{border-color:#ef4444!important;background:#2d0a0a!important;color:#fca5a5!important}
+.opt-label{width:26px;height:26px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.82rem;flex-shrink:0}
+.option.selected .opt-label{background:#0284c7}
+.option.show-correct .opt-label{background:#16a34a}
+.option.show-wrong .opt-label{background:#dc2626}
+.explanation{margin-top:12px;padding:10px 14px;border-radius:8px;background:#0a0f1e;border-left:3px solid #f59e0b;font-size:0.84rem;line-height:1.6;color:#fde68a;display:none}
+
+/* Part 1 image placeholder */
+.photo-box{background:#111827;border:2px dashed #334155;border-radius:12px;padding:28px;text-align:center;margin-bottom:16px;font-size:0.88rem;color:#64748b}
+.photo-box .scene{font-size:2.5rem;margin-bottom:8px}
+.photo-box .scene-desc{color:#94a3b8;font-size:0.85rem;margin-top:4px}
+
+/* Buttons */
+.btn{padding:12px 24px;border-radius:8px;border:none;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-success{background:linear-gradient(135deg,#059669,#10b981);color:#fff}
+.btn-next{background:linear-gradient(135deg,#0284c7,#0ea5e9);color:#fff;margin-top:20px;width:100%}
+
+/* Result */
+.result-box{background:#111827;border:1px solid #334155;border-radius:12px;padding:24px;margin-top:20px;display:none;text-align:center}
+.result-score{font-size:2.5rem;font-weight:900;color:#a78bfa}
+.result-xp{font-size:1rem;color:#f59e0b;margin:6px 0 16px}
+
+/* Day complete */
+.day-complete{display:none;background:linear-gradient(135deg,#1e1040,#0c2a4a);border:1px solid #7c3aed;border-radius:16px;padding:32px;text-align:center;margin-top:32px}
+.day-complete h2{font-size:1.8rem;color:#a78bfa;margin-bottom:8px}
+.day-complete .total-xp{font-size:3rem;font-weight:900;color:#f59e0b;margin:12px 0}
+.day-complete p{color:#94a3b8;font-size:0.92rem}
+.stat-row{display:flex;justify-content:center;gap:24px;margin:20px 0;flex-wrap:wrap}
+.stat-item{background:#0a0f1e;border-radius:10px;padding:14px 20px;min-width:100px}
+.stat-item .val{font-size:1.6rem;font-weight:700;color:#38bdf8}
+.stat-item .lbl{font-size:0.75rem;color:#64748b;text-transform:uppercase;letter-spacing:.5px}
+
+/* Notification */
+.notif{position:fixed;top:20px;right:20px;background:#1e1040;border:1px solid #7c3aed;border-radius:10px;padding:12px 20px;font-size:0.88rem;color:#a78bfa;font-weight:600;z-index:999;opacity:0;transform:translateY(-10px);transition:all .3s}
+.notif.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="notif" id="notif"></div>
+<div class="container">
+
+<!-- Resource Bar -->
+<div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+  <a href="../RESOURCES/vocab_bank.html" target="_blank" style="padding:7px 14px;background:#111827;border:1px solid #0284c7;border-radius:8px;color:#38bdf8;font-size:.82rem;font-weight:600;text-decoration:none">📚 Vocabulary Bank (600+ từ)</a>
+  <a href="../RESOURCES/grammar_guide.html" target="_blank" style="padding:7px 14px;background:#111827;border:1px solid #7c3aed;border-radius:8px;color:#a78bfa;font-size:.82rem;font-weight:600;text-decoration:none">⚔️ Grammar Guide (8 rules)</a>
+</div>
+
+<!-- HUD -->
+<div class="hud">
+  <div>
+    <div class="hud-name">⚔️ Duong · TOEIC Rookie</div>
+    <div class="hud-stat" style="margin-top:4px">Day 1 of 84</div>
+  </div>
+  <div class="hud-stat">Level <span id="hud-level">1</span></div>
+  <div class="hud-stat">XP <span id="hud-xp">0</span> / 100</div>
+  <div class="xp-bar-wrap">
+    <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
+  </div>
+  <div class="hud-stat">🔥 Streak <span id="hud-streak">0</span></div>
+</div>
+
+<!-- Quest tabs -->
+<div class="quest-map">
+  <div class="quest-tab active" id="tab0" onclick="goQuest(0)">📚 Q1: Vocabulary</div>
+  <div class="quest-tab" id="tab1" onclick="goQuest(1)">⚔️ Q2: Grammar Lesson</div>
+  <div class="quest-tab" id="tab2" onclick="goQuest(2)">🎧 Q3: Part 1 Photos</div>
+  <div class="quest-tab" id="tab3" onclick="goQuest(3)">📖 Q4: Part 5 Drill</div>
+  <div class="quest-tab" id="tab4" onclick="goQuest(4)">🏆 Results</div>
+</div>
+
+<!-- ===== QUEST 1: VOCABULARY ===== -->
+<div class="section active" id="quest0">
+  <h2>📚 Vocabulary Quest <span class="xp-badge">+40 XP</span></h2>
+  <p class="section-desc">Finance Set 1 · 20 từ · Click vào card để xem nghĩa và ví dụ</p>
+
+  <p class="flip-hint">👆 Click vào từng card để lật và xem nghĩa tiếng Việt + ví dụ</p>
+
+  <div class="vocab-grid" id="vocab-grid"></div>
+
+  <button class="btn btn-primary" id="vocab-quiz-btn" onclick="startVocabQuiz()" style="display:none">
+    ✅ Tôi đã học xong — Làm Vocab Quiz (5 câu)
+  </button>
+
+  <div id="vocab-quiz" style="display:none;margin-top:20px"></div>
+</div>
+
+<!-- ===== QUEST 2: GRAMMAR ===== -->
+<div class="section" id="quest1">
+  <h2>⚔️ Grammar Dungeon <span class="xp-badge">+50 XP</span></h2>
+  <p class="section-desc">Part 5 Strategy: Word Form — Xác định đúng loại từ cần điền</p>
+
+  <div class="lesson-box">
+    <h3>🗺️ The Word Form Strategy</h3>
+    <p>TOEIC Part 5 thường cho 4 dạng của cùng 1 từ. Nhiệm vụ: xác định <strong>vị trí cần loại từ gì</strong>.</p>
+    <br>
+    <table>
+      <tr><th>Vị trí trong câu</th><th>Loại từ cần</th><th>Dấu hiệu nhận biết</th></tr>
+      <tr><td>Subject / Object</td><td class="tag-n">NOUN</td><td>Sau the/a/an, sau tính từ, trước động từ</td></tr>
+      <tr><td>Sau be/seem/look</td><td class="tag-adj">ADJECTIVE</td><td>Mô tả danh từ</td></tr>
+      <tr><td>Trước/sau động từ</td><td class="tag-adv">ADVERB</td><td>Thường kết thúc bằng -ly</td></tr>
+      <tr><td>Vị trí động từ chính</td><td class="tag-v">VERB</td><td>Sau modal (can/will/must), sau to</td></tr>
+    </table>
+  </div>
+
+  <div class="lesson-box">
+    <h3>📋 Word Family Chart — Finance</h3>
+    <table>
+      <tr><th>Noun</th><th>Verb</th><th>Adjective</th><th>Adverb</th></tr>
+      <tr><td class="tag-n">disruption</td><td class="tag-v">disrupt</td><td class="tag-adj">disruptive</td><td class="tag-adv">disruptively</td></tr>
+      <tr><td class="tag-n">payment</td><td class="tag-v">pay</td><td class="tag-adj">payable</td><td>—</td></tr>
+      <tr><td class="tag-n">approval</td><td class="tag-v">approve</td><td class="tag-adj">approved</td><td>—</td></tr>
+      <tr><td class="tag-n">efficiency</td><td>—</td><td class="tag-adj">efficient</td><td class="tag-adv">efficiently</td></tr>
+      <tr><td class="tag-n">management</td><td class="tag-v">manage</td><td class="tag-adj">manageable</td><td>—</td></tr>
+      <tr><td class="tag-n">requirement</td><td class="tag-v">require</td><td class="tag-adj">required</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <div class="lesson-box">
+    <h3>⚡ Quick Test Yourself</h3>
+    <p>Nhìn câu → xác định vị trí trống → chọn đúng loại từ. Đừng dịch cả câu, chỉ cần nhìn vào <strong>vị trí</strong>.</p>
+    <br>
+    <p>• "The <strong>______</strong> of the new system took three months." → cần <span class="tag-n">NOUN</span> (sau "The")</p>
+    <p style="margin-top:8px">• "The policy was <strong>______</strong> by the CEO." → cần <span class="tag-adj">ADJECTIVE/V3</span> (bị động)</p>
+    <p style="margin-top:8px">• "She managed the team <strong>______</strong>." → cần <span class="tag-adv">ADVERB</span> (sau động từ)</p>
+  </div>
+
+  <button class="btn btn-next" onclick="goQuest(2)">Tiếp theo: 🎧 Part 1 Photo Detective →</button>
+</div>
+
+<!-- ===== QUEST 3: PART 1 ===== -->
+<div class="section" id="quest2">
+  <h2>🎧 Photo Detective <span class="xp-badge">+50 XP</span></h2>
+  <p class="section-desc">Part 1 — Nghe mô tả ảnh. Đây là phần dễ nhất trong Listening. Đọc 4 câu, chọn câu mô tả đúng ảnh nhất.</p>
+
+  <div id="part1-questions"></div>
+  <button class="btn btn-primary" id="part1-submit" onclick="submitPart1()" disabled>Submit Part 1</button>
+  <div class="result-box" id="part1-result"></div>
+  <button class="btn btn-next" id="part1-next" onclick="goQuest(3)" style="display:none">Tiếp theo: 📖 Part 5 Drill →</button>
+</div>
+
+<!-- ===== QUEST 4: PART 5 ===== -->
+<div class="section" id="quest3">
+  <h2>📖 Grammar Dungeon — Part 5 <span class="xp-badge">+60 XP</span></h2>
+  <p class="section-desc">10 câu Word Form · Áp dụng chiến lược vừa học</p>
+
+  <div id="part5-questions"></div>
+  <button class="btn btn-primary" id="part5-submit" onclick="submitPart5()" disabled>Submit Part 5</button>
+  <div class="result-box" id="part5-result"></div>
+  <button class="btn btn-next" id="part5-next" onclick="goQuest(4)" style="display:none">Xem Kết Quả Day 1 →</button>
+</div>
+
+<!-- ===== QUEST 5: RESULTS ===== -->
+<div class="section" id="quest4">
+  <div class="day-complete" id="day-complete">
+    <div style="font-size:2.5rem;margin-bottom:8px">🎉</div>
+    <h2>Day 1 Complete!</h2>
+    <div class="total-xp" id="total-xp-display">0 XP</div>
+    <p>Earned today</p>
+    <div class="stat-row">
+      <div class="stat-item"><div class="val" id="res-vocab">—</div><div class="lbl">Vocab</div></div>
+      <div class="stat-item"><div class="val" id="res-part1">—</div><div class="lbl">Part 1</div></div>
+      <div class="stat-item"><div class="val" id="res-part5">—</div><div class="lbl">Part 5</div></div>
+      <div class="stat-item"><div class="val" id="res-level">1</div><div class="lbl">Level</div></div>
+    </div>
+    <div id="achievements-earned" style="margin-top:16px"></div>
+    <p style="margin-top:20px;color:#64748b;font-size:0.85rem">📝 Cập nhật PLAYER_PROFILE.md và gõ <strong style="color:#a78bfa">"Start Day 2"</strong> để tiếp tục</p>
+  </div>
+  <div id="incomplete-msg" style="text-align:center;padding:40px;color:#64748b">
+    Hoàn thành tất cả quests để xem kết quả tổng kết.
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// ── STATE ──
+let xp = 0, level = 1;
+const xpThresholds = [0,100,250,500,1000,2000,4000];
+let vocabFlipped = 0;
+let vocabQuizScore = 0, part1Score = 0, part5Score = 0;
+let vocabDone = false, part1Done = false, part5Done = false;
+const vocabAnswers = {}, part1Answers = {}, part5Answers = {};
+
+// ── VOCAB DATA ──
+const vocab = [
+  {en:'revenue',pos:'noun',vi:'doanh thu',ex:'Annual revenue exceeded $5 million.'},
+  {en:'expense',pos:'noun',vi:'chi phí',ex:'Travel expenses will be reimbursed.'},
+  {en:'profit',pos:'noun',vi:'lợi nhuận',ex:'The company reported a 20% profit increase.'},
+  {en:'loss',pos:'noun',vi:'lỗ / thua lỗ',ex:'The firm reported a net loss last quarter.'},
+  {en:'budget',pos:'noun',vi:'ngân sách',ex:'We need to stay within the budget.'},
+  {en:'invoice',pos:'noun',vi:'hóa đơn',ex:'Please send the invoice by Friday.'},
+  {en:'receipt',pos:'noun',vi:'biên lai',ex:'Keep your receipt for reimbursement.'},
+  {en:'reimburse',pos:'verb',vi:'hoàn tiền / bồi hoàn',ex:'Employees will be reimbursed for meals.'},
+  {en:'payment',pos:'noun',vi:'thanh toán',ex:'Payment is due within 30 days.'},
+  {en:'payable',pos:'adjective',vi:'phải trả',ex:'The amount is payable upon receipt.'},
+  {en:'outstanding',pos:'adjective',vi:'chưa thanh toán',ex:'There is an outstanding balance of $500.'},
+  {en:'balance',pos:'noun',vi:'số dư',ex:'Please check your account balance.'},
+  {en:'deposit',pos:'noun',vi:'tiền đặt cọc',ex:'A deposit of 30% is required.'},
+  {en:'withdrawal',pos:'noun',vi:'rút tiền',ex:'The withdrawal limit is $1,000 per day.'},
+  {en:'financial',pos:'adjective',vi:'thuộc tài chính',ex:'We reviewed the financial report.'},
+  {en:'annually',pos:'adverb',vi:'hàng năm',ex:'The report is published annually.'},
+  {en:'quarterly',pos:'adverb',vi:'hàng quý',ex:'Results are reviewed quarterly.'},
+  {en:'fiscal year',pos:'noun',vi:'năm tài chính',ex:'Our fiscal year ends in December.'},
+  {en:'account',pos:'noun',vi:'tài khoản',ex:'Please provide your account number.'},
+  {en:'transaction',pos:'noun',vi:'giao dịch',ex:'All transactions are recorded automatically.'},
+];
+
+// ── PART 1 DATA ──
+const part1Qs = [
+  {
+    scene:'🖥️💼',
+    desc:'A man is working at a desk in an office.',
+    options:['(A) A man is sitting at a desk, looking at a computer screen.','(B) A man is standing near a window.','(C) A woman is typing on a keyboard.','(D) Two people are having a meeting.'],
+    correct:'A',
+    exp:'Ảnh mô tả: một người đàn ông ngồi tại bàn nhìn vào màn hình máy tính. Chỉ có (A) mô tả đúng. (B) sai vì "standing", (C) sai vì "woman", (D) sai vì không có 2 người.'
+  },
+  {
+    scene:'📦🚚',
+    desc:'Workers are loading boxes onto a truck.',
+    options:['(A) The boxes are being stacked on shelves.','(B) Workers are loading boxes onto a truck.','(C) A man is driving a forklift.','(D) The packages are being opened.'],
+    correct:'B',
+    exp:'Ảnh mô tả: công nhân đang xếp hàng lên xe tải. (B) dùng bị động tiến hành "are being loaded" — đây là cấu trúc rất phổ biến trong Part 1.'
+  },
+  {
+    scene:'🤝📋',
+    desc:'Two people are signing a contract at a table.',
+    options:['(A) A woman is giving a presentation.','(B) Two people are shaking hands.','(C) Two people are signing documents at a table.','(D) A man is reading a newspaper.'],
+    correct:'C',
+    exp:'Ảnh mô tả: 2 người ký hợp đồng tại bàn. (B) sai vì "shaking hands", (C) đúng với "signing documents".'
+  },
+  {
+    scene:'🏪🛒',
+    desc:'A woman is examining products on a store shelf.',
+    options:['(A) A woman is paying at the checkout.','(B) A woman is looking at items on a shelf.','(C) Products are being removed from boxes.','(D) A store clerk is arranging shelves.'],
+    correct:'B',
+    exp:'Từ khóa: "examining" = "looking at". (B) dùng "looking at items on a shelf" — mô tả đúng hành động nhìn/xem xét sản phẩm trên kệ.'
+  },
+  {
+    scene:'📊👔',
+    desc:'A man is pointing at a chart during a meeting.',
+    options:['(A) Charts are being printed on paper.','(B) A man is writing on a whiteboard.','(C) A man is pointing at a chart.','(D) People are clapping in an auditorium.'],
+    correct:'C',
+    exp:'(C) mô tả chính xác hành động "pointing at a chart". Part 1 trap: (B) "writing on a whiteboard" nghe có vẻ đúng nhưng sai vì không có bảng trắng trong ảnh.'
+  },
+];
+
+// ── PART 5 DATA ──
+const part5Qs = [
+  {text:'The ________ of the new software system will begin next month.',opts:['(A) implement','(B) implementation','(C) implemented','(D) implementing'],correct:'B',exp:'Sau "The" cần NOUN. "implementation" là danh từ của "implement". Dấu hiệu: the + ___ + of = cần danh từ.'},
+  {text:'All employees are required to submit expense reports ________.',opts:['(A) month','(B) monthly','(C) months','(D) monthliness'],correct:'B',exp:'Sau động từ cần ADVERB (bổ nghĩa cho động từ "submit"). "monthly" vừa là adverb vừa là adjective. Kết thúc -ly thường là adverb.'},
+  {text:'The contract must be ________ by both parties before work begins.',opts:['(A) sign','(B) signing','(C) signed','(D) signs'],correct:'C',exp:'Cấu trúc bị động: must be + V3 (past participle). "signed" là V3 của "sign". Chủ thể (contract) không tự ký → bị động.'},
+  {text:'The manager gave a very ________ presentation to the board.',opts:['(A) impress','(B) impression','(C) impressively','(D) impressive'],correct:'D',exp:'Sau "very" cần ADJECTIVE. "impressive" là tính từ. Lưu ý: very + adjective (NOT very + noun/verb).'},
+  {text:'The company announced a ________ in its annual revenue.',opts:['(A) decrease','(B) decreased','(C) decreasingly','(D) decreasing'],correct:'A',exp:'Sau "a" cần NOUN. "decrease" vừa là noun vừa là verb, nhưng vị trí sau "a" → danh từ. "a decrease in revenue" là collocation phổ biến.'},
+  {text:'Employees must ________ all safety regulations at the workplace.',opts:['(A) comply','(B) comply with','(C) compliance','(D) complying'],correct:'B',exp:'"comply with" là phrasal verb cố định = tuân theo. Sau "must" dùng verb gốc. "comply to" là sai — giới từ đúng là WITH.'},
+  {text:'The ________ review will take place at the end of the fiscal year.',opts:['(A) finance','(B) financed','(C) financial','(D) financially'],correct:'C',exp:'Trước noun "review" cần ADJECTIVE. "financial" là tính từ. "finance" là danh từ/động từ, không đứng trước danh từ để bổ nghĩa.'},
+  {text:'The shipment was delayed because of ________ weather conditions.',opts:['(A) expect','(B) unexpected','(C) unexpectedly','(D) expectation'],correct:'B',exp:'Trước noun "weather conditions" cần ADJECTIVE. "unexpected" = bất ngờ, không lường trước. Dấu hiệu: ___ + noun = cần adjective.'},
+  {text:'Please ________ your travel expenses within two weeks of returning.',opts:['(A) submit','(B) submission','(C) submitted','(D) submitting'],correct:'A',exp:'Sau "Please" cần VERB gốc (imperative). "submit" là động từ nguyên mẫu. Please + V = mệnh lệnh thức.'},
+  {text:'The board of directors approved the ________ of a new branch office.',opts:['(A) establish','(B) established','(C) establishment','(D) establishing'],correct:'C',exp:'Sau "the" cần NOUN. "establishment" = sự thành lập. Cấu trúc: the + noun + of = rất phổ biến trong Part 5.'},
+];
+
+// ── RENDER VOCAB ──
+function renderVocab() {
+  const grid = document.getElementById('vocab-grid');
+  grid.innerHTML = vocab.map((v,i) => `
+    <div class="vocab-card" id="vc${i}" onclick="flipCard(${i})">
+      <div class="vocab-en">${v.en}</div>
+      <div class="vocab-pos">${v.pos}</div>
+      <div class="vocab-vi">${v.vi}</div>
+      <div class="vocab-example">"${v.ex}"</div>
+    </div>
+  `).join('');
+}
+
+function flipCard(i) {
+  const card = document.getElementById('vc'+i);
+  if (!card.classList.contains('flipped')) {
+    card.classList.add('flipped');
+    vocabFlipped++;
+    if (vocabFlipped >= 10) document.getElementById('vocab-quiz-btn').style.display = 'block';
+  } else {
+    card.classList.remove('flipped');
+  }
+}
+
+// ── VOCAB QUIZ ──
+const vocabQuizData = [
+  {q:'Từ nào có nghĩa là "hoàn tiền"?',opts:['revenue','reimburse','receipt','balance'],correct:'reimburse'},
+  {q:'"The invoice is ________ within 30 days." — Điền từ phù hợp:',opts:['payable','payment','paid','paying'],correct:'payable'},
+  {q:'Từ nào mô tả "số tiền chưa thanh toán"?',opts:['outstanding','deposit','profit','account'],correct:'outstanding'},
+  {q:'"Annual revenue" nghĩa là gì?',opts:['chi phí hàng năm','ngân sách hàng năm','doanh thu hàng năm','lợi nhuận hàng năm'],correct:'doanh thu hàng năm'},
+  {q:'Điền đúng: "Results are reviewed ________."',opts:['quarterly','quarter','quartering','quartered'],correct:'quarterly'},
+];
+
+function startVocabQuiz() {
+  document.getElementById('vocab-quiz-btn').style.display = 'none';
+  const container = document.getElementById('vocab-quiz');
+  container.style.display = 'block';
+  container.innerHTML = '<h3 style="color:#f59e0b;margin-bottom:16px">⚡ Vocab Quick Quiz (5 câu)</h3>' +
+    vocabQuizData.map((q,i) => `
+      <div class="question" id="vq${i}">
+        <div class="q-num">Vocab Q${i+1}</div>
+        <div class="q-text">${q.q}</div>
+        <div class="options">
+          ${q.opts.map(o => `<div class="option" onclick="selectVQ(${i},'${o}')"><div class="opt-label">→</div>${o}</div>`).join('')}
+        </div>
+      </div>
+    `).join('') +
+    `<button class="btn btn-primary" id="vq-submit" onclick="submitVocabQuiz()" disabled style="width:100%;margin-top:8px">Submit Vocab Quiz</button>
+     <div class="result-box" id="vq-result"></div>`;
+}
+
+const vqAnswers = {};
+function selectVQ(i, opt) {
+  vqAnswers[i] = opt;
+  const qEl = document.getElementById('vq'+i);
+  qEl.querySelectorAll('.option').forEach(el => {
+    el.classList.toggle('selected', el.textContent.trim() === opt);
+  });
+  qEl.classList.add('answered');
+  if (Object.keys(vqAnswers).length === 5) document.getElementById('vq-submit').disabled = false;
+}
+
+function submitVocabQuiz() {
+  let score = 0;
+  vocabQuizData.forEach((q,i) => {
+    const qEl = document.getElementById('vq'+i);
+    qEl.querySelectorAll('.option').forEach(el => {
+      const txt = el.textContent.trim();
+      if (txt === q.correct) el.classList.add('show-correct');
+      else if (txt === vqAnswers[i] && vqAnswers[i] !== q.correct) el.classList.add('show-wrong');
+      el.classList.remove('selected');
+    });
+    if (vqAnswers[i] === q.correct) score++;
+  });
+  vocabQuizScore = score;
+  const earned = score >= 4 ? 40 : score >= 3 ? 25 : 10;
+  addXP(earned);
+  vocabDone = true;
+  document.getElementById('vq-submit').style.display = 'none';
+  document.getElementById('vq-result').style.display = 'block';
+  document.getElementById('vq-result').innerHTML = `<div class="result-score">${score}/5</div><div class="result-xp">+${earned} XP earned</div>
+    <p style="color:#94a3b8;font-size:.88rem">${score>=4?'✅ Excellent! Vocab mastered.':score>=3?'👍 Good! Review the missed words.':'📖 Review all 20 cards again tomorrow.'}</p>
+    <button class="btn btn-next" onclick="goQuest(1)">Next: ⚔️ Grammar Lesson →</button>`;
+  document.getElementById('tab0').classList.add('done');
+  checkDayComplete();
+}
+
+// ── PART 1 ──
+function renderPart1() {
+  const container = document.getElementById('part1-questions');
+  container.innerHTML = part1Qs.map((q,i) => `
+    <div class="photo-box">
+      <div class="scene">${q.scene}</div>
+      <div class="scene-desc">[Photo ${i+1}]</div>
+    </div>
+    <div class="question" id="p1q${i}">
+      <div class="q-num">Part 1 · Question ${i+1}</div>
+      <div class="q-text">What is shown in the photo?</div>
+      <div class="options">
+        ${q.options.map((o,j) => `<div class="option" onclick="selectP1(${i},'${'ABCD'[j]}')"><div class="opt-label">${'ABCD'[j]}</div>${o}</div>`).join('')}
+      </div>
+      <div class="explanation" id="p1exp${i}">${q.exp}</div>
+    </div>
+  `).join('');
+}
+
+function selectP1(i, opt) {
+  part1Answers[i] = opt;
+  document.getElementById('p1q'+i).querySelectorAll('.option').forEach((el,j) => {
+    el.classList.toggle('selected','ABCD'[j]===opt);
+  });
+  document.getElementById('p1q'+i).classList.add('answered');
+  if (Object.keys(part1Answers).length === 5) document.getElementById('part1-submit').disabled = false;
+}
+
+function submitPart1() {
+  let score = 0;
+  part1Qs.forEach((q,i) => {
+    const qEl = document.getElementById('p1q'+i);
+    qEl.querySelectorAll('.option').forEach((el,j) => {
+      if ('ABCD'[j]===q.correct) el.classList.add('show-correct');
+      else if ('ABCD'[j]===part1Answers[i] && part1Answers[i]!==q.correct) el.classList.add('show-wrong');
+      el.classList.remove('selected');
+    });
+    document.getElementById('p1exp'+i).style.display = 'block';
+    if (part1Answers[i]===q.correct) { score++; qEl.classList.add('correct'); }
+    else qEl.classList.add('wrong');
+  });
+  part1Score = score;
+  const earned = score>=4?50:score>=3?35:score>=2?20:10;
+  addXP(earned);
+  part1Done = true;
+  document.getElementById('part1-submit').style.display='none';
+  const r = document.getElementById('part1-result');
+  r.style.display='block';
+  r.innerHTML=`<div class="result-score">${score}/5</div><div class="result-xp">+${earned} XP earned</div>
+    <p style="color:#94a3b8;font-size:.88rem">${score>=4?'✅ Photo Detective mastered!':score>=3?'👍 Good awareness. Review missed ones.':'📖 Focus on subject + action + passive voice.'}</p>`;
+  document.getElementById('part1-next').style.display='block';
+  document.getElementById('tab2').classList.add('done');
+  checkDayComplete();
+}
+
+// ── PART 5 ──
+function renderPart5() {
+  const container = document.getElementById('part5-questions');
+  container.innerHTML = part5Qs.map((q,i) => `
+    <div class="question" id="p5q${i}">
+      <div class="q-num">Part 5 · Question ${i+1}</div>
+      <div class="q-text">${q.text.replace('________','<strong>________</strong>')}</div>
+      <div class="options">
+        ${q.opts.map((o,j) => `<div class="option" onclick="selectP5(${i},'${'ABCD'[j]}')"><div class="opt-label">${'ABCD'[j]}</div>${o}</div>`).join('')}
+      </div>
+      <div class="explanation" id="p5exp${i}">✅ <strong>Correct: ${q.correct}</strong><br>${q.exp}</div>
+    </div>
+  `).join('');
+}
+
+function selectP5(i, opt) {
+  part5Answers[i] = opt;
+  document.getElementById('p5q'+i).querySelectorAll('.option').forEach((el,j) => {
+    el.classList.toggle('selected','ABCD'[j]===opt);
+  });
+  document.getElementById('p5q'+i).classList.add('answered');
+  if (Object.keys(part5Answers).length === 10) document.getElementById('part5-submit').disabled = false;
+}
+
+function submitPart5() {
+  let score = 0;
+  part5Qs.forEach((q,i) => {
+    const qEl = document.getElementById('p5q'+i);
+    qEl.querySelectorAll('.option').forEach((el,j) => {
+      if ('ABCD'[j]===q.correct) el.classList.add('show-correct');
+      else if ('ABCD'[j]===part5Answers[i] && part5Answers[i]!==q.correct) el.classList.add('show-wrong');
+      el.classList.remove('selected');
+    });
+    document.getElementById('p5exp'+i).style.display = 'block';
+    if (part5Answers[i]===q.correct) { score++; qEl.classList.add('correct'); }
+    else qEl.classList.add('wrong');
+  });
+  part5Score = score;
+  const earned = score>=8?60:score>=6?45:score>=4?30:15;
+  addXP(earned);
+  part5Done = true;
+  document.getElementById('part5-submit').style.display='none';
+  const r = document.getElementById('part5-result');
+  r.style.display='block';
+  r.innerHTML=`<div class="result-score">${score}/10</div><div class="result-xp">+${earned} XP earned</div>
+    <p style="color:#94a3b8;font-size:.88rem">${score>=8?'✅ Word Form mastered!':score>=6?'👍 Good! A few more drills needed.':'📖 Review Word Form strategy and try again tomorrow.'}</p>`;
+  document.getElementById('part5-next').style.display='block';
+  document.getElementById('tab3').classList.add('done');
+  checkDayComplete();
+}
+
+// ── XP & LEVEL ──
+function addXP(amount) {
+  xp += amount;
+  const nextThreshold = xpThresholds[level] || 9999;
+  if (xp >= nextThreshold && level < 7) { level++; showNotif(`🎉 LEVEL UP! You are now Level ${level}!`); }
+  document.getElementById('hud-xp').textContent = xp;
+  document.getElementById('hud-level').textContent = level;
+  document.getElementById('xp-fill').style.width = Math.min(100, (xp / (xpThresholds[level]||100)) * 100) + '%';
+  showNotif(`+${amount} XP!`);
+}
+
+// ── QUEST NAV ──
+function goQuest(n) {
+  document.querySelectorAll('.section').forEach((s,i) => s.classList.toggle('active', i===n));
+  document.querySelectorAll('.quest-tab').forEach((t,i) => { t.classList.remove('active'); if(i===n) t.classList.add('active'); });
+}
+
+// ── DAY COMPLETE ──
+function checkDayComplete() {
+  if (!vocabDone || !part1Done || !part5Done) return;
+  document.getElementById('day-complete').style.display = 'block';
+  document.getElementById('incomplete-msg').style.display = 'none';
+  document.getElementById('tab4').classList.add('done');
+  document.getElementById('total-xp-display').textContent = xp + ' XP';
+  document.getElementById('res-vocab').textContent = vocabQuizScore + '/5';
+  document.getElementById('res-part1').textContent = part1Score + '/5';
+  document.getElementById('res-part5').textContent = part5Score + '/10';
+  document.getElementById('res-level').textContent = level;
+
+  const achievements = [];
+  if (part1Score === 5) achievements.push('🏅 Photo Detective Perfect');
+  if (part5Score >= 8) achievements.push('🏅 Word Form Hunter');
+  if (vocabQuizScore === 5) achievements.push('🏅 Vocab Warrior');
+  if (xp >= 100) achievements.push('🆙 Level 2 Reached!');
+  if (achievements.length) {
+    document.getElementById('achievements-earned').innerHTML =
+      '<div style="color:#f59e0b;font-weight:700;margin-bottom:8px">🏆 Achievements Unlocked</div>' +
+      achievements.map(a => `<div style="background:#1e1040;border-radius:8px;padding:6px 14px;margin:4px;display:inline-block;font-size:.85rem;color:#a78bfa">${a}</div>`).join('');
+  }
+}
+
+// ── NOTIF ──
+function showNotif(msg) {
+  const el = document.getElementById('notif');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+// ── INIT ──
+renderVocab();
+renderPart1();
+renderPart5();
+</script>
+</body>
+</html>

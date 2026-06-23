@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOEIC Placement Test</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 {
+      font-size: 1.8rem;
+      color: #38bdf8;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f59e0b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 32px 0 16px;
+      padding: 8px 16px;
+      background: #1e293b;
+      border-left: 4px solid #f59e0b;
+      border-radius: 4px;
+    }
+    .question {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      border: 1px solid #334155;
+      transition: border-color 0.2s;
+    }
+    .question.answered { border-color: #38bdf8; }
+    .question.correct { border-color: #22c55e; background: #052e16; }
+    .question.wrong { border-color: #ef4444; background: #2d0a0a; }
+    .q-number {
+      font-size: 0.75rem;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .q-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: #e2e8f0;
+    }
+    .options { display: flex; flex-direction: column; gap: 8px; }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-size: 0.95rem;
+    }
+    .option:hover { border-color: #38bdf8; background: #1e3a5f; }
+    .option.selected { border-color: #38bdf8; background: #0c4a6e; }
+    .option.show-correct { border-color: #22c55e !important; background: #052e16 !important; color: #86efac !important; }
+    .option.show-wrong { border-color: #ef4444 !important; background: #2d0a0a !important; color: #fca5a5 !important; }
+    .option-label {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: #334155;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .option.selected .option-label { background: #0284c7; }
+    .option.show-correct .option-label { background: #16a34a; }
+    .option.show-wrong .option-label { background: #dc2626; }
+    .passage {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+    .passage strong { color: #38bdf8; display: block; margin-bottom: 8px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+    .explanation {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: #0f172a;
+      border-left: 3px solid #f59e0b;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #fde68a;
+      display: none;
+    }
+    .progress-bar {
+      height: 6px;
+      background: #1e293b;
+      border-radius: 99px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0284c7, #38bdf8);
+      border-radius: 99px;
+      transition: width 0.3s;
+      width: 0%;
+    }
+    .progress-text {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 32px;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    .result-panel {
+      display: none;
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 32px;
+      text-align: center;
+      border: 1px solid #334155;
+    }
+    .score-badge {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #38bdf8;
+      line-height: 1;
+    }
+    .score-label { color: #64748b; margin: 8px 0 24px; font-size: 0.9rem; }
+    .toeic-estimate {
+      background: #0f172a;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .toeic-estimate h3 { color: #f59e0b; margin-bottom: 12px; }
+    .band {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    .band.highlight { background: #0c4a6e; border: 1px solid #0284c7; }
+    .band-name { font-weight: 600; }
+    .band-score { color: #94a3b8; }
+    .weak-areas {
+      text-align: left;
+      margin-top: 20px;
+      background: #0f172a;
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .weak-areas h3 { color: #f59e0b; margin-bottom: 12px; }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 4px;
+    }
+    .tag.weak { background: #7f1d1d; color: #fca5a5; }
+    .tag.strong { background: #052e16; color: #86efac; }
+    .next-btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .next-btn:hover { opacity: 0.9; }
+    .timer {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #38bdf8;
+      z-index: 100;
+    }
+    .timer.warning { color: #ef4444; border-color: #ef4444; }
+  </style>
+</head>
+<body>
+<div class="timer" id="timer">⏱ 20:00</div>
+<div class="container">
+  <h1>TOEIC Placement Test</h1>
+  <p class="subtitle">15 questions · Vocabulary · Grammar · Reading · Listening · 20 minutes</p>
+
+  <div class="progress-text" id="progress-text">0 / 15 answered</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <!-- SECTION A -->
+  <div class="section-title">Section A — Vocabulary (5 questions)</div>
+
+  <div class="question" id="q1">
+    <div class="q-number">Question 1</div>
+    <div class="q-text">The project was delayed because of unexpected ________ in the supply chain.</div>
+    <div class="options">
+      <div class="option" onclick="select(1,'A')"><div class="option-label">A</div> disruptions</div>
+      <div class="option" onclick="select(1,'B')"><div class="option-label">B</div> disrupted</div>
+      <div class="option" onclick="select(1,'C')"><div class="option-label">C</div> disruptive</div>
+      <div class="option" onclick="select(1,'D')"><div class="option-label">D</div> disruptively</div>
+    </div>
+    <div class="explanation" id="exp1">
+      ✅ <strong>Correct: A — disruptions</strong><br>
+      Cần danh từ số nhiều sau "unexpected". "Disruptions" (sự gián đoạn) là danh từ phù hợp.<br>
+      🔑 TOEIC trap: Đây là dạng câu hỏi Word Form — nhận biết vị trí cần danh từ / tính từ / trạng từ.
+    </div>
+  </div>
+
+  <div class="question" id="q2">
+    <div class="q-number">Question 2</div>
+    <div class="q-text">The manager asked all staff to ________ the new safety procedures immediately.</div>
+    <div class="options">
+      <div class="option" onclick="select(2,'A')"><div class="option-label">A</div> comply with</div>
+      <div class="option" onclick="select(2,'B')"><div class="option-label">B</div> comply to</div>
+      <div class="option" onclick="select(2,'C')"><div class="option-label">C</div> complying with</div>
+      <div class="option" onclick="select(2,'D')"><div class="option-label">D</div> compliance with</div>
+    </div>
+    <div class="explanation" id="exp2">
+      ✅ <strong>Correct: A — comply with</strong><br>
+      "comply with" là collocation cố định (tuân theo). Sau "to" dùng verb gốc (infinitive).<br>
+      🔑 TOEIC trap: Đừng nhầm "comply to" — giới từ đi kèm "comply" luôn là "with".
+    </div>
+  </div>
+
+  <div class="question" id="q3">
+    <div class="q-number">Question 3</div>
+    <div class="q-text">Choose the word closest in meaning to <strong>"reimburse"</strong>:</div>
+    <div class="options">
+      <div class="option" onclick="select(3,'A')"><div class="option-label">A</div> punish</div>
+      <div class="option" onclick="select(3,'B')"><div class="option-label">B</div> repay</div>
+      <div class="option" onclick="select(3,'C')"><div class="option-label">C</div> request</div>
+      <div class="option" onclick="select(3,'D')"><div class="option-label">D</div> refuse</div>
+    </div>
+    <div class="explanation" id="exp3">
+      ✅ <strong>Correct: B — repay</strong><br>
+      "Reimburse" = hoàn tiền / bồi hoàn. Đây là từ vựng tài chính rất phổ biến trong TOEIC.<br>
+      🔑 Ví dụ: "Employees will be reimbursed for travel expenses."
+    </div>
+  </div>
+
+  <div class="question" id="q4">
+    <div class="q-number">Question 4</div>
+    <div class="q-text">Our company's annual ________ exceeded $5 million last year.</div>
+    <div class="options">
+      <div class="option" onclick="select(4,'A')"><div class="option-label">A</div> revenue</div>
+      <div class="option" onclick="select(4,'B')"><div class="option-label">B</div> revise</div>
+      <div class="option" onclick="select(4,'C')"><div class="option-label">C</div> renewal</div>
+      <div class="option" onclick="select(4,'D')"><div class="option-label">D</div> respond</div>
+    </div>
+    <div class="explanation" id="exp4">
+      ✅ <strong>Correct: A — revenue</strong><br>
+      "Revenue" = doanh thu. Cần danh từ sau "annual". Các đáp án khác là động từ hoặc sai nghĩa.<br>
+      🔑 TOEIC Finance: revenue / profit / income / expense / budget
+    </div>
+  </div>
+
+  <div class="question" id="q5">
+    <div class="q-number">Question 5</div>
+    <div class="q-text">The invoice must be ________ within 30 days of receipt.</div>
+    <div class="options">
+      <div class="option" onclick="select(5,'A')"><div class="option-label">A</div> paid</div>
+      <div class="option" onclick="select(5,'B')"><div class="option-label">B</div> paying</div>
+      <div class="option" onclick="select(5,'C')"><div class="option-label">C</div> pay</div>
+      <div class="option" onclick="select(5,'D')"><div class="option-label">D</div> to pay</div>
+    </div>
+    <div class="explanation" id="exp5">
+      ✅ <strong>Correct: A — paid</strong><br>
+      Cấu trúc bị động: "must be + past participle". Invoice không tự trả tiền → bị động.<br>
+      🔑 TOEIC trap: "must be paying" sai — không dùng continuous trong bị động ở đây.
+    </div>
+  </div>
+
+  <!-- SECTION B -->
+  <div class="section-title">Section B — Grammar (5 questions)</div>
+
+  <div class="question" id="q6">
+    <div class="q-number">Question 6</div>
+    <div class="q-text">By the time the client arrived, the team ________ the presentation.</div>
+    <div class="options">
+      <div class="option" onclick="select(6,'A')"><div class="option-label">A</div> finished</div>
+      <div class="option" onclick="select(6,'B')"><div class="option-label">B</div> had finished</div>
+      <div class="option" onclick="select(6,'C')"><div class="option-label">C</div> has finished</div>
+      <div class="option" onclick="select(6,'D')"><div class="option-label">D</div> finish</div>
+    </div>
+    <div class="explanation" id="exp6">
+      ✅ <strong>Correct: B — had finished</strong><br>
+      "By the time + past simple" → mệnh đề kia dùng Past Perfect (had + V3).<br>
+      🔑 Dấu hiệu: "By the time..." = hành động hoàn thành TRƯỚC một mốc thời gian quá khứ.
+    </div>
+  </div>
+
+  <div class="question" id="q7">
+    <div class="q-number">Question 7</div>
+    <div class="q-text">The new policy ________ by the board of directors last Monday.</div>
+    <div class="options">
+      <div class="option" onclick="select(7,'A')"><div class="option-label">A</div> approved</div>
+      <div class="option" onclick="select(7,'B')"><div class="option-label">B</div> was approved</div>
+      <div class="option" onclick="select(7,'C')"><div class="option-label">C</div> has approved</div>
+      <div class="option" onclick="select(7,'D')"><div class="option-label">D</div> approves</div>
+    </div>
+    <div class="explanation" id="exp7">
+      ✅ <strong>Correct: B — was approved</strong><br>
+      "Policy" không tự phê duyệt → bị động. "last Monday" → quá khứ đơn bị động.<br>
+      🔑 Cấu trúc: was/were + past participle.
+    </div>
+  </div>
+
+  <div class="question" id="q8">
+    <div class="q-number">Question 8</div>
+    <div class="q-text">________ the weather was bad, the conference was held as scheduled.</div>
+    <div class="options">
+      <div class="option" onclick="select(8,'A')"><div class="option-label">A</div> Despite</div>
+      <div class="option" onclick="select(8,'B')"><div class="option-label">B</div> Although</div>
+      <div class="option" onclick="select(8,'C')"><div class="option-label">C</div> However</div>
+      <div class="option" onclick="select(8,'D')"><div class="option-label">D</div> Because</div>
+    </div>
+    <div class="explanation" id="exp8">
+      ✅ <strong>Correct: B — Although</strong><br>
+      Cần conjunction (liên từ) nối 2 mệnh đề đầy đủ. "Although + S + V". "Despite + noun/V-ing".<br>
+      🔑 TOEIC trap: "Despite the bad weather" ✅ nhưng "Despite the weather was bad" ❌.
+    </div>
+  </div>
+
+  <div class="question" id="q9">
+    <div class="q-number">Question 9</div>
+    <div class="q-text">The candidate ________ interviewed yesterday has 10 years of experience.</div>
+    <div class="options">
+      <div class="option" onclick="select(9,'A')"><div class="option-label">A</div> who was</div>
+      <div class="option" onclick="select(9,'B')"><div class="option-label">B</div> which was</div>
+      <div class="option" onclick="select(9,'C')"><div class="option-label">C</div> who is</div>
+      <div class="option" onclick="select(9,'D')"><div class="option-label">D</div> whose</div>
+    </div>
+    <div class="explanation" id="exp9">
+      ✅ <strong>Correct: A — who was</strong><br>
+      "Candidate" = người → dùng "who". Bị động (interviewed) + thời quá khứ → "who was".<br>
+      🔑 who = người, which = vật, whose = sở hữu.
+    </div>
+  </div>
+
+  <div class="question" id="q10">
+    <div class="q-number">Question 10</div>
+    <div class="q-text">I suggest ________ the report before submitting it to the director.</div>
+    <div class="options">
+      <div class="option" onclick="select(10,'A')"><div class="option-label">A</div> review</div>
+      <div class="option" onclick="select(10,'B')"><div class="option-label">B</div> reviewed</div>
+      <div class="option" onclick="select(10,'C')"><div class="option-label">C</div> reviewing</div>
+      <div class="option" onclick="select(10,'D')"><div class="option-label">D</div> to reviewing</div>
+    </div>
+    <div class="explanation" id="exp10">
+      ✅ <strong>Correct: C — reviewing</strong><br>
+      Các động từ: suggest, recommend, consider, enjoy, avoid, finish → theo sau bằng V-ing.<br>
+      🔑 suggest + V-ing (không dùng to-infinitive sau suggest).
+    </div>
+  </div>
+
+  <!-- SECTION C -->
+  <div class="section-title">Section C — Reading Comprehension (3 questions)</div>
+
+  <div class="passage">
+    <strong>📄 MEMO</strong>
+    <strong>To:</strong> All Staff &nbsp;&nbsp; <strong>From:</strong> HR Department &nbsp;&nbsp; <strong>Subject:</strong> Annual Performance Reviews
+    <br><br>
+    Please be advised that annual performance reviews will be conducted from <strong>July 14 to July 25</strong>. All employees are required to complete the <strong>self-assessment form</strong> available on the company intranet by <strong>July 10</strong>. Managers will schedule individual meetings with their team members during the review period. Results will be communicated to employees by <strong>August 1</strong>.
+  </div>
+
+  <div class="question" id="q11">
+    <div class="q-number">Question 11</div>
+    <div class="q-text">What is the purpose of this memo?</div>
+    <div class="options">
+      <div class="option" onclick="select(11,'A')"><div class="option-label">A</div> To announce a new company policy</div>
+      <div class="option" onclick="select(11,'B')"><div class="option-label">B</div> To inform employees about performance reviews</div>
+      <div class="option" onclick="select(11,'C')"><div class="option-label">C</div> To remind staff about a meeting</div>
+      <div class="option" onclick="select(11,'D')"><div class="option-label">D</div> To introduce a new HR manager</div>
+    </div>
+    <div class="explanation" id="exp11">
+      ✅ <strong>Correct: B</strong><br>
+      Subject của memo là "Annual Performance Reviews". Nội dung thông báo lịch và quy trình review.<br>
+      🔑 Reading Part 7: Luôn đọc Subject/Title trước để xác định chủ đề chính.
+    </div>
+  </div>
+
+  <div class="question" id="q12">
+    <div class="q-number">Question 12</div>
+    <div class="q-text">What must employees do before July 10?</div>
+    <div class="options">
+      <div class="option" onclick="select(12,'A')"><div class="option-label">A</div> Meet with their managers</div>
+      <div class="option" onclick="select(12,'B')"><div class="option-label">B</div> Submit their work reports</div>
+      <div class="option" onclick="select(12,'C')"><div class="option-label">C</div> Complete the self-assessment form</div>
+      <div class="option" onclick="select(12,'D')"><div class="option-label">D</div> Attend a training session</div>
+    </div>
+    <div class="explanation" id="exp12">
+      ✅ <strong>Correct: C</strong><br>
+      Bài đọc nói rõ: "complete the self-assessment form... by July 10".<br>
+      🔑 Các từ khóa thời gian (by, before, until) thường xuất hiện trong câu hỏi TOEIC Part 7.
+    </div>
+  </div>
+
+  <div class="question" id="q13">
+    <div class="q-number">Question 13</div>
+    <div class="q-text">When will employees receive their review results?</div>
+    <div class="options">
+      <div class="option" onclick="select(13,'A')"><div class="option-label">A</div> July 10</div>
+      <div class="option" onclick="select(13,'B')"><div class="option-label">B</div> July 14</div>
+      <div class="option" onclick="select(13,'C')"><div class="option-label">C</div> July 25</div>
+      <div class="option" onclick="select(13,'D')"><div class="option-label">D</div> August 1</div>
+    </div>
+    <div class="explanation" id="exp13">
+      ✅ <strong>Correct: D — August 1</strong><br>
+      "Results will be communicated to employees by August 1."<br>
+      🔑 TOEIC trap: Có nhiều ngày trong bài → đọc kỹ từng ngày gắn với sự kiện nào.
+    </div>
+  </div>
+
+  <!-- SECTION D -->
+  <div class="section-title">Section D — Listening Simulation (2 questions)</div>
+
+  <div class="passage">
+    <strong>🎧 Short Conversation (written format)</strong>
+    <br><br>
+    <strong>Man:</strong> Excuse me, I'd like to return this jacket. I bought it last week but the zipper is broken.<br>
+    <strong>Woman:</strong> I'm sorry to hear that. Do you have your receipt?<br>
+    <strong>Man:</strong> Yes, here it is.<br>
+    <strong>Woman:</strong> No problem. Would you like a refund or an exchange?
+  </div>
+
+  <div class="question" id="q14">
+    <div class="q-number">Question 14</div>
+    <div class="q-text">Why does the man want to return the jacket?</div>
+    <div class="options">
+      <div class="option" onclick="select(14,'A')"><div class="option-label">A</div> It doesn't fit.</div>
+      <div class="option" onclick="select(14,'B')"><div class="option-label">B</div> The color is wrong.</div>
+      <div class="option" onclick="select(14,'C')"><div class="option-label">C</div> The zipper is broken.</div>
+      <div class="option" onclick="select(14,'D')"><div class="option-label">D</div> He changed his mind.</div>
+    </div>
+    <div class="explanation" id="exp14">
+      ✅ <strong>Correct: C</strong><br>
+      Man nói: "the zipper is broken". Đây là lý do trực tiếp.<br>
+      🔑 Listening Part 3: Luôn đọc câu hỏi TRƯỚC khi nghe để biết cần nghe gì.
+    </div>
+  </div>
+
+  <div class="question" id="q15">
+    <div class="q-number">Question 15</div>
+    <div class="q-text">What does the woman offer the man?</div>
+    <div class="options">
+      <div class="option" onclick="select(15,'A')"><div class="option-label">A</div> A discount on a new jacket</div>
+      <div class="option" onclick="select(15,'B')"><div class="option-label">B</div> A refund or an exchange</div>
+      <div class="option" onclick="select(15,'C')"><div class="option-label">C</div> A repair service</div>
+      <div class="option" onclick="select(15,'D')"><div class="option-label">D</div> A store credit only</div>
+    </div>
+    <div class="explanation" id="exp15">
+      ✅ <strong>Correct: B</strong><br>
+      Woman hỏi: "Would you like a refund or an exchange?" — đưa ra 2 lựa chọn.<br>
+      🔑 TOEIC trap: "store credit only" sai vì woman đưa ra 2 lựa chọn, không phải 1.
+    </div>
+  </div>
+
+  <button class="submit-btn" id="submit-btn" onclick="submitTest()" disabled>
+    Answer all 15 questions to submit
+  </button>
+
+  <div class="result-panel" id="result-panel">
+    <div class="score-badge" id="score-badge">--</div>
+    <div class="score-label">out of 15 correct</div>
+    <div class="toeic-estimate">
+      <h3>📊 Estimated TOEIC Score Range</h3>
+      <div id="score-bands"></div>
+    </div>
+    <div class="weak-areas" id="weak-areas-panel"></div>
+    <button class="next-btn" onclick="window.open('https://claude.ai','_blank')">
+      📚 Continue with Coach →
+    </button>
+  </div>
+</div>
+
+<script>
+  const answers = {};
+  const correct = {1:'A',2:'A',3:'B',4:'A',5:'A',6:'B',7:'B',8:'B',9:'A',10:'C',11:'B',12:'C',13:'D',14:'C',15:'B'};
+  const sections = {1:'Vocabulary',2:'Vocabulary',3:'Vocabulary',4:'Vocabulary',5:'Vocabulary',6:'Grammar',7:'Grammar',8:'Grammar',9:'Grammar',10:'Grammar',11:'Reading',12:'Reading',13:'Reading',14:'Listening',15:'Listening'};
+  let submitted = false;
+  let timeLeft = 20 * 60;
+
+  const timerEl = document.getElementById('timer');
+  const timerInterval = setInterval(() => {
+    if (submitted) { clearInterval(timerInterval); return; }
+    timeLeft--;
+    const m = Math.floor(timeLeft / 60).toString().padStart(2,'0');
+    const s = (timeLeft % 60).toString().padStart(2,'0');
+    timerEl.textContent = `⏱ ${m}:${s}`;
+    if (timeLeft <= 60) timerEl.classList.add('warning');
+    if (timeLeft <= 0) { clearInterval(timerInterval); submitTest(); }
+  }, 1000);
+
+  function select(q, opt) {
+    if (submitted) return;
+    answers[q] = opt;
+    const qEl = document.getElementById('q' + q);
+    qEl.querySelectorAll('.option').forEach((el, i) => {
+      el.classList.toggle('selected', ['A','B','C','D'][i] === opt);
+    });
+    qEl.classList.add('answered');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const count = Object.keys(answers).length;
+    document.getElementById('progress-text').textContent = `${count} / 15 answered`;
+    document.getElementById('progress-fill').style.width = (count / 15 * 100) + '%';
+    const btn = document.getElementById('submit-btn');
+    if (count === 15) {
+      btn.disabled = false;
+      btn.textContent = '✅ Submit Test';
+    }
+  }
+
+  function submitTest() {
+    if (submitted) return;
+    submitted = true;
+    clearInterval(timerInterval);
+
+    let score = 0;
+    const sectionScores = {Vocabulary:0,Grammar:0,Reading:0,Listening:0};
+    const sectionTotal = {Vocabulary:5,Grammar:5,Reading:3,Listening:2};
+
+    for (let q = 1; q <= 15; q++) {
+      const qEl = document.getElementById('q' + q);
+      const opts = qEl.querySelectorAll('.option');
+      const labels = ['A','B','C','D'];
+      const userAns = answers[q];
+      const corrAns = correct[q];
+
+      opts.forEach((el, i) => {
+        if (labels[i] === corrAns) el.classList.add('show-correct');
+        else if (labels[i] === userAns && userAns !== corrAns) el.classList.add('show-wrong');
+        el.classList.remove('selected');
+      });
+
+      document.getElementById('exp' + q).style.display = 'block';
+
+      if (userAns === corrAns) {
+        score++;
+        sectionScores[sections[q]]++;
+        qEl.classList.add('correct');
+      } else {
+        qEl.classList.add('wrong');
+      }
+      qEl.classList.remove('answered');
+    }
+
+    document.getElementById('submit-btn').style.display = 'none';
+
+    // Show results
+    const pct = score / 15;
+    let toeicLow, toeicHigh, level;
+    if (pct >= 0.93) { toeicLow=700; toeicHigh=800; level='Upper Intermediate (B2)'; }
+    else if (pct >= 0.80) { toeicLow=600; toeicHigh=700; level='Intermediate (B1-B2)'; }
+    else if (pct >= 0.67) { toeicLow=500; toeicHigh=600; level='Pre-Intermediate (B1)'; }
+    else if (pct >= 0.53) { toeicLow=400; toeicHigh=500; level='Elementary (A2-B1)'; }
+    else { toeicLow=250; toeicHigh=400; level='Beginner (A1-A2)'; }
+
+    document.getElementById('score-badge').textContent = score + '/15';
+    const resultPanel = document.getElementById('result-panel');
+    resultPanel.style.display = 'block';
+
+    const bands = [
+      {range:'250–400',label:'Beginner'},
+      {range:'400–500',label:'Elementary'},
+      {range:'500–600',label:'Pre-Intermediate'},
+      {range:'600–700',label:'Intermediate ← TARGET'},
+      {range:'700–800',label:'Upper Intermediate'},
+    ];
+    const highlight = toeicLow >= 700 ? '700–800' : toeicLow >= 600 ? '600–700' : toeicLow >= 500 ? '500–600' : toeicLow >= 400 ? '400–500' : '250–400';
+    document.getElementById('score-bands').innerHTML = bands.map(b =>
+      `<div class="band ${b.range===highlight?'highlight':''}">
+        <span class="band-name">${b.label}</span>
+        <span class="band-score">${b.range}</span>
+      </div>`
+    ).join('') + `<p style="margin-top:12px;color:#94a3b8;font-size:0.88rem">Estimated: <strong style="color:#38bdf8">${toeicLow}–${toeicHigh}</strong> · Level: <strong style="color:#38bdf8">${level}</strong></p>`;
+
+    // Weak areas
+    const weakPanel = document.getElementById('weak-areas-panel');
+    let html = '<h3>📌 Your Performance by Section</h3><div style="margin-top:12px">';
+    for (const [sec, got] of Object.entries(sectionScores)) {
+      const tot = sectionTotal[sec];
+      const pctSec = got/tot;
+      const color = pctSec >= 0.8 ? '#22c55e' : pctSec >= 0.6 ? '#f59e0b' : '#ef4444';
+      const bar = Math.round(pctSec * 100);
+      html += `<div style="margin-bottom:14px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+          <span style="font-weight:600">${sec}</span>
+          <span style="color:${color}">${got}/${tot}</span>
+        </div>
+        <div style="height:8px;background:#334155;border-radius:99px;overflow:hidden">
+          <div style="height:100%;width:${bar}%;background:${color};border-radius:99px"></div>
+        </div>
+      </div>`;
+    }
+    html += '</div><div style="margin-top:16px"><strong style="color:#f59e0b">Focus areas:</strong><div style="margin-top:8px">';
+    for (const [sec, got] of Object.entries(sectionScores)) {
+      const tot = sectionTotal[sec];
+      const tag = got/tot >= 0.8 ? `<span class="tag strong">✓ ${sec}</span>` : `<span class="tag weak">⚠ ${sec}</span>`;
+      html += tag;
+    }
+    html += '</div></div>';
+
+    // Gap to 650
+    const gap = 650 - ((toeicLow + toeicHigh) / 2);
+    html += `<div style="margin-top:20px;padding:14px 16px;background:#1e293b;border-radius:8px;border-left:3px solid #38bdf8">
+      <strong style="color:#38bdf8">🎯 Gap to TOEIC 650:</strong>
+      <span style="color:#e2e8f0;margin-left:8px">~${Math.max(0,Math.round(gap))} points</span><br>
+      <span style="color:#94a3b8;font-size:0.85rem;margin-top:4px;display:block">Copy your score and section results, then share with your TOEIC Coach to get your personalized 12-week plan.</span>
+    </div>`;
+
+    weakPanel.innerHTML = html;
+    resultPanel.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

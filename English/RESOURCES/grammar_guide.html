@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TOEIC Grammar Guide</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0a0f1e;color:#e2e8f0;min-height:100vh;padding:24px 16px}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:1.6rem;color:#38bdf8;margin-bottom:4px}
+.subtitle{color:#64748b;font-size:.88rem;margin-bottom:24px}
+.nav-back{display:inline-flex;align-items:center;gap:6px;color:#64748b;font-size:.85rem;margin-bottom:20px;cursor:pointer;text-decoration:none}
+.nav-back:hover{color:#38bdf8}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.tab{padding:8px 16px;border-radius:8px;border:1px solid #334155;background:#111827;cursor:pointer;font-size:.82rem;font-weight:600;color:#64748b;transition:all .2s}
+.tab.active{border-color:#a78bfa;background:#1e1040;color:#a78bfa}
+
+.section{display:none}
+.section.active{display:block}
+
+/* Cards */
+.rule-card{background:#111827;border:1px solid #334155;border-radius:12px;padding:20px 24px;margin-bottom:16px}
+.rule-card h3{color:#f59e0b;font-size:1rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.rule-card p,.rule-card li{font-size:.9rem;line-height:1.75;color:#cbd5e1}
+.rule-card ul{padding-left:20px;margin-top:6px}
+.rule-card ul li{margin-bottom:4px}
+
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th{background:#1e293b;color:#64748b;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 12px;text-align:left}
+td{padding:8px 12px;border-bottom:1px solid #0f172a;font-size:.88rem;color:#e2e8f0}
+tr:hover td{background:#1e293b}
+
+.example{background:#0a0f1e;border-left:3px solid #38bdf8;padding:8px 14px;border-radius:4px;font-size:.87rem;margin:6px 0;color:#94a3b8}
+.example strong{color:#38bdf8}
+.trap{background:#2d0a0a;border-left:3px solid #ef4444;padding:8px 14px;border-radius:4px;font-size:.85rem;margin:6px 0;color:#fca5a5}
+.trap::before{content:'⚠️ TOEIC TRAP: ';font-weight:700}
+.correct{color:#86efac}
+.wrong{color:#fca5a5;text-decoration:line-through}
+.tip{background:#052e16;border-left:3px solid #22c55e;padding:8px 14px;border-radius:4px;font-size:.85rem;margin:6px 0;color:#86efac}
+.tip::before{content:'💡 TIP: '}
+
+code{background:#1e293b;padding:1px 6px;border-radius:4px;font-size:.85rem;color:#a78bfa;font-family:monospace}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="nav-back" href="../DAILY_QUESTS/day1.html">← Back to Day 1</a>
+  <h1>⚔️ TOEIC Grammar Guide</h1>
+  <p class="subtitle">8 grammar rules thi TOEIC cần nắm · Tập trung Part 5 & 6</p>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(0,this)">1. Word Form</div>
+    <div class="tab" onclick="showTab(1,this)">2. Verb Tense</div>
+    <div class="tab" onclick="showTab(2,this)">3. Passive Voice</div>
+    <div class="tab" onclick="showTab(3,this)">4. Conjunctions</div>
+    <div class="tab" onclick="showTab(4,this)">5. Relative Clauses</div>
+    <div class="tab" onclick="showTab(5,this)">6. Subject-Verb</div>
+    <div class="tab" onclick="showTab(6,this)">7. Gerunds & Inf.</div>
+    <div class="tab" onclick="showTab(7,this)">8. Prepositions</div>
+  </div>
+
+  <!-- 1. WORD FORM -->
+  <div class="section active" id="tab0">
+    <div class="rule-card">
+      <h3>📌 What is Word Form?</h3>
+      <p>TOEIC Part 5 cho 4 dạng của cùng 1 từ gốc. Bạn phải xác định <strong>loại từ</strong> nào phù hợp với <strong>vị trí</strong> trong câu.</p>
+    </div>
+    <div class="rule-card">
+      <h3>📋 4 Loại Từ & Vị Trí</h3>
+      <table>
+        <tr><th>Loại từ</th><th>Vị trí trong câu</th><th>Dấu hiệu nhận biết</th></tr>
+        <tr><td>NOUN (danh từ)</td><td>Subject, Object</td><td>Sau: the / a / an / his / her / our / any / some / every + ___</td></tr>
+        <tr><td>VERB (động từ)</td><td>Sau subject</td><td>Sau modal: can/will/must/should/may + ___</td></tr>
+        <tr><td>ADJECTIVE (tính từ)</td><td>Trước noun, sau be/seem</td><td>___ + noun hoặc be/seem/look + ___</td></tr>
+        <tr><td>ADVERB (trạng từ)</td><td>Bổ nghĩa verb/adj</td><td>Thường kết thúc -ly, đứng trước adj hoặc sau verb</td></tr>
+      </table>
+    </div>
+    <div class="rule-card">
+      <h3>🔑 Công thức nhận biết nhanh</h3>
+      <div class="example"><strong>the + ___ + of</strong> → cần NOUN → "the <strong>implementation</strong> of the plan"</div>
+      <div class="example"><strong>very / quite / extremely + ___</strong> → cần ADJECTIVE → "very <strong>efficient</strong>"</div>
+      <div class="example"><strong>___ + noun</strong> (không có "the") → thường là ADJECTIVE → "an <strong>important</strong> meeting"</div>
+      <div class="example"><strong>verb + ___</strong> (cuối câu) → cần ADVERB → "works <strong>efficiently</strong>"</div>
+    </div>
+    <div class="rule-card">
+      <h3>📚 Word Family Table</h3>
+      <table>
+        <tr><th>Noun</th><th>Verb</th><th>Adjective</th><th>Adverb</th></tr>
+        <tr><td>efficiency</td><td>—</td><td>efficient</td><td>efficiently</td></tr>
+        <tr><td>management</td><td>manage</td><td>managerial</td><td>—</td></tr>
+        <tr><td>approval</td><td>approve</td><td>approved / approving</td><td>—</td></tr>
+        <tr><td>requirement</td><td>require</td><td>required / requisite</td><td>—</td></tr>
+        <tr><td>disruption</td><td>disrupt</td><td>disruptive</td><td>disruptively</td></tr>
+        <tr><td>implementation</td><td>implement</td><td>implemented</td><td>—</td></tr>
+        <tr><td>significance</td><td>—</td><td>significant</td><td>significantly</td></tr>
+        <tr><td>production</td><td>produce</td><td>productive</td><td>productively</td></tr>
+      </table>
+    </div>
+    <div class="rule-card">
+      <h3>⚠️ TOEIC Traps</h3>
+      <div class="trap">Đừng chọn từ nghe "có vẻ đúng" — hãy xác định VỊ TRÍ trước.</div>
+      <div class="trap">"The <span class="wrong">financially</span> report" ❌ → cần ADJECTIVE: "The <span class="correct">financial</span> report" ✅</div>
+      <div class="trap">"We need to <span class="wrong">efficiency</span>" ❌ → cần VERB: "We need to <span class="correct">work efficiently</span>" ✅</div>
+    </div>
+  </div>
+
+  <!-- 2. VERB TENSE -->
+  <div class="section" id="tab1">
+    <div class="rule-card">
+      <h3>📌 Các Thì Quan Trọng Trong TOEIC</h3>
+      <table>
+        <tr><th>Thì</th><th>Cấu trúc</th><th>Dấu hiệu</th><th>Ví dụ TOEIC</th></tr>
+        <tr><td>Simple Past</td><td>V-ed / V2</td><td>yesterday, last week, in 2020, ago</td><td>The meeting was held last Monday.</td></tr>
+        <tr><td>Simple Present</td><td>V / V-s</td><td>every day, usually, always</td><td>She submits reports every Friday.</td></tr>
+        <tr><td>Present Perfect</td><td>has/have + V3</td><td>since, for, already, just, yet, recently</td><td>The team has completed the project.</td></tr>
+        <tr><td>Past Perfect</td><td>had + V3</td><td>by the time, before, after, when (quá khứ)</td><td>By the time he arrived, we had finished.</td></tr>
+        <tr><td>Future</td><td>will + V / be going to</td><td>tomorrow, next week, soon</td><td>The report will be submitted tomorrow.</td></tr>
+      </table>
+    </div>
+    <div class="rule-card">
+      <h3>🔑 Past Perfect — Quy tắc quan trọng</h3>
+      <p>Khi câu có <strong>"by the time + past"</strong>, mệnh đề kia dùng <strong>Past Perfect</strong>.</p>
+      <div class="example"><strong>By the time</strong> the client arrived, the team <strong>had finished</strong> the presentation.</div>
+      <div class="example"><strong>Before</strong> she left, she <strong>had sent</strong> all the files.</div>
+      <div class="trap">By the time he arrived, the meeting <span class="wrong">finished</span> ❌ → <span class="correct">had finished</span> ✅</div>
+    </div>
+    <div class="rule-card">
+      <h3>🔑 Present Perfect vs Simple Past</h3>
+      <table>
+        <tr><th>Present Perfect</th><th>Simple Past</th></tr>
+        <tr><td>has/have + V3</td><td>V-ed / V2</td></tr>
+        <tr><td>Không có thời gian cụ thể</td><td>Có thời gian cụ thể (yesterday, in 2020...)</td></tr>
+        <tr><td>Kết quả còn ảnh hưởng đến hiện tại</td><td>Sự kiện hoàn toàn trong quá khứ</td></tr>
+      </table>
+      <div class="example">She <strong>has worked</strong> here for 5 years. (vẫn đang làm)</div>
+      <div class="example">She <strong>worked</strong> here last year. (đã nghỉ rồi)</div>
+    </div>
+  </div>
+
+  <!-- 3. PASSIVE VOICE -->
+  <div class="section" id="tab2">
+    <div class="rule-card">
+      <h3>📌 Bị Động — Passive Voice</h3>
+      <p>Dùng khi <strong>chủ thể nhận hành động</strong> hoặc khi không biết / không cần nêu người thực hiện.</p>
+      <table>
+        <tr><th>Thì</th><th>Cấu trúc bị động</th><th>Ví dụ</th></tr>
+        <tr><td>Simple Present</td><td>am/is/are + V3</td><td>Reports <strong>are submitted</strong> weekly.</td></tr>
+        <tr><td>Simple Past</td><td>was/were + V3</td><td>The policy <strong>was approved</strong> last Monday.</td></tr>
+        <tr><td>Present Perfect</td><td>has/have been + V3</td><td>The contract <strong>has been signed</strong>.</td></tr>
+        <tr><td>Future</td><td>will be + V3</td><td>The results <strong>will be announced</strong> soon.</td></tr>
+        <tr><td>Modal</td><td>modal + be + V3</td><td>The form <strong>must be submitted</strong> by Friday.</td></tr>
+      </table>
+    </div>
+    <div class="rule-card">
+      <h3>🔑 Nhận biết nhanh trong Part 5</h3>
+      <p>Hỏi: <em>"Chủ ngữ TỰ làm việc đó hay được người khác làm?"</em></p>
+      <div class="example">The invoice <strong>must be paid</strong> within 30 days. → Hóa đơn không tự trả → bị động ✅</div>
+      <div class="example">The manager <strong>approved</strong> the request. → Manager chủ động phê duyệt → chủ động ✅</div>
+      <div class="trap">The new policy <span class="wrong">approved</span> by the board ❌ → <span class="correct">was approved</span> ✅</div>
+    </div>
+    <div class="rule-card">
+      <h3>⚡ Các cụm hay gặp trong TOEIC</h3>
+      <ul>
+        <li><code>is/are required to</code> — được/bị yêu cầu phải</li>
+        <li><code>is/are expected to</code> — được kỳ vọng</li>
+        <li><code>is/are scheduled to</code> — được lên lịch</li>
+        <li><code>is/are advised to</code> — được khuyên</li>
+        <li><code>will be held</code> — sẽ được tổ chức</li>
+        <li><code>has been updated</code> — đã được cập nhật</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. CONJUNCTIONS -->
+  <div class="section" id="tab3">
+    <div class="rule-card">
+      <h3>📌 Liên từ quan trọng trong TOEIC</h3>
+      <table>
+        <tr><th>Liên từ</th><th>Nghĩa</th><th>Theo sau</th></tr>
+        <tr><td><strong>Although / Even though / Though</strong></td><td>Mặc dù</td><td>+ S + V (mệnh đề đầy đủ)</td></tr>
+        <tr><td><strong>Despite / In spite of</strong></td><td>Mặc dù</td><td>+ Noun / V-ing (KHÔNG có S+V)</td></tr>
+        <tr><td><strong>Because / Since / As</strong></td><td>Bởi vì</td><td>+ S + V</td></tr>
+        <tr><td><strong>Because of / Due to / Owing to</strong></td><td>Bởi vì</td><td>+ Noun / V-ing</td></tr>
+        <tr><td><strong>However</strong></td><td>Tuy nhiên</td><td>Đứng đầu câu + dấu phẩy (không nối 2 mệnh đề)</td></tr>
+        <tr><td><strong>Therefore / Thus</strong></td><td>Do đó</td><td>Đứng đầu câu + dấu phẩy</td></tr>
+      </table>
+    </div>
+    <div class="rule-card">
+      <h3>🔑 Although vs Despite</h3>
+      <div class="example"><strong>Although</strong> the weather was bad, the conference was held. ✅ (S+V sau although)</div>
+      <div class="example"><strong>Despite</strong> the bad weather, the conference was held. ✅ (noun phrase sau despite)</div>
+      <div class="trap"><span class="wrong">Despite the weather was bad</span> ❌ → Despite không đi với S+V</div>
+      <div class="trap"><span class="wrong">Although the bad weather</span> ❌ → Although cần mệnh đề đầy đủ</div>
+    </div>
+    <div class="rule-card">
+      <h3>🔑 Because vs Because of</h3>
+      <div class="example"><strong>Because</strong> the flight was delayed, he missed the meeting. ✅</div>
+      <div class="example"><strong>Because of</strong> the flight delay, he missed the meeting. ✅</div>
+      <div class="trap"><span class="wrong">Because of the flight was delayed</span> ❌</div>
+    </div>
+  </div>
+
+  <!-- 5. RELATIVE CLAUSES -->
+  <div class="section" id="tab4">
+    <div class="rule-card">
+      <h3>📌 Mệnh đề quan hệ</h3>
+      <table>
+        <tr><th>Đại từ quan hệ</th><th>Dùng cho</th><th>Ví dụ</th></tr>
+        <tr><td><strong>who</strong></td><td>Người</td><td>The employee <strong>who</strong> submitted the report...</td></tr>
+        <tr><td><strong>which</strong></td><td>Vật / Sự việc</td><td>The policy <strong>which</strong> was approved...</td></tr>
+        <tr><td><strong>that</strong></td><td>Người hoặc vật</td><td>The report <strong>that</strong> was submitted...</td></tr>
+        <tr><td><strong>whose</strong></td><td>Sở hữu (người hoặc vật)</td><td>The employee <strong>whose</strong> report was praised...</td></tr>
+        <tr><td><strong>where</strong></td><td>Nơi chốn</td><td>The office <strong>where</strong> she works...</td></tr>
+        <tr><td><strong>when</strong></td><td>Thời gian</td><td>The day <strong>when</strong> he started...</td></tr>
+      </table>
+    </div>
+    <div class="rule-card">
+      <h3>🔑 Bị động trong mệnh đề quan hệ</h3>
+      <div class="example">The candidate <strong>who was interviewed</strong> yesterday has 10 years of experience.</div>
+      <div class="example">The proposal <strong>which was submitted</strong> last week needs revision.</div>
+      <div class="tip">Nếu danh từ đứng trước là người → who. Nếu là vật → which/that.</div>
+    </div>
+    <div class="rule-card">
+      <h3>⚡ Rút gọn mệnh đề quan hệ</h3>
+      <p>TOEIC Part 6 hay dùng dạng rút gọn:</p>
+      <div class="example">The report <strong>submitted</strong> last week = The report <strong>which was submitted</strong> last week</div>
+      <div class="example">The manager <strong>responsible</strong> for the project = The manager <strong>who is responsible</strong>...</div>
+    </div>
+  </div>
+
+  <!-- 6. SUBJECT-VERB AGREEMENT -->
+  <div class="section" id="tab5">
+    <div class="rule-card">
+      <h3>📌 Chủ ngữ - Động từ phải tương đồng</h3>
+      <table>
+        <tr><th>Chủ ngữ</th><th>Động từ</th><th>Ví dụ</th></tr>
+        <tr><td>Số ít</td><td>V-s / V-es</td><td>The manager <strong>reviews</strong> reports daily.</td></tr>
+        <tr><td>Số nhiều</td><td>V (không s)</td><td>The managers <strong>review</strong> reports daily.</td></tr>
+        <tr><td>Each / Every + N</td><td>V-s (số ít)</td><td>Each employee <strong>is</strong> required to sign.</td></tr>
+        <tr><td>A number of + N (pl)</td><td>V (số nhiều)</td><td>A number of employees <strong>were</strong> absent.</td></tr>
+        <tr><td>The number of + N</td><td>V-s (số ít)</td><td>The number of complaints <strong>has</strong> decreased.</td></tr>
+      </table>
+    </div>
+    <div class="rule-card">
+      <h3>⚠️ TOEIC Traps</h3>
+      <div class="trap">Subject bị tách bởi prepositional phrase: "The quality of the products <span class="wrong">are</span>" ❌ → <span class="correct">is</span> ✅ (subject = quality)</div>
+      <div class="trap">"Each of the employees <span class="wrong">are</span>" ❌ → <span class="correct">is</span> ✅ (each = số ít)</div>
+      <div class="trap">"A number of issues <span class="wrong">is</span>" ❌ → <span class="correct">are</span> ✅ (= some issues → số nhiều)</div>
+    </div>
+  </div>
+
+  <!-- 7. GERUNDS & INFINITIVES -->
+  <div class="section" id="tab6">
+    <div class="rule-card">
+      <h3>📌 Động từ + V-ing (Gerund)</h3>
+      <p>Các động từ sau luôn đi với <strong>V-ing</strong>:</p>
+      <ul>
+        <li><code>suggest</code> — I suggest <strong>reviewing</strong> the contract.</li>
+        <li><code>recommend</code> — She recommends <strong>hiring</strong> more staff.</li>
+        <li><code>consider</code> — We are considering <strong>expanding</strong> the office.</li>
+        <li><code>avoid</code> — Please avoid <strong>using</strong> personal email.</li>
+        <li><code>finish</code> — She finished <strong>writing</strong> the report.</li>
+        <li><code>enjoy</code> — He enjoys <strong>attending</strong> conferences.</li>
+        <li><code>keep</code> — Keep <strong>trying</strong>.</li>
+        <li><code>mind</code> — Do you mind <strong>waiting</strong>?</li>
+      </ul>
+    </div>
+    <div class="rule-card">
+      <h3>📌 Động từ + to V (Infinitive)</h3>
+      <ul>
+        <li><code>want</code> — She wants <strong>to attend</strong> the conference.</li>
+        <li><code>decide</code> — They decided <strong>to postpone</strong> the meeting.</li>
+        <li><code>plan</code> — We plan <strong>to launch</strong> in Q3.</li>
+        <li><code>agree</code> — He agreed <strong>to sign</strong> the contract.</li>
+        <li><code>need</code> — I need <strong>to submit</strong> the report.</li>
+        <li><code>expect</code> — We expect <strong>to complete</strong> by Friday.</li>
+        <li><code>offer</code> — She offered <strong>to help</strong> with the project.</li>
+      </ul>
+    </div>
+    <div class="rule-card">
+      <h3>⚠️ Common TOEIC Traps</h3>
+      <div class="trap">suggest + <span class="wrong">to review</span> ❌ → suggest + <span class="correct">reviewing</span> ✅</div>
+      <div class="trap">avoid + <span class="wrong">to use</span> ❌ → avoid + <span class="correct">using</span> ✅</div>
+      <div class="tip">Preposition (in/on/at/for/of/by) + V → luôn dùng V-ing: "responsible for <strong>managing</strong>"</div>
+    </div>
+  </div>
+
+  <!-- 8. PREPOSITIONS -->
+  <div class="section" id="tab7">
+    <div class="rule-card">
+      <h3>📌 Collocations — Verb + Preposition</h3>
+      <table>
+        <tr><th>Collocation</th><th>Nghĩa</th><th>Ví dụ</th></tr>
+        <tr><td>comply <strong>with</strong></td><td>tuân theo</td><td>All staff must comply with the policy.</td></tr>
+        <tr><td>result <strong>in</strong></td><td>dẫn đến</td><td>The delay resulted in extra costs.</td></tr>
+        <tr><td>apply <strong>for</strong></td><td>nộp đơn xin</td><td>She applied for the marketing position.</td></tr>
+        <tr><td>refer <strong>to</strong></td><td>tham khảo / đề cập</td><td>Please refer to the attached document.</td></tr>
+        <tr><td>responsible <strong>for</strong></td><td>chịu trách nhiệm về</td><td>She is responsible for client accounts.</td></tr>
+        <tr><td>familiar <strong>with</strong></td><td>quen thuộc với</td><td>Are you familiar with this software?</td></tr>
+        <tr><td>consist <strong>of</strong></td><td>bao gồm</td><td>The team consists of 8 members.</td></tr>
+        <tr><td>specialize <strong>in</strong></td><td>chuyên về</td><td>Our firm specializes in tax consulting.</td></tr>
+        <tr><td>depend <strong>on</strong></td><td>phụ thuộc vào</td><td>Delivery time depends on location.</td></tr>
+        <tr><td>contribute <strong>to</strong></td><td>đóng góp cho</td><td>This project contributes to company growth.</td></tr>
+      </table>
+    </div>
+    <div class="rule-card">
+      <h3>📌 Time Prepositions</h3>
+      <table>
+        <tr><th>Preposition</th><th>Dùng với</th><th>Ví dụ</th></tr>
+        <tr><td><strong>by</strong></td><td>Hạn chót (deadline)</td><td>Submit the form <strong>by</strong> Friday.</td></tr>
+        <tr><td><strong>until / till</strong></td><td>Kéo dài đến</td><td>The office is open <strong>until</strong> 6 PM.</td></tr>
+        <tr><td><strong>within</strong></td><td>Trong vòng</td><td>Payment is due <strong>within</strong> 30 days.</td></tr>
+        <tr><td><strong>during</strong></td><td>Trong suốt khoảng thời gian</td><td>No calls <strong>during</strong> the meeting.</td></tr>
+        <tr><td><strong>throughout</strong></td><td>Xuyên suốt</td><td>She worked there <strong>throughout</strong> the year.</td></tr>
+      </table>
+      <div class="trap">"by" vs "until": by = hành động hoàn thành TRƯỚC mốc đó. until = kéo dài ĐẾN mốc đó.<br>
+      Submit <strong>by</strong> Friday ✅ (hoàn thành trước thứ 6) / Open <strong>until</strong> 6 PM ✅ (mở cửa đến 6h)</div>
+    </div>
+  </div>
+
+</div>
+<script>
+function showTab(n, el) {
+  document.querySelectorAll('.section').forEach((s,i) => s.classList.toggle('active', i===n));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>

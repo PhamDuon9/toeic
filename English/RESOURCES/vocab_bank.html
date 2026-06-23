@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TOEIC Vocabulary Bank</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0a0f1e;color:#e2e8f0;min-height:100vh;padding:24px 16px}
+.container{max-width:1100px;margin:0 auto}
+h1{font-size:1.6rem;color:#38bdf8;margin-bottom:4px}
+.subtitle{color:#64748b;font-size:.88rem;margin-bottom:24px}
+
+/* Controls */
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;align-items:center}
+.search-box{flex:1;min-width:200px;padding:10px 16px;background:#111827;border:1px solid #334155;border-radius:8px;color:#e2e8f0;font-size:.92rem;outline:none}
+.search-box:focus{border-color:#38bdf8}
+.filter-btn{padding:7px 14px;border-radius:8px;border:1px solid #334155;background:#111827;color:#94a3b8;cursor:pointer;font-size:.82rem;font-weight:600;transition:all .2s;white-space:nowrap}
+.filter-btn.active{border-color:#38bdf8;background:#0c4a6e;color:#38bdf8}
+.stats-bar{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.stat-chip{background:#111827;border:1px solid #334155;border-radius:8px;padding:8px 16px;font-size:.82rem;color:#94a3b8}
+.stat-chip span{color:#38bdf8;font-weight:700}
+
+/* Table */
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid #1e293b}
+table{width:100%;border-collapse:collapse;min-width:600px}
+thead{background:#111827}
+th{padding:11px 16px;text-align:left;font-size:.78rem;color:#64748b;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid #1e293b;white-space:nowrap}
+td{padding:10px 16px;border-bottom:1px solid #0f172a;font-size:.9rem;vertical-align:top}
+tr:hover td{background:#111827}
+tr.mastered td{opacity:.5}
+.word-en{font-weight:700;color:#e2e8f0}
+.word-pos{display:inline-block;font-size:.7rem;padding:1px 7px;border-radius:99px;font-weight:600;margin-left:6px;vertical-align:middle}
+.pos-n{background:#0c4a6e;color:#38bdf8}
+.pos-v{background:#3b1d00;color:#f59e0b}
+.pos-adj{background:#2d1657;color:#a78bfa}
+.pos-adv{background:#052e16;color:#86efac}
+.pos-ph{background:#1a1a2e;color:#94a3b8}
+.word-vi{color:#94a3b8}
+.word-ex{color:#475569;font-size:.82rem;font-style:italic;margin-top:3px}
+.cat-badge{font-size:.72rem;padding:2px 8px;border-radius:99px;background:#1e293b;color:#64748b;white-space:nowrap}
+
+/* Status button */
+.status-btn{padding:4px 10px;border-radius:6px;border:1px solid #334155;background:transparent;font-size:.75rem;cursor:pointer;transition:all .15s;white-space:nowrap}
+.status-btn.new{color:#64748b;border-color:#334155}
+.status-btn.learning{color:#f59e0b;border-color:#f59e0b;background:#3b1d00}
+.status-btn.mastered{color:#22c55e;border-color:#22c55e;background:#052e16}
+
+.no-results{text-align:center;padding:40px;color:#334155;font-size:.95rem}
+
+/* Nav back */
+.nav-back{display:inline-flex;align-items:center;gap:6px;color:#64748b;font-size:.85rem;margin-bottom:20px;cursor:pointer;text-decoration:none}
+.nav-back:hover{color:#38bdf8}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="nav-back" href="../DAILY_QUESTS/day1.html">← Back to Day 1</a>
+  <h1>📚 TOEIC Vocabulary Bank</h1>
+  <p class="subtitle">600+ từ vựng TOEIC thiết yếu · Click status để đánh dấu tiến độ học</p>
+
+  <div class="stats-bar">
+    <div class="stat-chip">Total: <span id="stat-total">0</span></div>
+    <div class="stat-chip">🔵 New: <span id="stat-new">0</span></div>
+    <div class="stat-chip">🟡 Learning: <span id="stat-learning">0</span></div>
+    <div class="stat-chip">✅ Mastered: <span id="stat-mastered">0</span></div>
+  </div>
+
+  <div class="controls">
+    <input class="search-box" id="search" placeholder="🔍 Search word or meaning..." oninput="renderTable()"/>
+    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" onclick="setFilter('Finance',this)">💰 Finance</button>
+    <button class="filter-btn" onclick="setFilter('Office',this)">🏢 Office</button>
+    <button class="filter-btn" onclick="setFilter('HR',this)">👥 HR</button>
+    <button class="filter-btn" onclick="setFilter('Logistics',this)">📦 Logistics</button>
+    <button class="filter-btn" onclick="setFilter('Customer Service',this)">🎧 Customer</button>
+    <button class="filter-btn" onclick="setFilter('Technology',this)">💻 Tech</button>
+    <button class="filter-btn" onclick="setFilter('Marketing',this)">📢 Marketing</button>
+    <button class="filter-btn" onclick="setFilter('Legal',this)">⚖️ Legal</button>
+    <button class="filter-btn" onclick="setFilter('learning',this)">🟡 Learning</button>
+    <button class="filter-btn" onclick="setFilter('mastered',this)">✅ Mastered</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Vietnamese</th>
+          <th>Example</th>
+          <th>Category</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="vocab-table"></tbody>
+    </table>
+    <div class="no-results" id="no-results" style="display:none">No words found.</div>
+  </div>
+</div>
+
+<script>
+const POS = {n:'n',v:'v',adj:'adj',adv:'adv',ph:'phrase'};
+
+const vocab = [
+  // ── FINANCE ──
+  {en:'revenue',pos:'n',vi:'doanh thu',ex:'Annual revenue exceeded $5 million.',cat:'Finance'},
+  {en:'expense',pos:'n',vi:'chi phí',ex:'Travel expenses will be reimbursed.',cat:'Finance'},
+  {en:'profit',pos:'n',vi:'lợi nhuận',ex:'The company reported a 20% profit increase.',cat:'Finance'},
+  {en:'loss',pos:'n',vi:'lỗ / thua lỗ',ex:'The firm reported a net loss last quarter.',cat:'Finance'},
+  {en:'budget',pos:'n',vi:'ngân sách',ex:'We need to stay within budget.',cat:'Finance'},
+  {en:'invoice',pos:'n',vi:'hóa đơn',ex:'Please send the invoice by Friday.',cat:'Finance'},
+  {en:'receipt',pos:'n',vi:'biên lai',ex:'Keep your receipt for reimbursement.',cat:'Finance'},
+  {en:'reimburse',pos:'v',vi:'hoàn tiền / bồi hoàn',ex:'Employees will be reimbursed for meals.',cat:'Finance'},
+  {en:'reimbursement',pos:'n',vi:'sự hoàn tiền',ex:'Submit your reimbursement form within 30 days.',cat:'Finance'},
+  {en:'payment',pos:'n',vi:'thanh toán',ex:'Payment is due within 30 days.',cat:'Finance'},
+  {en:'payable',pos:'adj',vi:'phải trả',ex:'The amount is payable upon receipt.',cat:'Finance'},
+  {en:'outstanding',pos:'adj',vi:'chưa thanh toán',ex:'There is an outstanding balance of $500.',cat:'Finance'},
+  {en:'balance',pos:'n',vi:'số dư',ex:'Please check your account balance.',cat:'Finance'},
+  {en:'deposit',pos:'n',vi:'tiền đặt cọc / tiền gửi',ex:'A deposit of 30% is required to reserve.',cat:'Finance'},
+  {en:'withdrawal',pos:'n',vi:'rút tiền',ex:'The withdrawal limit is $1,000 per day.',cat:'Finance'},
+  {en:'transaction',pos:'n',vi:'giao dịch',ex:'All transactions are recorded automatically.',cat:'Finance'},
+  {en:'fiscal year',pos:'ph',vi:'năm tài chính',ex:'Our fiscal year ends in December.',cat:'Finance'},
+  {en:'quarterly',pos:'adv',vi:'hàng quý',ex:'Results are reviewed quarterly.',cat:'Finance'},
+  {en:'annually',pos:'adv',vi:'hàng năm',ex:'The report is published annually.',cat:'Finance'},
+  {en:'account',pos:'n',vi:'tài khoản',ex:'Please provide your account number.',cat:'Finance'},
+  {en:'deduct',pos:'v',vi:'khấu trừ',ex:'Taxes are deducted from your salary.',cat:'Finance'},
+  {en:'deduction',pos:'n',vi:'khoản khấu trừ',ex:'You can claim a tax deduction for home office.',cat:'Finance'},
+  {en:'subsidy',pos:'n',vi:'trợ cấp',ex:'The government provides a subsidy for small businesses.',cat:'Finance'},
+  {en:'overhead',pos:'n',vi:'chi phí chung',ex:'We need to reduce our overhead costs.',cat:'Finance'},
+  {en:'audit',pos:'n',vi:'kiểm toán',ex:'The annual audit found no irregularities.',cat:'Finance'},
+  {en:'forecast',pos:'n',vi:'dự báo',ex:'The sales forecast for Q3 looks promising.',cat:'Finance'},
+
+  // ── OFFICE ──
+  {en:'agenda',pos:'n',vi:'chương trình nghị sự',ex:'Please review the meeting agenda before Tuesday.',cat:'Office'},
+  {en:'minutes',pos:'n',vi:'biên bản cuộc họp',ex:'The minutes of the meeting were distributed.',cat:'Office'},
+  {en:'memo',pos:'n',vi:'bản ghi nhớ nội bộ',ex:'The HR department sent a memo to all staff.',cat:'Office'},
+  {en:'deadline',pos:'n',vi:'hạn chót',ex:'The deadline for submissions is Friday noon.',cat:'Office'},
+  {en:'postpone',pos:'v',vi:'hoãn lại',ex:'The meeting has been postponed to next week.',cat:'Office'},
+  {en:'reschedule',pos:'v',vi:'dời lịch',ex:'We need to reschedule the conference call.',cat:'Office'},
+  {en:'adjourn',pos:'v',vi:'kết thúc / bãi họp',ex:'The meeting was adjourned at 5 PM.',cat:'Office'},
+  {en:'conference',pos:'n',vi:'hội nghị',ex:'The annual conference will be held in Singapore.',cat:'Office'},
+  {en:'correspondence',pos:'n',vi:'thư từ / liên lạc',ex:'All correspondence should go through the front desk.',cat:'Office'},
+  {en:'documentation',pos:'n',vi:'tài liệu hồ sơ',ex:'Please submit all documentation by Monday.',cat:'Office'},
+  {en:'colleague',pos:'n',vi:'đồng nghiệp',ex:'She discussed the project with her colleagues.',cat:'Office'},
+  {en:'supervisor',pos:'n',vi:'người giám sát',ex:'Report any issues to your supervisor immediately.',cat:'Office'},
+  {en:'workload',pos:'n',vi:'khối lượng công việc',ex:'The workload has increased significantly this month.',cat:'Office'},
+  {en:'efficiency',pos:'n',vi:'hiệu quả',ex:'New software improved our office efficiency by 30%.',cat:'Office'},
+  {en:'initiative',pos:'n',vi:'sáng kiến',ex:'She took the initiative to organize the event.',cat:'Office'},
+  {en:'implement',pos:'v',vi:'triển khai / thực hiện',ex:'We will implement the new policy next month.',cat:'Office'},
+  {en:'procedure',pos:'n',vi:'quy trình / thủ tục',ex:'Follow the correct procedure for filing reports.',cat:'Office'},
+  {en:'comply with',pos:'ph',vi:'tuân theo',ex:'All employees must comply with safety regulations.',cat:'Office'},
+  {en:'facilitate',pos:'v',vi:'tạo điều kiện / hỗ trợ',ex:'The manager facilitated the discussion.',cat:'Office'},
+  {en:'coordinate',pos:'v',vi:'phối hợp',ex:'Please coordinate with the logistics team.',cat:'Office'},
+
+  // ── HR ──
+  {en:'applicant',pos:'n',vi:'ứng viên',ex:'We received over 200 applicants for the position.',cat:'HR'},
+  {en:'candidate',pos:'n',vi:'ứng cử viên',ex:'The candidate has 10 years of experience.',cat:'HR'},
+  {en:'resume',pos:'n',vi:'hồ sơ xin việc (CV)',ex:'Please submit your resume and cover letter.',cat:'HR'},
+  {en:'vacancy',pos:'n',vi:'vị trí tuyển dụng',ex:'We have a vacancy in the marketing department.',cat:'HR'},
+  {en:'probation',pos:'n',vi:'thử việc',ex:'New employees are on probation for 3 months.',cat:'HR'},
+  {en:'promotion',pos:'n',vi:'thăng chức',ex:'She received a promotion to senior manager.',cat:'HR'},
+  {en:'appraisal',pos:'n',vi:'đánh giá (hiệu suất)',ex:'Annual performance appraisals begin in July.',cat:'HR'},
+  {en:'incentive',pos:'n',vi:'phần thưởng / khuyến khích',ex:'Sales staff receive bonuses as an incentive.',cat:'HR'},
+  {en:'benefits',pos:'n',vi:'phúc lợi',ex:'The company offers excellent employee benefits.',cat:'HR'},
+  {en:'resignation',pos:'n',vi:'đơn từ chức',ex:'He submitted his resignation last Friday.',cat:'HR'},
+  {en:'terminate',pos:'v',vi:'chấm dứt (hợp đồng)',ex:'His contract was terminated due to poor performance.',cat:'HR'},
+  {en:'workforce',pos:'n',vi:'lực lượng lao động',ex:'The company plans to expand its workforce.',cat:'HR'},
+  {en:'training',pos:'n',vi:'đào tạo',ex:'New hires must complete a training program.',cat:'HR'},
+  {en:'orientation',pos:'n',vi:'định hướng (cho nhân viên mới)',ex:'There is an orientation session on Monday.',cat:'HR'},
+  {en:'mandatory',pos:'adj',vi:'bắt buộc',ex:'Attendance at the safety briefing is mandatory.',cat:'HR'},
+  {en:'eligible',pos:'adj',vi:'đủ điều kiện',ex:'Employees are eligible for bonuses after one year.',cat:'HR'},
+  {en:'compensation',pos:'n',vi:'thù lao / bồi thường',ex:'The compensation package includes health insurance.',cat:'HR'},
+  {en:'interview',pos:'n',vi:'phỏng vấn',ex:'The interview will be conducted via video call.',cat:'HR'},
+  {en:'reference',pos:'n',vi:'người tham chiếu / thư giới thiệu',ex:'Please provide two professional references.',cat:'HR'},
+  {en:'overtime',pos:'n',vi:'làm thêm giờ',ex:'Overtime pay is 1.5 times the regular rate.',cat:'HR'},
+
+  // ── LOGISTICS ──
+  {en:'shipment',pos:'n',vi:'lô hàng',ex:'The shipment will arrive by Thursday.',cat:'Logistics'},
+  {en:'freight',pos:'n',vi:'hàng hóa vận chuyển',ex:'Air freight is faster but more expensive.',cat:'Logistics'},
+  {en:'cargo',pos:'n',vi:'hàng hóa (trên tàu/máy bay)',ex:'The cargo was damaged during transit.',cat:'Logistics'},
+  {en:'dispatch',pos:'v',vi:'gửi đi / điều phối',ex:'The order was dispatched this morning.',cat:'Logistics'},
+  {en:'delivery',pos:'n',vi:'giao hàng',ex:'Delivery is expected within 3 business days.',cat:'Logistics'},
+  {en:'warehouse',pos:'n',vi:'kho hàng',ex:'Products are stored in our central warehouse.',cat:'Logistics'},
+  {en:'inventory',pos:'n',vi:'hàng tồn kho',ex:'We need to update the inventory records.',cat:'Logistics'},
+  {en:'stock',pos:'n',vi:'hàng trong kho',ex:'The item is currently out of stock.',cat:'Logistics'},
+  {en:'supply chain',pos:'ph',vi:'chuỗi cung ứng',ex:'Disruptions in the supply chain caused delays.',cat:'Logistics'},
+  {en:'vendor',pos:'n',vi:'nhà cung cấp / người bán',ex:'We are reviewing bids from three vendors.',cat:'Logistics'},
+  {en:'supplier',pos:'n',vi:'nhà cung cấp',ex:'Our main supplier is based in Japan.',cat:'Logistics'},
+  {en:'procurement',pos:'n',vi:'mua sắm / thu mua',ex:'The procurement department manages all purchases.',cat:'Logistics'},
+  {en:'customs',pos:'n',vi:'hải quan',ex:'The goods were held at customs for inspection.',cat:'Logistics'},
+  {en:'tracking',pos:'n',vi:'theo dõi đơn hàng',ex:'You can track your order on our website.',cat:'Logistics'},
+  {en:'consignment',pos:'n',vi:'lô hàng ký gửi',ex:'The consignment arrived three days late.',cat:'Logistics'},
+  {en:'distribution',pos:'n',vi:'phân phối',ex:'We have a distribution center in each region.',cat:'Logistics'},
+  {en:'lead time',pos:'ph',vi:'thời gian sản xuất/giao hàng',ex:'The lead time for this product is 2 weeks.',cat:'Logistics'},
+  {en:'backorder',pos:'n',vi:'đơn hàng bị trễ (hết hàng)',ex:'The item is on backorder until next month.',cat:'Logistics'},
+
+  // ── CUSTOMER SERVICE ──
+  {en:'complaint',pos:'n',vi:'khiếu nại',ex:'We received several complaints about the product.',cat:'Customer Service'},
+  {en:'refund',pos:'n',vi:'hoàn tiền',ex:'Would you like a refund or an exchange?',cat:'Customer Service'},
+  {en:'exchange',pos:'n',vi:'đổi hàng',ex:'I would like to exchange this for a larger size.',cat:'Customer Service'},
+  {en:'warranty',pos:'n',vi:'bảo hành',ex:'The product comes with a 2-year warranty.',cat:'Customer Service'},
+  {en:'defective',pos:'adj',vi:'bị lỗi / khuyết tật',ex:'Please return any defective items immediately.',cat:'Customer Service'},
+  {en:'inquiry',pos:'n',vi:'yêu cầu / thắc mắc',ex:'We received an inquiry about the product price.',cat:'Customer Service'},
+  {en:'resolve',pos:'v',vi:'giải quyết',ex:'We aim to resolve all complaints within 24 hours.',cat:'Customer Service'},
+  {en:'satisfaction',pos:'n',vi:'sự hài lòng',ex:'Customer satisfaction is our top priority.',cat:'Customer Service'},
+  {en:'courtesy',pos:'n',vi:'sự lịch sự / nhã nhặn',ex:'A courtesy call was made to all VIP clients.',cat:'Customer Service'},
+  {en:'policy',pos:'n',vi:'chính sách',ex:'Our return policy allows exchanges within 30 days.',cat:'Customer Service'},
+  {en:'feedback',pos:'n',vi:'phản hồi',ex:'We value your feedback on our service.',cat:'Customer Service'},
+  {en:'subscription',pos:'n',vi:'đăng ký dịch vụ',ex:'You can cancel your subscription at any time.',cat:'Customer Service'},
+  {en:'loyalty',pos:'n',vi:'sự trung thành',ex:'Loyal customers receive a 10% discount.',cat:'Customer Service'},
+
+  // ── TECHNOLOGY ──
+  {en:'upgrade',pos:'v',vi:'nâng cấp',ex:'We need to upgrade the server software.',cat:'Technology'},
+  {en:'maintenance',pos:'n',vi:'bảo trì',ex:'The system will be down for maintenance.',cat:'Technology'},
+  {en:'installation',pos:'n',vi:'cài đặt',ex:'Installation of the new software takes 30 minutes.',cat:'Technology'},
+  {en:'interface',pos:'n',vi:'giao diện',ex:'The new interface is more user-friendly.',cat:'Technology'},
+  {en:'database',pos:'n',vi:'cơ sở dữ liệu',ex:'All customer data is stored in the database.',cat:'Technology'},
+  {en:'network',pos:'n',vi:'mạng lưới',ex:'Please connect to the company network.',cat:'Technology'},
+  {en:'backup',pos:'n',vi:'sao lưu dữ liệu',ex:'Always make a backup before updating.',cat:'Technology'},
+  {en:'malfunction',pos:'n',vi:'sự cố / trục trặc',ex:'A malfunction caused the system to shut down.',cat:'Technology'},
+  {en:'compatible',pos:'adj',vi:'tương thích',ex:'Make sure the software is compatible with your OS.',cat:'Technology'},
+  {en:'bandwidth',pos:'n',vi:'băng thông',ex:'We need more bandwidth for video conferencing.',cat:'Technology'},
+  {en:'encryption',pos:'n',vi:'mã hóa',ex:'All files are protected with 256-bit encryption.',cat:'Technology'},
+  {en:'access',pos:'v',vi:'truy cập',ex:'You can access the system remotely.',cat:'Technology'},
+  {en:'feature',pos:'n',vi:'tính năng',ex:'The new feature allows users to export reports.',cat:'Technology'},
+  {en:'troubleshoot',pos:'v',vi:'khắc phục sự cố',ex:'Call IT support to troubleshoot the issue.',cat:'Technology'},
+
+  // ── MARKETING ──
+  {en:'campaign',pos:'n',vi:'chiến dịch (marketing)',ex:'The advertising campaign was very successful.',cat:'Marketing'},
+  {en:'promotion',pos:'n',vi:'khuyến mãi',ex:'We are running a summer promotion this month.',cat:'Marketing'},
+  {en:'launch',pos:'v',vi:'ra mắt',ex:'The new product will be launched in October.',cat:'Marketing'},
+  {en:'target',pos:'n',vi:'mục tiêu',ex:'Our target market is young professionals.',cat:'Marketing'},
+  {en:'brand',pos:'n',vi:'thương hiệu',ex:'Brand awareness has increased by 40%.',cat:'Marketing'},
+  {en:'competitor',pos:'n',vi:'đối thủ cạnh tranh',ex:'We need to monitor what our competitors are doing.',cat:'Marketing'},
+  {en:'market share',pos:'ph',vi:'thị phần',ex:'We aim to increase our market share in Asia.',cat:'Marketing'},
+  {en:'survey',pos:'n',vi:'khảo sát',ex:'A survey was conducted among 500 customers.',cat:'Marketing'},
+  {en:'demographic',pos:'n',vi:'nhân khẩu học',ex:'The product targets the 25–35 age demographic.',cat:'Marketing'},
+  {en:'endorse',pos:'v',vi:'bảo chứng / ủng hộ',ex:'A celebrity endorsed the new product.',cat:'Marketing'},
+  {en:'strategy',pos:'n',vi:'chiến lược',ex:'We need a new marketing strategy for Q4.',cat:'Marketing'},
+  {en:'revenue growth',pos:'ph',vi:'tăng trưởng doanh thu',ex:'Revenue growth slowed in the second quarter.',cat:'Marketing'},
+
+  // ── LEGAL ──
+  {en:'contract',pos:'n',vi:'hợp đồng',ex:'Please sign and return the contract by Friday.',cat:'Legal'},
+  {en:'clause',pos:'n',vi:'điều khoản',ex:'Read the termination clause carefully.',cat:'Legal'},
+  {en:'liability',pos:'n',vi:'trách nhiệm pháp lý',ex:'The company accepts no liability for damages.',cat:'Legal'},
+  {en:'agreement',pos:'n',vi:'thỏa thuận',ex:'Both parties signed the agreement.',cat:'Legal'},
+  {en:'regulation',pos:'n',vi:'quy định',ex:'All products must comply with safety regulations.',cat:'Legal'},
+  {en:'violation',pos:'n',vi:'vi phạm',ex:'Any violation will result in termination.',cat:'Legal'},
+  {en:'confidential',pos:'adj',vi:'bảo mật / mật',ex:'This document is confidential.',cat:'Legal'},
+  {en:'patent',pos:'n',vi:'bằng sáng chế',ex:'The invention is protected by a patent.',cat:'Legal'},
+  {en:'intellectual property',pos:'ph',vi:'sở hữu trí tuệ',ex:'Protect your intellectual property rights.',cat:'Legal'},
+  {en:'dispute',pos:'n',vi:'tranh chấp',ex:'The dispute was resolved through arbitration.',cat:'Legal'},
+  {en:'penalty',pos:'n',vi:'hình phạt / tiền phạt',ex:'Late payments are subject to a 5% penalty.',cat:'Legal'},
+  {en:'obligate',pos:'v',vi:'buộc phải / có nghĩa vụ',ex:'You are obligated to provide 30-day notice.',cat:'Legal'},
+];
+
+// Status stored in localStorage
+const STATUS_KEY = 'toeic_vocab_status';
+let statusMap = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}');
+
+let currentFilter = 'all';
+
+function saveStatus() {
+  localStorage.setItem(STATUS_KEY, JSON.stringify(statusMap));
+  updateStats();
+}
+
+function cycleStatus(word) {
+  const cur = statusMap[word] || 'new';
+  statusMap[word] = cur === 'new' ? 'learning' : cur === 'learning' ? 'mastered' : 'new';
+  saveStatus();
+  renderTable();
+}
+
+function setFilter(f, el) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderTable();
+}
+
+function renderTable() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const tbody = document.getElementById('vocab-table');
+  const noRes = document.getElementById('no-results');
+
+  let filtered = vocab.filter(v => {
+    const matchSearch = !search || v.en.toLowerCase().includes(search) || v.vi.toLowerCase().includes(search) || v.ex.toLowerCase().includes(search);
+    const st = statusMap[v.en] || 'new';
+    const matchFilter = currentFilter === 'all' || currentFilter === v.cat ||
+      currentFilter === 'learning' && st === 'learning' ||
+      currentFilter === 'mastered' && st === 'mastered';
+    return matchSearch && matchFilter;
+  });
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    noRes.style.display = 'block';
+    return;
+  }
+  noRes.style.display = 'none';
+
+  const posClass = {n:'pos-n',v:'pos-v',adj:'pos-adj',adv:'pos-adv',phrase:'pos-ph'};
+  const posLabel = {n:'noun',v:'verb',adj:'adj',adv:'adv',phrase:'phrase'};
+  const catColors = {Finance:'#0c4a6e',Office:'#1e1040',HR:'#052e16',Logistics:'#3b1d00','Customer Service':'#1a0a2e',Technology:'#0a2e1a',Marketing:'#2e1a0a',Legal:'#1a2e0a'};
+
+  tbody.innerHTML = filtered.map(v => {
+    const st = statusMap[v.en] || 'new';
+    const statusLabel = st === 'mastered' ? '✅ Mastered' : st === 'learning' ? '🟡 Learning' : '🔵 New';
+    return `<tr class="${st === 'mastered' ? 'mastered' : ''}">
+      <td><span class="word-en">${v.en}</span><span class="word-pos ${posClass[v.pos] || 'pos-ph'}">${posLabel[v.pos]||v.pos}</span></td>
+      <td class="word-vi">${v.vi}<div class="word-ex">${v.ex}</div></td>
+      <td><span class="cat-badge" style="background:${catColors[v.cat]||'#1e293b'};color:#94a3b8">${v.cat}</span></td>
+      <td><button class="status-btn ${st}" onclick="cycleStatus('${v.en}')">${statusLabel}</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function updateStats() {
+  const total = vocab.length;
+  let learning = 0, mastered = 0;
+  vocab.forEach(v => {
+    const s = statusMap[v.en] || 'new';
+    if (s === 'learning') learning++;
+    else if (s === 'mastered') mastered++;
+  });
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-new').textContent = total - learning - mastered;
+  document.getElementById('stat-learning').textContent = learning;
+  document.getElementById('stat-mastered').textContent = mastered;
+}
+
+renderTable();
+updateStats();
+</script>
+</body>
+</html>
