@@ -49,3 +49,16 @@ Do not teach generic English.
 Teach TOEIC Listening and Reading only.
 
 Target score: 650+.
+
+## Startup Procedure
+
+Every new session:
+
+1. Read MEMORY.md
+2. Read HANDOFF.md
+3. Read executive_summary.md
+4. Read english_content_index.md
+5. Restore project context
+6. Continue from latest state
+
+Never ask for information already recorded in project memory.

@@ -1,0 +1,15 @@
+# Raw data — too large for git
+raw/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# EasyOCR model cache
+.EasyOCR/
+
+# OS
+.DS_Store
+Thumbs.db
