@@ -1,5 +1,5 @@
 # English Content Index
-**Last updated:** 2026-06-24
+**Last updated:** 2026-06-26
 
 Chỉ mục toàn bộ nội dung trong `English/`
 
@@ -60,6 +60,21 @@ Chỉ mục toàn bộ nội dung trong `English/`
 
 ---
 
+## Question Bank (nằm ở `question_bank/`, không phải `English/`)
+
+| File | Records | Trạng thái | Web |
+|------|---------|------------|-----|
+| `part1.json` | 60 | ✅ QA | ✅ Full Tests |
+| `part2.json` | 250 | ✅ QA | ✅ Full Tests |
+| `part3.json` | 390 | ✅ QA | ✅ Full Tests + Speed Mode |
+| `part4.json` | 300 | ✅ QA | ✅ Full Tests + Speed Mode |
+| `part5.json` | 299 | ✅ QA · manually verified | ✅ Full Tests + Study |
+| `part6.json` | 160 | ✅ QA | ✅ Full Tests + Study (passage UI) |
+| `part7.json` | 540 | ✅ QA 100% | ✅ Full Tests + Study (passage UI) |
+| `passages.json` | 145 | ✅ QA (40 P6 + 105 P7) | ✅ Served cùng P6/P7 |
+| `part5_mock.json` | 19 | ✅ với explanation đầy đủ | ✅ SRS Drill |
+| `vocab.json` | 152 từ | ✅ 8 categories | ✅ Flashcards |
+
 ## Thư mục trống (chưa có nội dung)
 
 - `WEEKLY_BOSS/` — cần `week1_boss.html` vào **2026-06-28**
@@ -67,8 +82,8 @@ Chỉ mục toàn bộ nội dung trong `English/`
 - `PART2/` — chưa có
 - `PART3/` — chưa có
 - `PART4/` — chưa có
-- `PART6/` — chưa có
-- `PART7/` — chưa có
+- `PART6/` — chưa có (lesson files; data đã có trong question_bank/)
+- `PART7/` — chưa có (lesson files; data đã có trong question_bank/)
 
 ---
 

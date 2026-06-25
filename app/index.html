@@ -341,6 +341,13 @@ nav .logo{font-size:1rem;font-weight:800;color:var(--purple);margin-right:auto;l
 .achieve-chip .ach-name{font-size:.72rem;font-weight:600;margin-bottom:2px}
 .achieve-chip .ach-desc{font-size:.68rem;color:var(--muted);line-height:1.3}
 .achieve-chip.locked .ach-icon{filter:grayscale(1);opacity:.4}
+
+/* ── PASSAGE BOX (Part 6 / Part 7) ── */
+.passage-box{background:#0d1525;border:1px solid var(--border);border-radius:10px;padding:12px 14px;max-height:220px;overflow-y:auto;font-size:.82rem;line-height:1.75;color:var(--text);margin-bottom:14px;white-space:pre-wrap;word-break:break-word}
+.passage-box::-webkit-scrollbar{width:4px}
+.passage-box::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.p6-blank{display:inline-block;background:#161d30;border:1px dashed #4a4080;border-radius:4px;padding:0 8px;color:var(--muted);font-size:.8rem;min-width:50px;text-align:center}
+.p6-blank.active{background:#1a1650;border-color:var(--purple);color:var(--purple);font-weight:700}
 </style>
 </head>
 <body>
@@ -483,6 +490,8 @@ nav .logo{font-size:1rem;font-weight:800;color:var(--purple);margin-right:auto;l
             <button class="sf-btn" onclick="setSF('part',3)">P3</button>
             <button class="sf-btn" onclick="setSF('part',4)">P4</button>
             <button class="sf-btn" onclick="setSF('part',5)">P5</button>
+            <button class="sf-btn" onclick="setSF('part',6)">P6</button>
+            <button class="sf-btn" onclick="setSF('part',7)">P7</button>
           </div>
         </div>
         <div class="sf-group">
@@ -695,7 +704,7 @@ function setFCCat(cat) {
 const P = {
   test:1, part:1, questions:[], groups:[], curIdx:0,
   answers:{}, audioPlayed:new Set(), reviewing:false, results:null,
-  speedMode:false, timer:null, timeLeft:0
+  speedMode:false, timer:null, timeLeft:0, passages:{}
 };
 
 const PART_INFO = {
@@ -703,9 +712,9 @@ const PART_INFO = {
   2:{label:'Part 2',total:250, desc:'Q & Response',     hasData:true},
   3:{label:'Part 3',total:390, desc:'Conversations',    hasData:true, speed:true},
   4:{label:'Part 4',total:300, desc:'Short Talks',      hasData:true, speed:true},
-  5:{label:'Part 5',total:300, desc:'Incomplete Sent.', hasData:'mock'},
-  6:{label:'Part 6',total:160, desc:'Text Completion',  hasData:false},
-  7:{label:'Part 7',total:540, desc:'Reading Comp.',    hasData:false},
+  5:{label:'Part 5',total:300, desc:'Incomplete Sent.', hasData:true},
+  6:{label:'Part 6',total:160, desc:'Text Completion',  hasData:true},
+  7:{label:'Part 7',total:540, desc:'Reading Comp.',    hasData:true},
 };
 
 // SRS question pool (populated from loaded part5 data)
@@ -1117,10 +1126,11 @@ async function startPractice(testNum, partNum, speedMode = false, examMode = tru
   document.getElementById('p-area').innerHTML = '<div class="loading"><div class="spinner"></div>Loading…</div>';
 
   try {
-    const url = PART_INFO[partNum].hasData === 'mock'
-      ? '../question_bank/part5_mock.json'
-      : `../question_bank/part${partNum}.json`;
-    const all = await (await fetch(url)).json();
+    const fetches = [fetch(`../question_bank/part${partNum}.json`).then(r=>r.json())];
+    if ([6,7].includes(partNum)) fetches.push(fetch('../question_bank/passages.json').then(r=>r.json()));
+    const [all, passagesArr] = await Promise.all(fetches);
+    P.passages = {};
+    if (passagesArr) passagesArr.filter(p=>p.test===testNum&&p.part===partNum).forEach(p=>{P.passages[p.id]=p;});
     P.questions = all.filter(q => q.test === testNum);
     if (partNum === 3) P.groups = buildGroups(P.questions, 'conversation_id');
     if (partNum === 4) P.groups = buildGroups(P.questions, 'talk_id');
@@ -1172,6 +1182,8 @@ function renderQuestion() {
   else if (P.part === 1) area.innerHTML = renderP1(q);
   else if (P.part === 2) area.innerHTML = renderP2(q);
   else if (P.part === 5) area.innerHTML = renderP5(q);
+  else if (P.part === 6) area.innerHTML = renderP6(q);
+  else if (P.part === 7) area.innerHTML = renderP7(q);
   else area.innerHTML = `<div class="q-card"><p style="color:var(--muted)">Part ${P.part} coming soon.</p></div>`;
 
   bindAudio();
@@ -1332,6 +1344,63 @@ function renderP5(q) {
   const rv = P.reviewing ? `<div class="review-note">Correct: <strong>${q.answer||'?'}</strong></div>` : '';
   return `<div class="q-card">${rv}
     <div class="q-num">Q${q.question}</div>
+    <div class="q-stem">${q.stem||''}</div>
+    <div class="opts">
+      ${Object.entries(q.options||{}).map(([k,v]) => {
+        let cls='opt';
+        if(P.reviewing){if(k===q.answer)cls+=' correct';else if(k===chosen)cls+=' wrong';}
+        else if(k===chosen)cls+=' sel';
+        return `<button class="${cls}" data-key="${k}" onclick="selectAns('${k}')"><span class="k">${k}</span><span>${v}</span></button>`;
+      }).join('')}
+    </div></div>`;
+}
+
+function buildPassageHtml(text, blankIdx) {
+  let bNum = 0;
+  return text
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/(?:\\_)+|-{5,}|[^\x00-\x7f]{4,}/g, () => {
+      const i = bNum++;
+      const cls = (blankIdx !== undefined && i === blankIdx) ? 'p6-blank active' : 'p6-blank';
+      return `<span class="${cls}">___(${i+1})___</span>`;
+    });
+}
+
+function renderP6(q) {
+  const chosen = P.answers[q.id];
+  const rv = P.reviewing ? `<div class="review-note">Correct: <strong>${q.answer||'?'}</strong></div>` : '';
+  const psg = P.passages[q.passage_id];
+  let passageHtml = '';
+  if (psg?.text) {
+    const bi = q.question - (psg.question_range?.[0] ?? q.question);
+    passageHtml = `<div class="passage-box selectable-text">${buildPassageHtml(psg.text, bi)}</div>`;
+  }
+  return `<div class="q-card">${rv}
+    <div class="q-num">Q${q.question}</div>
+    ${passageHtml}
+    ${q.stem ? `<div class="q-stem">${q.stem}</div>` : ''}
+    <div class="opts">
+      ${Object.entries(q.options||{}).map(([k,v]) => {
+        let cls='opt';
+        if(P.reviewing){if(k===q.answer)cls+=' correct';else if(k===chosen)cls+=' wrong';}
+        else if(k===chosen)cls+=' sel';
+        return `<button class="${cls}" data-key="${k}" onclick="selectAns('${k}')"><span class="k">${k}</span><span>${v}</span></button>`;
+      }).join('')}
+    </div></div>`;
+}
+
+function renderP7(q) {
+  const chosen = P.answers[q.id];
+  const rv = P.reviewing ? `<div class="review-note">Correct: <strong>${q.answer||'?'}</strong></div>` : '';
+  const psg = P.passages[q.passage_id];
+  let passageHtml = '';
+  if (psg?.text) {
+    const esc = psg.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    passageHtml = `<div class="passage-box selectable-text">${esc}</div>`;
+  }
+  return `<div class="q-card">${rv}
+    <div class="q-num">Q${q.question}</div>
+    ${passageHtml}
     <div class="q-stem">${q.stem||''}</div>
     <div class="opts">
       ${Object.entries(q.options||{}).map(([k,v]) => {
@@ -1923,7 +1992,7 @@ function initWordLookup() {
 // STUDY MODE
 // ═══════════════════════════════════════════════════════════════════════════
 const SF = { part: 0, test: 0, tag: '', page: 0 };
-const STUDY = { questions: [], answers: {}, revealed: new Set() };
+const STUDY = { questions: [], answers: {}, revealed: new Set(), passages: {} };
 const PAGE_SIZE = 10;
 
 function setSF(key, val) {
@@ -1938,15 +2007,19 @@ function setSF(key, val) {
 }
 
 async function initStudy() {
-  // Load all available question pools
   if (STUDY.questions.length === 0) {
-    let qs = [];
-    try {
-      const p5 = await fetch('../question_bank/part5_mock.json').then(r=>r.json());
-      qs = qs.concat(p5.map(q => ({...q, part:5})));
-    } catch(e){}
-    // Could add part1-4 questions here if desired
-    STUDY.questions = qs;
+    const [p5, p6, p7, passages] = await Promise.all([
+      fetch('../question_bank/part5.json').then(r=>r.json()).catch(()=>[]),
+      fetch('../question_bank/part6.json').then(r=>r.json()).catch(()=>[]),
+      fetch('../question_bank/part7.json').then(r=>r.json()).catch(()=>[]),
+      fetch('../question_bank/passages.json').then(r=>r.json()).catch(()=>[]),
+    ]);
+    STUDY.questions = [
+      ...p5.map(q=>({...q,part:5})),
+      ...p6.map(q=>({...q,part:6})),
+      ...p7.map(q=>({...q,part:7})),
+    ];
+    passages.forEach(p => { STUDY.passages[p.id] = p; });
   }
   renderStudy();
 }
@@ -2025,6 +2098,18 @@ function renderStudy() {
     const explainBtn = showExplain && (answered || revealed) && !q.explanation
       ? '' : '';
 
+    let studyPassageHtml = '';
+    if ([6,7].includes(q.part) && q.passage_id && STUDY.passages[q.passage_id]) {
+      const psg = STUDY.passages[q.passage_id];
+      if (q.part === 6 && psg.text) {
+        const bi = q.question - (psg.question_range?.[0] ?? q.question);
+        studyPassageHtml = `<div class="passage-box">${buildPassageHtml(psg.text, bi)}</div>`;
+      } else if (psg.text) {
+        const esc = psg.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        studyPassageHtml = `<div class="passage-box">${esc}</div>`;
+      }
+    }
+
     return `<div class="sq-card" id="sqc-${q.id}">
       <div class="sq-meta">
         <span>Q${q.question || gi+1}</span>
@@ -2032,7 +2117,8 @@ function renderStudy() {
         ${tagBadges}
         ${answered ? (isCorrect ? '<span style="color:var(--green)">✓ Correct</span>' : '<span style="color:var(--red)">✗ Wrong</span>') : ''}
       </div>
-      <div class="sq-stem selectable-text">${q.stem}</div>
+      ${studyPassageHtml}
+      ${q.stem ? `<div class="sq-stem selectable-text">${q.stem}</div>` : ''}
       ${hintHTML}
       <div class="sq-opts">${opts}</div>
       <div class="sq-actions">${revealBtn}</div>

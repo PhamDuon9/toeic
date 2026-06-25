@@ -16,10 +16,10 @@
 | Mục tiêu | TOEIC 650+ trước 2026-09-15 |
 | Học | 60–90 phút/ngày |
 
-## Trạng thái hiện tại — 2026-06-25 (Day 3)
+## Trạng thái hiện tại — 2026-06-26 (Day 4)
 
 ```
-Day:     3 / 84
+Day:     4 / 84
 Level:   2 (TOEIC Rookie)
 XP:      135 tổng (35 vào Lv 2)
 Streak:  3 ngày
@@ -28,7 +28,7 @@ Score:   ~250–400 (chưa đổi)
 
 ---
 
-## Hệ thống đã build — 2026-06-25 (MAJOR)
+## Hệ thống đã build — 2026-06-26 (MAJOR UPDATE)
 
 ### Web App: `app/index.html` + `serve.py`
 Đây là hệ thống chính, chạy tại `http://localhost:8000/app/`
@@ -41,7 +41,7 @@ Score:   ~250–400 (chưa đổi)
 | Full Tests | **Exam Mode** 🎯 — không hint/explain/word-lookup · Part 1–4 audio · Speed Mode ⚡ Part 3/4 |
 | Analysis | Mistake patterns · tag/part breakdown · action plan |
 | Daily Quests | 12-week plan view · quest cards · link mở lesson HTML · Achievements grid |
-| **Study** (mới) | Ôn tập per-part · filter Part/Test/Tag · toggle Hint/Explanation/Auto-reveal · Show Answer button · Word Lookup bật |
+| **Study** (mới) | Ôn tập per-part · filter Part/Test/Tag (P1–P7) · toggle Hint/Explanation/Auto-reveal · Show Answer button · Word Lookup bật · Passage box cho P6/P7 |
 
 ### Exam Mode vs Study Mode
 | | Full Tests (Exam) | Study |
@@ -67,11 +67,15 @@ question_bank/
 ├── part4.json       ← 300 records ✅ audio paths fixed
 ├── part5_mock.json  ← 19 records ✅ với explanation đầy đủ
 ├── vocab.json       ← 152 từ · 8 categories ✅
-├── part5.json       ← chờ READING OCR
-├── part6.json       ← chờ READING OCR
-├── part7.json       ← chờ READING OCR
+├── part5.json       ← 299 records ✅ QA passed · LIVE trong web
+├── part6.json       ← 160 records ✅ parsed · LIVE trong web
+├── part7.json       ← 540/540 records ✅ QA passed · LIVE trong web
+├── passages.json    ← 145 passages ✅ (40 P6 + 105 P7) · QA clean
 └── answer_keys.json ← chờ TRANSCRIPT OCR
 ```
+
+**passages.json:** Part 6 = 4 passages/test × 10 tests. Part 7 = 6–14 passages/test.
+**Part 6 blank format:** văn bản dùng `\_\_\_\_` (escaped underscores) hoặc `-----` (dashes) cho blanks. Web dùng JS regex `/(?:\\_)+|-{5,}|[^\x00-\x7f]{4,}/g` để detect + number.
 
 Audio path format: `raw/Audio/LISTENING/Cau_le/Test_XX/Test_XX-NN.mp3`
 
@@ -91,13 +95,13 @@ Audio path format: `raw/Audio/LISTENING/Cau_le/Test_XX/Test_XX-NN.mp3`
 
 ---
 
-## OCR Status (2026-06-25)
+## OCR Status (2026-06-26)
 
 | PDF | Status | Ghi chú |
 |-----|--------|---------|
 | ETS 2026 LISTENING.pdf | **DONE ✅** | part1–4.json + 60 images |
-| ETS 2026 TRANSCRIPT.pdf | **ĐANG CHẠY** ⏳ | Process marker_single PID 32064 · start 11:01 sáng |
-| ETS 2026 READING.pdf | **ĐANG CHẠY trên máy khác** ⏳ | Khi xong copy về |
+| ETS 2026 TRANSCRIPT.pdf | **ĐANG CHẠY** ⏳ | Chờ extracted/TRANSCRIPT/ |
+| ETS 2026 READING.pdf | **DONE ✅** | part5 (299) + part6 (160) + part7 (540/540) + passages (145) — ALL QA passed ✅ 100% · LIVE trong web |
 
 **Khi TRANSCRIPT xong** → folder `extracted/TRANSCRIPT/` có file `.md` → chạy:
 ```powershell
@@ -146,21 +150,27 @@ d:\duongpt\TOEIC\
 
 ## Việc cần làm — theo thứ tự ưu tiên
 
-### Ngay (Day 3 — 2026-06-25)
-- [ ] Tạo `day3.html` — Passive Voice + Logistics Vocab
+### Ngay (Day 4 — 2026-06-26)
+- [ ] Tạo `day3.html` — Passive Voice + Logistics Vocab (quá hạn 1 ngày)
 - [ ] Learner làm `day2_grammar_lab.html` nếu chưa xong
+- [ ] `WEEKLY_BOSS/week1_boss.html` trước 2026-06-28 (2 ngày còn lại)
 
 ### Ngắn hạn
-- [ ] TRANSCRIPT xong → parse → inject answers vào part1–4.json
-- [ ] READING về → parse → part5/6/7.json
-- [ ] Viết tag-based explanation templates cho Part 5 (không cần API)
-- [ ] `WEEKLY_BOSS/week1_boss.html` trước 2026-06-28
+- [ ] TRANSCRIPT xong → parse → inject answers vào part1–4.json + part5/6/7.json
+- [ ] Inject answers → Part 5/6/7 review mode sẽ hiện đúng/sai thực sự
+- [ ] "My Words" screen — hiện danh sách từ đã save từ Word Lookup
+- [ ] Transcript viewer cho Part 3/4 (sau khi inject answers)
+
+### ✅ ĐÃ XONG (2026-06-26)
+- [x] Part 7 QA: 523→540 records (recover 17 câu missing)
+- [x] passages.json QA: 145 passages, 0 issues
+- [x] Web app: Part 5 real data + Part 6 text completion UI + Part 7 reading UI LIVE
+- [x] Study screen: filter P1–P7, passage box cho P6/P7
 
 ### Trung hạn (app improvements)
-- [ ] "My Words" screen — hiện danh sách từ đã save từ Word Lookup
-- [ ] Part 5/6/7 từ ETS thực (sau khi có OCR data)
-- [ ] Transcript viewer cho Part 3/4 (sau khi inject answers)
+- [ ] Explanation templates cho Part 5 (tag-based)
 - [ ] Export mistakes → PDF/CSV để ôn offline
+- [ ] Progress chart theo ngày (sparkline trong dashboard)
 
 ---
 

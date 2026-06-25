@@ -1,0 +1,4786 @@
+[
+  {
+    "id": "p5-t01-q101",
+    "part": 5,
+    "test": 1,
+    "question": 101,
+    "stem": "The lecture will take place at 6:00 P.M., _______ which attendees may ask questions.",
+    "options": {
+      "A": "across",
+      "B": "after",
+      "C": "inside",
+      "D": "among"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q102",
+    "part": 5,
+    "test": 1,
+    "question": 102,
+    "stem": "The _______ antique shop in Pepper Valley will close down next month.",
+    "options": {
+      "A": "last",
+      "B": "lasts",
+      "C": "lasted",
+      "D": "lasting"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q103",
+    "part": 5,
+    "test": 1,
+    "question": 103,
+    "stem": "Merryville residents will receive an online status _______ about the ongoing bridge construction project.",
+    "options": {
+      "A": "update",
+      "B": "change",
+      "C": "payment",
+      "D": "request"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q104",
+    "part": 5,
+    "test": 1,
+    "question": 104,
+    "stem": "As a result of _______ many years leading media organizations, Ms. Ayo was selected for the Dowel Journalism Prize.",
+    "options": {
+      "A": "she",
+      "B": "her",
+      "C": "hers",
+      "D": "herself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q105",
+    "part": 5,
+    "test": 1,
+    "question": 105,
+    "stem": "To stop the _______ of computer viruses, do not open suspicious e-mails.",
+    "options": {
+      "A": "break",
+      "B": "spread",
+      "C": "balance",
+      "D": "surface"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q106",
+    "part": 5,
+    "test": 1,
+    "question": 106,
+    "stem": "The hiring manager _______ considered each applicant's résumé and qualifications.",
+    "options": {
+      "A": "caring",
+      "B": "careful",
+      "C": "carefully",
+      "D": "carefulness"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q107",
+    "part": 5,
+    "test": 1,
+    "question": 107,
+    "stem": "In October, Mr. Sakamoto will leave for New Zealand _______ will oversee the opening of the new Auckland branch.",
+    "options": {
+      "A": "because",
+      "B": "in addition",
+      "C": "and",
+      "D": "prior to"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q108",
+    "part": 5,
+    "test": 1,
+    "question": 108,
+    "stem": "Tarateer Pharmaceuticals is varying its product _______ to include over-the-counter medications.",
+    "options": {
+      "A": "to line",
+      "B": "lining",
+      "C": "lined",
+      "D": "line"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q109",
+    "part": 5,
+    "test": 1,
+    "question": 109,
+    "stem": "Dynart, Inc., continuously _______ new ways to reduce its use of plastics.",
+    "options": {
+      "A": "seeks",
+      "B": "seeker",
+      "C": "to seek",
+      "D": "seeking"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q110",
+    "part": 5,
+    "test": 1,
+    "question": 110,
+    "stem": "The cash registers at Pirkle Books automatically _______ the remaining inventory of books available.",
+    "options": {
+      "A": "calculate",
+      "B": "calculator",
+      "C": "calculating",
+      "D": "calculation"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q111",
+    "part": 5,
+    "test": 1,
+    "question": 111,
+    "stem": "The product team is designing mapping software that can _______ locate underground minerals.",
+    "options": {
+      "A": "infinitely",
+      "B": "sincerely",
+      "C": "precisely",
+      "D": "greatly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q112",
+    "part": 5,
+    "test": 1,
+    "question": 112,
+    "stem": "According to CEO Mayu Yamada, it would not be _______ responsible to expand the warehouse at this time.",
+    "options": {
+      "A": "finance",
+      "B": "financials",
+      "C": "financially",
+      "D": "financing"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q113",
+    "part": 5,
+    "test": 1,
+    "question": 113,
+    "stem": "Analysts cannot say with any _______ what the regional demand for electric trucks will be.",
+    "options": {
+      "A": "certainty",
+      "B": "justice",
+      "C": "excellence",
+      "D": "denial"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q114",
+    "part": 5,
+    "test": 1,
+    "question": 114,
+    "stem": "As part of its marketing campaign, Elegancia Dishware is _______ soliciting feedback from customers.",
+    "options": {
+      "A": "lightly",
+      "B": "loyally",
+      "C": "actively",
+      "D": "cleanly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q115",
+    "part": 5,
+    "test": 1,
+    "question": 115,
+    "stem": "Rain gardens are intended to _______ water to prevent flooding of local roads.",
+    "options": {
+      "A": "engage",
+      "B": "undergo",
+      "C": "absorb",
+      "D": "overwhelm"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q116",
+    "part": 5,
+    "test": 1,
+    "question": 116,
+    "stem": "Theta Industries' training program aims to increase the _______ of its manufacturing systems.",
+    "options": {
+      "A": "producer",
+      "B": "produced",
+      "C": "productive",
+      "D": "productivity"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q117",
+    "part": 5,
+    "test": 1,
+    "question": 117,
+    "stem": "The board of directors has voted to award Mr. Mitrakos a bonus for his role _______ obtaining the international contract.",
+    "options": {
+      "A": "in",
+      "B": "at",
+      "C": "except",
+      "D": "apart"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q118",
+    "part": 5,
+    "test": 1,
+    "question": 118,
+    "stem": "The finance director gave his approval _______ the project can move forward.",
+    "options": {
+      "A": "along",
+      "B": "furthermore",
+      "C": "cautiously",
+      "D": "so that"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q119",
+    "part": 5,
+    "test": 1,
+    "question": 119,
+    "stem": "The newspaper article describes ways job seekers can _______ for having little workplace experience.",
+    "options": {
+      "A": "reply",
+      "B": "capture",
+      "C": "compensate",
+      "D": "accumulate"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q120",
+    "part": 5,
+    "test": 1,
+    "question": 120,
+    "stem": "Mr. Ellis and Ms. Barnes were both highly qualified, but _______ got the job.",
+    "options": {
+      "A": "myself",
+      "B": "neither",
+      "C": "anybody",
+      "D": "whoever"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q121",
+    "part": 5,
+    "test": 1,
+    "question": 121,
+    "stem": "Ennis Photography purchased all new lighting equipment _______ the high cost.",
+    "options": {
+      "A": "even though",
+      "B": "however",
+      "C": "until",
+      "D": "despite"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q122",
+    "part": 5,
+    "test": 1,
+    "question": 122,
+    "stem": "Marburton residents who wish to _______ a home should contact the award-winning team at Kwan Real Estate.",
+    "options": {
+      "A": "seller",
+      "B": "sold",
+      "C": "sell",
+      "D": "selling"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q123",
+    "part": 5,
+    "test": 1,
+    "question": 123,
+    "stem": "Maswa Bistro began a _______ agreement with local farmers to purchase a set amount of produce each week.",
+    "options": {
+      "A": "disruptive",
+      "B": "cooperative",
+      "C": "grateful",
+      "D": "concerned"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q124",
+    "part": 5,
+    "test": 1,
+    "question": 124,
+    "stem": "The City of Doyle's new downtown parking _______ have been met with opposition by residents and visitors.",
+    "options": {
+      "A": "restricts",
+      "B": "restricted",
+      "C": "restrictions",
+      "D": "restricting"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q125",
+    "part": 5,
+    "test": 1,
+    "question": 125,
+    "stem": "The plumbing position requires extensive training, even for those who studied _______in technical school.",
+    "options": {
+      "A": "diligently",
+      "B": "scientifically",
+      "C": "objectively",
+      "D": "decidedly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q126",
+    "part": 5,
+    "test": 1,
+    "question": 126,
+    "stem": "With its fixed price _______, Omega Cellular guarantees no phone bill increases for three years.",
+    "options": {
+      "A": "assurance",
+      "B": "assuredly",
+      "C": "assuring",
+      "D": "assures"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q127",
+    "part": 5,
+    "test": 1,
+    "question": 127,
+    "stem": "As chief analytics officer, Mr. Ko has worked at Lochston Ltd. with great _______ for more than twenty years.",
+    "options": {
+      "A": "deduction",
+      "B": "duplication",
+      "C": "declaration",
+      "D": "dedication"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q128",
+    "part": 5,
+    "test": 1,
+    "question": 128,
+    "stem": "Milltown Hospital's cafeteria serves lunch seven days a week _______ only on weekdays.",
+    "options": {
+      "A": "up to",
+      "B": "as though",
+      "C": "each time",
+      "D": "rather than"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q129",
+    "part": 5,
+    "test": 1,
+    "question": 129,
+    "stem": "The store's entire inventory of lumber comes from a nearby _______ supplier.",
+    "options": {
+      "A": "financial",
+      "B": "promotional",
+      "C": "chemical",
+      "D": "commercial"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t01-q130",
+    "part": 5,
+    "test": 1,
+    "question": 130,
+    "stem": "For a \\$95 _______ fee, our mechanics will determine what repairs are needed.",
+    "options": {
+      "A": "diagnosed",
+      "B": "diagnostic",
+      "C": "diagnosable",
+      "D": "diagnose"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q101",
+    "part": 5,
+    "test": 2,
+    "question": 101,
+    "stem": "The all-new Amore sports sedan is engineered for maximum reliability _______ gas mileage.",
+    "options": {
+      "A": "so",
+      "B": "but",
+      "C": "and",
+      "D": "nor"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q102",
+    "part": 5,
+    "test": 2,
+    "question": 102,
+    "stem": "The staff was grateful for the _______ that Mr. Schuller distributed at the meeting.",
+    "options": {
+      "A": "information",
+      "B": "informed",
+      "C": "informs",
+      "D": "inform"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q103",
+    "part": 5,
+    "test": 2,
+    "question": 103,
+    "stem": "The next meeting of the planning committee will be held _______ at 2 P.M.",
+    "options": {
+      "A": "barely",
+      "B": "closely",
+      "C": "evenly",
+      "D": "promptly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q104",
+    "part": 5,
+    "test": 2,
+    "question": 104,
+    "stem": "Reimbursement for travel expenses will be included in _______ October 1 paycheck.",
+    "options": {
+      "A": "you",
+      "B": "your",
+      "C": "yours",
+      "D": "yourself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q105",
+    "part": 5,
+    "test": 2,
+    "question": 105,
+    "stem": "The _______ design engineer on the drone camera project is Iseul Bae.",
+    "options": {
+      "A": "lead",
+      "B": "each",
+      "C": "front",
+      "D": "most"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q106",
+    "part": 5,
+    "test": 2,
+    "question": 106,
+    "stem": "After reading several reviews, Mr. Kim was able to decide which printer _______ for the office.",
+    "options": {
+      "A": "buying",
+      "B": "had bought",
+      "C": "buy",
+      "D": "to buy"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q107",
+    "part": 5,
+    "test": 2,
+    "question": 107,
+    "stem": "Please remove the boxes left in the staff lounge _______ 5 P.M.",
+    "options": {
+      "A": "of",
+      "B": "to",
+      "C": "as",
+      "D": "by"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q108",
+    "part": 5,
+    "test": 2,
+    "question": 108,
+    "stem": "The Southport _______ plant is expected to begin production in three days.",
+    "options": {
+      "A": "manufacture",
+      "B": "manufactured",
+      "C": "manufacturing",
+      "D": "manufactures"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q109",
+    "part": 5,
+    "test": 2,
+    "question": 109,
+    "stem": "After accepting a job offer, a candidate must _______ all onboarding tasks before the start date.",
+    "options": {
+      "A": "complete",
+      "B": "proceed",
+      "C": "recover",
+      "D": "enlist"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q110",
+    "part": 5,
+    "test": 2,
+    "question": 110,
+    "stem": "Although _______ training has just begun, Ms. Yu has already mastered the company's proprietary accounting software.",
+    "options": {
+      "A": "her",
+      "B": "she",
+      "C": "hers",
+      "D": "herself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q111",
+    "part": 5,
+    "test": 2,
+    "question": 111,
+    "stem": "Ms. Clayton was _______ to find that none of her files had been lost during the power failure.",
+    "options": {
+      "A": "easy",
+      "B": "delightful",
+      "C": "relieved",
+      "D": "absolute"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q112",
+    "part": 5,
+    "test": 2,
+    "question": 112,
+    "stem": "During Mr. Nagahori's tenure as CEO at Unten Properties, the company has grown _______",
+    "options": {
+      "A": "signify",
+      "B": "significance",
+      "C": "significant",
+      "D": "significantly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q113",
+    "part": 5,
+    "test": 2,
+    "question": 113,
+    "stem": "Safety must always be the top _______ in each step of the glassblowing process.",
+    "options": {
+      "A": "surface",
+      "B": "material",
+      "C": "priority",
+      "D": "position"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q114",
+    "part": 5,
+    "test": 2,
+    "question": 114,
+    "stem": "Central Science Museum hosts online seminars by experts who _______ topics related to information technology.",
+    "options": {
+      "A": "are covered",
+      "B": "covering",
+      "C": "to cover",
+      "D": "cover"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q115",
+    "part": 5,
+    "test": 2,
+    "question": 115,
+    "stem": "Conradia Computers _______ changed the direction of its marketing strategy last week.",
+    "options": {
+      "A": "thickly",
+      "B": "abruptly",
+      "C": "formerly",
+      "D": "frequently"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q116",
+    "part": 5,
+    "test": 2,
+    "question": 116,
+    "stem": "Because of an abundance of _______ candidates, Xaniper Industries may take longer than expected to name a new CEO.",
+    "options": {
+      "A": "qualify",
+      "B": "qualifier",
+      "C": "qualified",
+      "D": "qualifies"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q117",
+    "part": 5,
+    "test": 2,
+    "question": 117,
+    "stem": "All of our tablet computers come with a one-year warranty _______ includes hardware repairs and replacements.",
+    "options": {
+      "A": "that",
+      "B": "who",
+      "C": "what",
+      "D": "it"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q118",
+    "part": 5,
+    "test": 2,
+    "question": 118,
+    "stem": "The Exprite Foundation Board of Directors is _______ of nine members who are elected annually by the public.",
+    "options": {
+      "A": "expected",
+      "B": "described",
+      "C": "composed",
+      "D": "announced Sign Overs"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q119",
+    "part": 5,
+    "test": 2,
+    "question": 119,
+    "stem": "Mortgage brokers generally prefer to review all the financial documents _______ meeting with a new client.",
+    "options": {
+      "A": "toward",
+      "B": "further",
+      "C": "lately",
+      "D": "before"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q120",
+    "part": 5,
+    "test": 2,
+    "question": 120,
+    "stem": "Management _______ candidates for promotion by the end of the month.",
+    "options": {
+      "A": "identify",
+      "B": "identifying",
+      "C": "will identify",
+      "D": "to identify"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q121",
+    "part": 5,
+    "test": 2,
+    "question": 121,
+    "stem": "While we typically charge \\$25 for missed appointments, we understand that _______circumstances may arise.",
+    "options": {
+      "A": "unforeseen",
+      "B": "excessive",
+      "C": "approximate",
+      "D": "acclaimed"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q122",
+    "part": 5,
+    "test": 2,
+    "question": 122,
+    "stem": "At Blu Hedge, clients receive 1 percent interest, pay no account fees, and can make unlimited _______.",
+    "options": {
+      "A": "transfer",
+      "B": "transfers",
+      "C": "transferred",
+      "D": "transferring"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q123",
+    "part": 5,
+    "test": 2,
+    "question": 123,
+    "stem": "Farist Bakery, which specializes in dessert catering, is located _______ the Liverpool Convention Complex.",
+    "options": {
+      "A": "near",
+      "B": "without",
+      "C": "since",
+      "D": "following"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q124",
+    "part": 5,
+    "test": 2,
+    "question": 124,
+    "stem": "The presentations were _______ than we expected, so there was ample time left for questions.",
+    "options": {
+      "A": "brief",
+      "B": "briefly",
+      "C": "briefer",
+      "D": "briefest"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q125",
+    "part": 5,
+    "test": 2,
+    "question": 125,
+    "stem": "According to our _______, your order will arrive in three days or we will refund 50 percent of the cost.",
+    "options": {
+      "A": "distribution",
+      "B": "guarantee",
+      "C": "exception",
+      "D": "discount"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q126",
+    "part": 5,
+    "test": 2,
+    "question": 126,
+    "stem": "Several Seoul-based companies have _______ redesigned their workplaces to be more colorful and comfortable.",
+    "options": {
+      "A": "note",
+      "B": "noted",
+      "C": "notable",
+      "D": "notably"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q127",
+    "part": 5,
+    "test": 2,
+    "question": 127,
+    "stem": "The employee picnic will be postponed until next Friday because of the _______ cold temperatures this week.",
+    "options": {
+      "A": "deceptively",
+      "B": "unnecessarily",
+      "C": "irresponsibly",
+      "D": "unseasonably"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q128",
+    "part": 5,
+    "test": 2,
+    "question": 128,
+    "stem": "The accounting department is in first place in the office fund-raising challenge, _______just two more days to go.",
+    "options": {
+      "A": "against",
+      "B": "namely",
+      "C": "with",
+      "D": "else"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q129",
+    "part": 5,
+    "test": 2,
+    "question": 129,
+    "stem": "Pink Geranium Coffee has struggled to _______ its new bottled espresso from similar beverages on the market.",
+    "options": {
+      "A": "participate",
+      "B": "distinguish",
+      "C": "overturn",
+      "D": "revoke"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t02-q130",
+    "part": 5,
+    "test": 2,
+    "question": 130,
+    "stem": "_______ it is occasionally inconvenient, Mr. Ohtani expects all team members to attend his weekly meeting.",
+    "options": {
+      "A": "Though",
+      "B": "As soon as",
+      "C": "Because",
+      "D": "When"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q101",
+    "part": 5,
+    "test": 3,
+    "question": 101,
+    "stem": "Despite _______ youth, Ms. Cho is already quite popular on social media.",
+    "options": {
+      "A": "she",
+      "B": "her",
+      "C": "hers",
+      "D": "herself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q102",
+    "part": 5,
+    "test": 3,
+    "question": 102,
+    "stem": "Most of the materials distributed at last month's accounting conference are now _______ online.",
+    "options": {
+      "A": "available",
+      "B": "intended",
+      "C": "comparable",
+      "D": "decisive"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q103",
+    "part": 5,
+    "test": 3,
+    "question": 103,
+    "stem": "A full-scale _______ will be conducted by the accounting department.",
+    "options": {
+      "A": "reviewer",
+      "B": "review",
+      "C": "reviewed",
+      "D": "reviews"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q104",
+    "part": 5,
+    "test": 3,
+    "question": 104,
+    "stem": "Poshy Shoes vice president Lucille Jeris has been _______ to president of the company.",
+    "options": {
+      "A": "provided",
+      "B": "decorated",
+      "C": "promoted",
+      "D": "responded"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q105",
+    "part": 5,
+    "test": 3,
+    "question": 105,
+    "stem": "The report found that employees who take regular breaks are more _______ than those who take no breaks.",
+    "options": {
+      "A": "production",
+      "B": "productively",
+      "C": "productivity",
+      "D": "productive"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q106",
+    "part": 5,
+    "test": 3,
+    "question": 106,
+    "stem": "Customers of Twins Photocopiers are encouraged to contact a _______ if their machines need repairs.",
+    "options": {
+      "A": "replacement",
+      "B": "technician",
+      "C": "renewal",
+      "D": "structure"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q107",
+    "part": 5,
+    "test": 3,
+    "question": 107,
+    "stem": "The heavy traffic on the way to the airport _______ caused Ms. Ikeda to miss her flight.",
+    "options": {
+      "A": "nearly",
+      "B": "near",
+      "C": "nears",
+      "D": "nearness"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q108",
+    "part": 5,
+    "test": 3,
+    "question": 108,
+    "stem": "A news source suggested that the merger will _______ take place next year.",
+    "options": {
+      "A": "originally",
+      "B": "probably",
+      "C": "regularly",
+      "D": "thoughtfully"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q109",
+    "part": 5,
+    "test": 3,
+    "question": 109,
+    "stem": "The Seaborne Inn has _______ beautiful guest rooms that can be booked on a monthly basis.",
+    "options": {
+      "A": "various",
+      "B": "among",
+      "C": "throughout",
+      "D": "itself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q110",
+    "part": 5,
+    "test": 3,
+    "question": 110,
+    "stem": "Ahearn Accessories' retail shop is located _______ Gordon Avenue and Hutch Street.",
+    "options": {
+      "A": "until",
+      "B": "against",
+      "C": "at",
+      "D": "aside from"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q111",
+    "part": 5,
+    "test": 3,
+    "question": 111,
+    "stem": "A majority of the city's residents rated its transportation app as _______",
+    "options": {
+      "A": "acceptability",
+      "B": "acceptable",
+      "C": "acceptance",
+      "D": "accepting"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q112",
+    "part": 5,
+    "test": 3,
+    "question": 112,
+    "stem": "Dr. Cheung _______ Silk Valley Hospital at next weekend's medical fair.",
+    "options": {
+      "A": "represent",
+      "B": "did represent",
+      "C": "is representing",
+      "D": "had represented"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q113",
+    "part": 5,
+    "test": 3,
+    "question": 113,
+    "stem": "Frankie's Boutique had a financially _______quarter after taking measures to reduce costs.",
+    "options": {
+      "A": "plain",
+      "B": "profitable",
+      "C": "full",
+      "D": "additional"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q114",
+    "part": 5,
+    "test": 3,
+    "question": 114,
+    "stem": "Because it submitted the lowest bid, Deb's Gifting has been chosen as the _______ of this year's holiday cards.",
+    "options": {
+      "A": "supply",
+      "B": "supplier",
+      "C": "supplies",
+      "D": "supplying"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q115",
+    "part": 5,
+    "test": 3,
+    "question": 115,
+    "stem": "The Whitetail Institute is the only _______ that tracks deer populations in rapidly expanding suburban areas.",
+    "options": {
+      "A": "leadership",
+      "B": "neighborhood",
+      "C": "official",
+      "D": "organization"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q116",
+    "part": 5,
+    "test": 3,
+    "question": 116,
+    "stem": "The committee members _______ attended the meeting are listed in the appendix.",
+    "options": {
+      "A": "who",
+      "B": "they",
+      "C": "when",
+      "D": "some"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q117",
+    "part": 5,
+    "test": 3,
+    "question": 117,
+    "stem": "Our new app is _______ designed to provide data-driven insights to investment professionals.",
+    "options": {
+      "A": "specify",
+      "B": "specific",
+      "C": "specificity",
+      "D": "specifically"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q118",
+    "part": 5,
+    "test": 3,
+    "question": 118,
+    "stem": "The results of the study suggest that more people _______ with night driving than previously believed.",
+    "options": {
+      "A": "struggles",
+      "B": "struggling",
+      "C": "to struggle",
+      "D": "struggle"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q119",
+    "part": 5,
+    "test": 3,
+    "question": 119,
+    "stem": "Each department has been asked to develop an action plan in _______ to the budget cuts announced last week.",
+    "options": {
+      "A": "response",
+      "B": "effect",
+      "C": "apology",
+      "D": "confirmation"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q120",
+    "part": 5,
+    "test": 3,
+    "question": 120,
+    "stem": "Our popular online training materials have _______ been shown to improve job seekers' skills.",
+    "options": {
+      "A": "consistently",
+      "B": "emotionally",
+      "C": "spaciously",
+      "D": "randomly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q121",
+    "part": 5,
+    "test": 3,
+    "question": 121,
+    "stem": "Ms. Yamada, _______ director of the Midlands Chamber of Commerce, was recently appointed to the state trade commission.",
+    "options": {
+      "A": "formed",
+      "B": "former",
+      "C": "formalize",
+      "D": "formality"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q122",
+    "part": 5,
+    "test": 3,
+    "question": 122,
+    "stem": "The software uses computer memory efficiently, allowing users to open _______ five files simultaneously.",
+    "options": {
+      "A": "far from",
+      "B": "as for",
+      "C": "up to",
+      "D": "out of"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q123",
+    "part": 5,
+    "test": 3,
+    "question": 123,
+    "stem": "A monthly newsletter is an excellent way to _______ your group's activities and events.",
+    "options": {
+      "A": "realize",
+      "B": "propose",
+      "C": "observe",
+      "D": "promote"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q124",
+    "part": 5,
+    "test": 3,
+    "question": 124,
+    "stem": "_______ the hotel does not have a restaurant on site, there are many dining options nearby.",
+    "options": {
+      "A": "While",
+      "B": "Such as",
+      "C": "Unless",
+      "D": "Without"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q125",
+    "part": 5,
+    "test": 3,
+    "question": 125,
+    "stem": "_______ a slight decline in revenue from the previous quarter, Blakely Components is moving forward with its expansion plan.",
+    "options": {
+      "A": "Aside",
+      "B": "Despite",
+      "C": "Becoming",
+      "D": "Often"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q126",
+    "part": 5,
+    "test": 3,
+    "question": 126,
+    "stem": "Abelia Dairy Company has undergone several changes in leadership _______ the past ten years.",
+    "options": {
+      "A": "over",
+      "B": "into",
+      "C": "since",
+      "D": "beside"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q127",
+    "part": 5,
+    "test": 3,
+    "question": 127,
+    "stem": "Opal City's Community Theater is holding _______ for its spring production during the first week of December.",
+    "options": {
+      "A": "to audition",
+      "B": "auditioned",
+      "C": "auditions",
+      "D": "audition"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q128",
+    "part": 5,
+    "test": 3,
+    "question": 128,
+    "stem": "Mr. Kane said he packed so _______ this morning that he forgot to bring a suit and tie for tomorrow's dinner.",
+    "options": {
+      "A": "enormously",
+      "B": "briefly",
+      "C": "hastily",
+      "D": "mysteriously"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q129",
+    "part": 5,
+    "test": 3,
+    "question": 129,
+    "stem": "Long before the training program began, Ms. Morris _______ the schedule to allow her team to attend.",
+    "options": {
+      "A": "was revised",
+      "B": "is revising",
+      "C": "had revised",
+      "D": "has to revise"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t03-q130",
+    "part": 5,
+    "test": 3,
+    "question": 130,
+    "stem": "Mr. Swan will return to the planning meeting _______ the interns have arrived.",
+    "options": {
+      "A": "once",
+      "B": "unlike",
+      "C": "whereas",
+      "D": "regarding"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q101",
+    "part": 5,
+    "test": 4,
+    "question": 101,
+    "stem": "Ms. Chiu recently announced that _______ is planning to retire in September.",
+    "options": {
+      "A": "her",
+      "B": "hers",
+      "C": "herself",
+      "D": "she"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q102",
+    "part": 5,
+    "test": 4,
+    "question": 102,
+    "stem": "Mr. Kashnitz will interview the ap plicants _______ the holiday.",
+    "options": {
+      "A": "above",
+      "B": "before",
+      "C": "among",
+      "D": "along"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q103",
+    "part": 5,
+    "test": 4,
+    "question": 103,
+    "stem": "The real estate agent may _______ a buyer with a neighborhood analysis upon request.",
+    "options": {
+      "A": "providing",
+      "B": "provide",
+      "C": "provided",
+      "D": "provides"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q104",
+    "part": 5,
+    "test": 4,
+    "question": 104,
+    "stem": "The city's development committee is looking for a _______ to plant a community garden.",
+    "options": {
+      "A": "flower",
+      "B": "topic",
+      "C": "location",
+      "D": "show"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q105",
+    "part": 5,
+    "test": 4,
+    "question": 105,
+    "stem": "We hope our customer service team has answered your questions in a _______ manner.",
+    "options": {
+      "A": "satisfy",
+      "B": "satisfactory",
+      "C": "satisfaction",
+      "D": "satisfactorily"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q106",
+    "part": 5,
+    "test": 4,
+    "question": 106,
+    "stem": "Mr. Hanley expressed interest in the position _______ held by Ms. Akello.",
+    "options": {
+      "A": "previously",
+      "B": "slowly",
+      "C": "widely",
+      "D": "loosely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q107",
+    "part": 5,
+    "test": 4,
+    "question": 107,
+    "stem": "Once Ms. Jeong _______ the contract, she will sign and return it to Allory Pharmaceuticals.",
+    "options": {
+      "A": "to receive",
+      "B": "receives",
+      "C": "was received",
+      "D": "receiving"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q108",
+    "part": 5,
+    "test": 4,
+    "question": 108,
+    "stem": "Ten board members plan to attend, which is just _______ to approve the proposal.",
+    "options": {
+      "A": "enough",
+      "B": "several",
+      "C": "most",
+      "D": "those"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q109",
+    "part": 5,
+    "test": 4,
+    "question": 109,
+    "stem": "Mr. Aziz is often alone in the shop while his partner is out making a _______.",
+    "options": {
+      "A": "deliver",
+      "B": "delivery",
+      "C": "delivered",
+      "D": "delivering"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q110",
+    "part": 5,
+    "test": 4,
+    "question": 110,
+    "stem": "The Pacific Coast Sunset Run has been _______ to August 31 because of bad weather.",
+    "options": {
+      "A": "canceled",
+      "B": "combined",
+      "C": "rescheduled",
+      "D": "administered"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q111",
+    "part": 5,
+    "test": 4,
+    "question": 111,
+    "stem": "Graber hair and nail growth supplements come in _______ pill and liquid form.",
+    "options": {
+      "A": "these",
+      "B": "both",
+      "C": "almost",
+      "D": "likely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q112",
+    "part": 5,
+    "test": 4,
+    "question": 112,
+    "stem": "The posters must be completed soon _______they can be put up in advance of the gala.",
+    "options": {
+      "A": "so that",
+      "B": "despite",
+      "C": "whenever",
+      "D": "as if"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q113",
+    "part": 5,
+    "test": 4,
+    "question": 113,
+    "stem": "Mr. Olivero praised the film in his review, even though he _______ disliked its aesthetic style.",
+    "options": {
+      "A": "personal",
+      "B": "personally",
+      "C": "personals",
+      "D": "person"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q114",
+    "part": 5,
+    "test": 4,
+    "question": 114,
+    "stem": "_______ weeks of record-setting rain, expect only blue skies this weekend.",
+    "options": {
+      "A": "After",
+      "B": "Besides",
+      "C": "Opposite",
+      "D": "Alongside"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q115",
+    "part": 5,
+    "test": 4,
+    "question": 115,
+    "stem": "The Serenica dining table comes with levelers _______ its stability on uneven surfaces.",
+    "options": {
+      "A": "ensure",
+      "B": "ensures",
+      "C": "to ensure",
+      "D": "to be ensured"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q116",
+    "part": 5,
+    "test": 4,
+    "question": 116,
+    "stem": "Applicants to any open position at Allcrest Engineering can expect a _______ within three business days.",
+    "options": {
+      "A": "degree",
+      "B": "raise",
+      "C": "change",
+      "D": "response"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q117",
+    "part": 5,
+    "test": 4,
+    "question": 117,
+    "stem": "_______ prepares the patient's medical records is required to maintain confidentiality.",
+    "options": {
+      "A": "Whoever",
+      "B": "Who",
+      "C": "Whose",
+      "D": "What"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q118",
+    "part": 5,
+    "test": 4,
+    "question": 118,
+    "stem": "Because of the high demand for our services, our office was _______ expanded last year.",
+    "options": {
+      "A": "significantly",
+      "B": "tightly",
+      "C": "remotely",
+      "D": "identically no shallovers"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q119",
+    "part": 5,
+    "test": 4,
+    "question": 119,
+    "stem": "The Terry Hoig Prize for _______ architecture was awarded to Ms. Helblon on Tuesday.",
+    "options": {
+      "A": "sustain",
+      "B": "sustainable",
+      "C": "sustainer",
+      "D": "sustains"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q120",
+    "part": 5,
+    "test": 4,
+    "question": 120,
+    "stem": "We have been _______ problems with the thermostat in the western end of the warehouse.",
+    "options": {
+      "A": "experiencing",
+      "B": "regarding",
+      "C": "repurposing",
+      "D": "establishing"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q121",
+    "part": 5,
+    "test": 4,
+    "question": 121,
+    "stem": "Two students from Wrisley University worked _______ on the design of the new library in Lorth Park.",
+    "options": {
+      "A": "collaborate",
+      "B": "collaborative",
+      "C": "collaboratively",
+      "D": "collaborated"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q122",
+    "part": 5,
+    "test": 4,
+    "question": 122,
+    "stem": "The images displayed on our gallery's Web site may not reflect the _______ colors of the artwork for sale.",
+    "options": {
+      "A": "loyal",
+      "B": "smart",
+      "C": "close",
+      "D": "exact"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q123",
+    "part": 5,
+    "test": 4,
+    "question": 123,
+    "stem": "At Beautyvale Cosmetics, our representatives answer customers' _______ within 24 hours of receipt.",
+    "options": {
+      "A": "inquirers",
+      "B": "inquired",
+      "C": "to inquire",
+      "D": "inquiries"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q124",
+    "part": 5,
+    "test": 4,
+    "question": 124,
+    "stem": "We would like to attend the retreat, but _______ we are unavailable on that date.",
+    "options": {
+      "A": "regrettably",
+      "B": "scarcely",
+      "C": "exceptionally",
+      "D": "annually"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q125",
+    "part": 5,
+    "test": 4,
+    "question": 125,
+    "stem": "In celebration of Ms. Tseng's promotion, tea and cookies will be served _______ the meeting.",
+    "options": {
+      "A": "later",
+      "B": "as soon as",
+      "C": "following",
+      "D": "in case of"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q126",
+    "part": 5,
+    "test": 4,
+    "question": 126,
+    "stem": "Beginning next month, all employees at Sartson Analytics will have the _______ of working from home two days per week.",
+    "options": {
+      "A": "place",
+      "B": "combination",
+      "C": "range",
+      "D": "option"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q127",
+    "part": 5,
+    "test": 4,
+    "question": 127,
+    "stem": "The accounting department's new policy outlines the _______ process for the procurement of office equipment.",
+    "options": {
+      "A": "preferring",
+      "B": "preferably",
+      "C": "preferred",
+      "D": "preferability"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q128",
+    "part": 5,
+    "test": 4,
+    "question": 128,
+    "stem": "All documents _______ to the company merger will become available to the public within one year.",
+    "options": {
+      "A": "assigning",
+      "B": "facilitating",
+      "C": "pertaining",
+      "D": "embarking"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q129",
+    "part": 5,
+    "test": 4,
+    "question": 129,
+    "stem": "Granta Hospital has added several pediatric nurses to its staff as part of its new _______ with the Friel School of Nursing.",
+    "options": {
+      "A": "affiliation",
+      "B": "affiliated",
+      "C": "affiliating",
+      "D": "affiliates"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t04-q130",
+    "part": 5,
+    "test": 4,
+    "question": 130,
+    "stem": "During checkout, cashiers must be able to scan purchased items accurately _______ field questions from customers.",
+    "options": {
+      "A": "but",
+      "B": "for instance",
+      "C": "although",
+      "D": "as well as"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q101",
+    "part": 5,
+    "test": 5,
+    "question": 101,
+    "stem": "Mr. Choi, who recently joined the advisory board, is an experienced accountant _______investor.",
+    "options": {
+      "A": "but",
+      "B": "that",
+      "C": "and",
+      "D": "yet"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q102",
+    "part": 5,
+    "test": 5,
+    "question": 102,
+    "stem": "The first 150 visitors to the new fitness park will each receive a complimentary water _______",
+    "options": {
+      "A": "bottle",
+      "B": "bottled",
+      "C": "bottling",
+      "D": "to bottle"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q103",
+    "part": 5,
+    "test": 5,
+    "question": 103,
+    "stem": "Operating instructions for the printer will be e-mailed to employees _______.",
+    "options": {
+      "A": "short",
+      "B": "shortly",
+      "C": "shorter",
+      "D": "shortening"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q104",
+    "part": 5,
+    "test": 5,
+    "question": 104,
+    "stem": "Dozens of _______ customers have posted positive reviews of Stellenbosch Cycle Works.",
+    "options": {
+      "A": "satisfy",
+      "B": "satisfied",
+      "C": "satisfaction",
+      "D": "satisfies"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q105",
+    "part": 5,
+    "test": 5,
+    "question": 105,
+    "stem": "Ms. Lim's best-selling novel has been _______praised.",
+    "options": {
+      "A": "respectively",
+      "B": "tightly",
+      "C": "unhappily",
+      "D": "widely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q106",
+    "part": 5,
+    "test": 5,
+    "question": 106,
+    "stem": "The marketing manager, Ms. Abyola, plans to meet with the press following _______ meeting with the vice president.",
+    "options": {
+      "A": "her or English lovers",
+      "B": "she",
+      "C": "hers",
+      "D": "herself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q107",
+    "part": 5,
+    "test": 5,
+    "question": 107,
+    "stem": "Last weekend, Terriville Community Center held a _______ game night for neighborhood children.",
+    "options": {
+      "A": "removable",
+      "B": "plentiful",
+      "C": "lively",
+      "D": "current"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q108",
+    "part": 5,
+    "test": 5,
+    "question": 108,
+    "stem": "Mr. Lenthe will distribute _______ of the workshop agenda to all managers by Tuesday morning.",
+    "options": {
+      "A": "copies",
+      "B": "copier",
+      "C": "copy",
+      "D": "copying"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q109",
+    "part": 5,
+    "test": 5,
+    "question": 109,
+    "stem": "Employees are eligible for more vacation time _______ they have been employed for five years.",
+    "options": {
+      "A": "after",
+      "B": "neither",
+      "C": "so",
+      "D": "thus"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q110",
+    "part": 5,
+    "test": 5,
+    "question": 110,
+    "stem": "Managers at Afton Accounting are urged to provide _______ feedback to employees on a regular basis.",
+    "options": {
+      "A": "construct",
+      "B": "constructor",
+      "C": "constructive",
+      "D": "construction"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q111",
+    "part": 5,
+    "test": 5,
+    "question": 111,
+    "stem": "Many farmers markets operate on a seasonal _______, opening in spring and closing in late autumn.",
+    "options": {
+      "A": "topic",
+      "B": "basis",
+      "C": "root",
+      "D": "sum"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q112",
+    "part": 5,
+    "test": 5,
+    "question": 112,
+    "stem": "_______ in the housing market has continued to drag down real estate profits.",
+    "options": {
+      "A": "Weak",
+      "B": "Weakly",
+      "C": "Weakness",
+      "D": "Weakened"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q113",
+    "part": 5,
+    "test": 5,
+    "question": 113,
+    "stem": "The sudden merger of Alvy Brothers and Craford Enterprises _______ most financial analysts.",
+    "options": {
+      "A": "enabled",
+      "B": "arranged",
+      "C": "surprised",
+      "D": "suspected"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q114",
+    "part": 5,
+    "test": 5,
+    "question": 114,
+    "stem": "Of all the mistakes people make in the office, not proofreading their e-mails is one of the _______.",
+    "options": {
+      "A": "commoners",
+      "B": "most common",
+      "C": "in common",
+      "D": "more commonly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q115",
+    "part": 5,
+    "test": 5,
+    "question": 115,
+    "stem": "Cayfair Global's _______ mission is to transport and deliver client goods in a timely manner.",
+    "options": {
+      "A": "prompt",
+      "B": "primary",
+      "C": "bright",
+      "D": "nearest"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q116",
+    "part": 5,
+    "test": 5,
+    "question": 116,
+    "stem": "The department supervisor is _______ for ensuring that all safety gear is stowed properly at the end of the shift.",
+    "options": {
+      "A": "responsibilities",
+      "B": "responsibility",
+      "C": "responsibly",
+      "D": "responsible"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q117",
+    "part": 5,
+    "test": 5,
+    "question": 117,
+    "stem": "A three-year project deepened the _______, allowing it to accommodate the largest cargo ships.",
+    "options": {
+      "A": "tide",
+      "B": "boat",
+      "C": "harbor",
+      "D": "island"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q118",
+    "part": 5,
+    "test": 5,
+    "question": 118,
+    "stem": "The experiment's initial results were _______different from what was expected.",
+    "options": {
+      "A": "wild",
+      "B": "wildest",
+      "C": "wildly",
+      "D": "wildness"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q119",
+    "part": 5,
+    "test": 5,
+    "question": 119,
+    "stem": "_______ critical reviews, the movie was a great success at the box office.",
+    "options": {
+      "A": "During",
+      "B": "About",
+      "C": "Despite",
+      "D": "Over"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q120",
+    "part": 5,
+    "test": 5,
+    "question": 120,
+    "stem": "The spray-on sealant _______ as a protective layer that keeps your tiles from getting scratched.",
+    "options": {
+      "A": "acts",
+      "B": "acting",
+      "C": "action",
+      "D": "actively"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q121",
+    "part": 5,
+    "test": 5,
+    "question": 121,
+    "stem": "The contract for the renovation of the park will not be awarded _______ all bids have been submitted.",
+    "options": {
+      "A": "nor",
+      "B": "next",
+      "C": "until",
+      "D": "because"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q122",
+    "part": 5,
+    "test": 5,
+    "question": 122,
+    "stem": "A recent study showed that substituting refined sugars with maple syrup may have some important _______ benefits.",
+    "options": {
+      "A": "only",
+      "B": "full",
+      "C": "legal",
+      "D": "health"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q123",
+    "part": 5,
+    "test": 5,
+    "question": 123,
+    "stem": "Margie Fung was _______ the winners at Sternetz Institute's art competition.",
+    "options": {
+      "A": "from",
+      "B": "upon",
+      "C": "among",
+      "D": "beyond"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q124",
+    "part": 5,
+    "test": 5,
+    "question": 124,
+    "stem": "Posting updates too infrequently on social media can cause small businesses _______by their customers.",
+    "options": {
+      "A": "forgets",
+      "B": "to forget",
+      "C": "been forgotten",
+      "D": "to be forgotten"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q125",
+    "part": 5,
+    "test": 5,
+    "question": 125,
+    "stem": "Ideal for conference rooms, our soundproof panels have been specially designed to _______ unwanted background noise.",
+    "options": {
+      "A": "compete",
+      "B": "absorb",
+      "C": "surpass",
+      "D": "remain"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q126",
+    "part": 5,
+    "test": 5,
+    "question": 126,
+    "stem": "Mr. Sato will call into the meeting _______ the hotel's wireless network.",
+    "options": {
+      "A": "used",
+      "B": "using",
+      "C": "use",
+      "D": "had used"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q127",
+    "part": 5,
+    "test": 5,
+    "question": 127,
+    "stem": "Not only has Mr. Ogbu _______ worked on the project, but he has also trained Ms. Jeong to continue the work.",
+    "options": {
+      "A": "accessibly",
+      "B": "diligently",
+      "C": "eventfully",
+      "D": "completely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q128",
+    "part": 5,
+    "test": 5,
+    "question": 128,
+    "stem": "Belker Auto offers a ten-year warranty for _______ who want greater peace of mind.",
+    "options": {
+      "A": "this",
+      "B": "those",
+      "C": "somebody",
+      "D": "everyone"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q129",
+    "part": 5,
+    "test": 5,
+    "question": 129,
+    "stem": "After months of planning, the Lanton Bookstore school reading program will finally _______ in October.",
+    "options": {
+      "A": "observe",
+      "B": "represent",
+      "C": "commence",
+      "D": "access"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t05-q130",
+    "part": 5,
+    "test": 5,
+    "question": 130,
+    "stem": "Independent consultants can be a valuable soundproof source of _______ advice to new entrepreneurs.",
+    "options": {
+      "A": "unfulfilled",
+      "B": "indefinite",
+      "C": "obedient",
+      "D": "impartial"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q101",
+    "part": 5,
+    "test": 6,
+    "question": 101,
+    "stem": "On Saturday, the Edbridge Orchestra will _______ a new work by local composer Nina Borstein.",
+    "options": {
+      "A": "make",
+      "B": "operate",
+      "C": "perform",
+      "D": "fulfill"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q102",
+    "part": 5,
+    "test": 6,
+    "question": 102,
+    "stem": "It is important to be especially _______ when in the company of new clients.",
+    "options": {
+      "A": "polite",
+      "B": "politely",
+      "C": "politest",
+      "D": "politeness"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q103",
+    "part": 5,
+    "test": 6,
+    "question": 103,
+    "stem": "Although Ms. Endou was not chosen for an award, _______ achievements were praised.",
+    "options": {
+      "A": "she",
+      "B": "her",
+      "C": "hers",
+      "D": "herself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q104",
+    "part": 5,
+    "test": 6,
+    "question": 104,
+    "stem": "At the end of the year, organizations face pressure to achieve their financial _______.",
+    "options": {
+      "A": "procedure",
+      "B": "goals",
+      "C": "season",
+      "D": "bills"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q105",
+    "part": 5,
+    "test": 6,
+    "question": 105,
+    "stem": "Online ordering is _______ on Naito Café's Web site.",
+    "options": {
+      "A": "called",
+      "B": "printed",
+      "C": "capable",
+      "D": "available"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q106",
+    "part": 5,
+    "test": 6,
+    "question": 106,
+    "stem": "Mayor Park plans to meet with his campaign staff _______ the televised debate.",
+    "options": {
+      "A": "following",
+      "B": "beside English lovers",
+      "C": "from",
+      "D": "under"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q107",
+    "part": 5,
+    "test": 6,
+    "question": 107,
+    "stem": "Mr. Suh has requested that a more _______copy machine be purchased for the finance department.",
+    "options": {
+      "A": "reliably",
+      "B": "relying",
+      "C": "relied",
+      "D": "reliable"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q108",
+    "part": 5,
+    "test": 6,
+    "question": 108,
+    "stem": "Mr. Aponte's photograph of the autumn foliage will be featured on the front _______ of *Outward Expansion Magazine*.",
+    "options": {
+      "A": "cover",
+      "B": "coverage",
+      "C": "covered",
+      "D": "coverable"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q109",
+    "part": 5,
+    "test": 6,
+    "question": 109,
+    "stem": "Handi Office Supplies' new desk organizers serve _______ practical and stylish additions to any office workstation.",
+    "options": {
+      "A": "of",
+      "B": "as",
+      "C": "out",
+      "D": "until"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q110",
+    "part": 5,
+    "test": 6,
+    "question": 110,
+    "stem": "The efficient redesign of the airline terminal led to _______ flight delays.",
+    "options": {
+      "A": "friendlier",
+      "B": "accurate",
+      "C": "previous",
+      "D": "fewer"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q111",
+    "part": 5,
+    "test": 6,
+    "question": 111,
+    "stem": "Mr. Ogbu's editor appreciated his ability to approach the subject matter _______.",
+    "options": {
+      "A": "objects",
+      "B": "objectivity",
+      "C": "objectively",
+      "D": "objected"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q112",
+    "part": 5,
+    "test": 6,
+    "question": 112,
+    "stem": "Mr. Nakayama was named Employee of the Year, _______ being new to the company.",
+    "options": {
+      "A": "despite",
+      "B": "unless",
+      "C": "prior to",
+      "D": "whether"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q113",
+    "part": 5,
+    "test": 6,
+    "question": 113,
+    "stem": "For the _______ selection of premium paints and art-making supplies anywhere, visit your nearest Painters' Best store.",
+    "options": {
+      "A": "widen",
+      "B": "widening",
+      "C": "widest",
+      "D": "widely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q114",
+    "part": 5,
+    "test": 6,
+    "question": 114,
+    "stem": "The Stallmain Corporation's latest survey was intended to _______ employee satisfaction in several key categories.",
+    "options": {
+      "A": "overcome",
+      "B": "prolong",
+      "C": "deserve",
+      "D": "determine"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q115",
+    "part": 5,
+    "test": 6,
+    "question": 115,
+    "stem": "Garza's Restaurant is _______ decorated with paintings and photographs of southern Mexico.",
+    "options": {
+      "A": "elaborately",
+      "B": "elaborating",
+      "C": "elaborates",
+      "D": "elaboration"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q116",
+    "part": 5,
+    "test": 6,
+    "question": 116,
+    "stem": "Mr. Brighton's first _______ at Glynn Engineering was in the materials testing group.",
+    "options": {
+      "A": "assign",
+      "B": "assigned",
+      "C": "assigning",
+      "D": "assignment"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q117",
+    "part": 5,
+    "test": 6,
+    "question": 117,
+    "stem": "The installation of new benches throughout Haverford Park will cost _______ €5,000.",
+    "options": {
+      "A": "briefly",
+      "B": "roughly",
+      "C": "correctly",
+      "D": "generously"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q118",
+    "part": 5,
+    "test": 6,
+    "question": 118,
+    "stem": "_______ who is unable to attend the quarterly stakeholder meeting is welcome to appoint a representative.",
+    "options": {
+      "A": "Such",
+      "B": "Whichever",
+      "C": "Anyone",
+      "D": "Those"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q119",
+    "part": 5,
+    "test": 6,
+    "question": 119,
+    "stem": "Singer Maria Stanley _______ today that she is scheduling a world tour.",
+    "options": {
+      "A": "reveal",
+      "B": "revealed",
+      "C": "to reveal",
+      "D": "revealing"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q120",
+    "part": 5,
+    "test": 6,
+    "question": 120,
+    "stem": "Biographer Amber Bowen has been recognized for her distinctive writing _______.",
+    "options": {
+      "A": "styleless",
+      "B": "styled",
+      "C": "stylish",
+      "D": "style"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q121",
+    "part": 5,
+    "test": 6,
+    "question": 121,
+    "stem": "The award-winning stationery created by the artists at Paperi Designs is of _______quality.",
+    "options": {
+      "A": "comfortable",
+      "B": "exceptional",
+      "C": "hospitable",
+      "D": "ambitious"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q122",
+    "part": 5,
+    "test": 6,
+    "question": 122,
+    "stem": "During the past quarter, _______ all of Renafy Technology's sales came from one region.",
+    "options": {
+      "A": "between",
+      "B": "nearly",
+      "C": "somewhat",
+      "D": "next to"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q123",
+    "part": 5,
+    "test": 6,
+    "question": 123,
+    "stem": "Commercial property insurance covers the _______ associated with repairing or rebuilding a business property after certain events.",
+    "options": {
+      "A": "expenses",
+      "B": "symptoms",
+      "C": "challenges",
+      "D": "opportunities"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q124",
+    "part": 5,
+    "test": 6,
+    "question": 124,
+    "stem": "The first-aid class usually fills up quickly, so prompt _______ is recommended.",
+    "options": {
+      "A": "registration",
+      "B": "detection",
+      "C": "information",
+      "D": "certification"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q125",
+    "part": 5,
+    "test": 6,
+    "question": 125,
+    "stem": "Manufacturing all its products in-house allows Long Bridge Steel Corp. to _______every aspect of the production process.",
+    "options": {
+      "A": "expect",
+      "B": "impress",
+      "C": "remain",
+      "D": "control"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q126",
+    "part": 5,
+    "test": 6,
+    "question": 126,
+    "stem": "_______ its use on home-cooking shows, consumer demand for Silvershine Cookware has doubled.",
+    "options": {
+      "A": "Moreover",
+      "B": "For example",
+      "C": "Even though",
+      "D": "Because of"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q127",
+    "part": 5,
+    "test": 6,
+    "question": 127,
+    "stem": "Artists at Cavin Graphics work _______ with clients through all stages of the design process to ensure satisfaction.",
+    "options": {
+      "A": "collaborative",
+      "B": "collaboratively",
+      "C": "collaborates",
+      "D": "collaborators"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q128",
+    "part": 5,
+    "test": 6,
+    "question": 128,
+    "stem": "Brile Construction's contract for the mall development project has finally been _______by the city supervisor.",
+    "options": {
+      "A": "verifying",
+      "B": "verifiably",
+      "C": "verified",
+      "D": "verification"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q129",
+    "part": 5,
+    "test": 6,
+    "question": 129,
+    "stem": "_______ 4,000 Urlvac trash removal systems are in use in the eastern region.",
+    "options": {
+      "A": "Always",
+      "B": "Quite",
+      "C": "Almost",
+      "D": "Closely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t06-q130",
+    "part": 5,
+    "test": 6,
+    "question": 130,
+    "stem": "The conference schedule will be posted online _______ mailed to attendees.",
+    "options": {
+      "A": "in order that",
+      "B": "as soon as",
+      "C": "in case",
+      "D": "rather than"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q101",
+    "part": 5,
+    "test": 7,
+    "question": 101,
+    "stem": "After Ms. Takido finishes _______ presentation, the audience will be permitted to ask questions.",
+    "options": {
+      "A": "her",
+      "B": "she",
+      "C": "hers",
+      "D": "herself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q102",
+    "part": 5,
+    "test": 7,
+    "question": 102,
+    "stem": "Mike's Café offers a free _______ with every meal on Tuesdays from 11 A.M. to 7 P.M.",
+    "options": {
+      "A": "table",
+      "B": "drink",
+      "C": "price",
+      "D": "menu"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q103",
+    "part": 5,
+    "test": 7,
+    "question": 103,
+    "stem": "Mr. Ozawa generally prefers _______ to work by train instead of by car.",
+    "options": {
+      "A": "commute",
+      "B": "to commute",
+      "C": "having commuted",
+      "D": "is commuting"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q104",
+    "part": 5,
+    "test": 7,
+    "question": 104,
+    "stem": "_______ the new branch office was understaffed, more workers were hired.",
+    "options": {
+      "A": "Because",
+      "B": "basic",
+      "C": "Usually",
+      "D": "Following"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q105",
+    "part": 5,
+    "test": 7,
+    "question": 105,
+    "stem": "Dumbbells, also known as free weights, are _______ for keeping fit at home.",
+    "options": {
+      "A": "use",
+      "B": "using",
+      "C": "to use",
+      "D": "useful"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q106",
+    "part": 5,
+    "test": 7,
+    "question": 106,
+    "stem": "The scheduled completion date was September 4, but the job was _______ finished two weeks ahead of schedule.",
+    "options": {
+      "A": "additionally gish lovers",
+      "B": "rarely",
+      "C": "extremely",
+      "D": "actually"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q107",
+    "part": 5,
+    "test": 7,
+    "question": 107,
+    "stem": "Please click on the _______ below to subscribe to our monthly newsletter.",
+    "options": {
+      "A": "link",
+      "B": "linker",
+      "C": "linking",
+      "D": "linkage"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q108",
+    "part": 5,
+    "test": 7,
+    "question": 108,
+    "stem": "Candidates for the entry-level marketing position need to have a _______ understanding of consumer behavior.",
+    "options": {
+      "A": "proud",
+      "B": "basic",
+      "C": "short",
+      "D": "considerate"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q109",
+    "part": 5,
+    "test": 7,
+    "question": 109,
+    "stem": "Ms. Persson was able to respond _______ to government leaders about their concerns regarding the funding plan.",
+    "options": {
+      "A": "directly",
+      "B": "direct",
+      "C": "directions",
+      "D": "directed"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q110",
+    "part": 5,
+    "test": 7,
+    "question": 110,
+    "stem": "Leigh Ainsley, the featured soloist in tonight's performance, began taking violin lessons _______ the age of five.",
+    "options": {
+      "A": "on",
+      "B": "at",
+      "C": "with",
+      "D": "along"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q111",
+    "part": 5,
+    "test": 7,
+    "question": 111,
+    "stem": "From among the seven candidates for the management position, the hiring committee must choose only _______.",
+    "options": {
+      "A": "one",
+      "B": "either",
+      "C": "such",
+      "D": "other"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q112",
+    "part": 5,
+    "test": 7,
+    "question": 112,
+    "stem": "GT International Foods sells unique products that are difficult to find _______",
+    "options": {
+      "A": "aside",
+      "B": "instead",
+      "C": "likewise",
+      "D": "elsewhere"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q113",
+    "part": 5,
+    "test": 7,
+    "question": 113,
+    "stem": "Contact the hotel's main office _______ you wish to receive daily linen service.",
+    "options": {
+      "A": "moreover",
+      "B": "besides",
+      "C": "if",
+      "D": "also"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q114",
+    "part": 5,
+    "test": 7,
+    "question": 114,
+    "stem": "Please _______ yourself with the company's tuition-reimbursement policy before enrolling in any classes.",
+    "options": {
+      "A": "organize",
+      "B": "identify",
+      "C": "consider",
+      "D": "familiarize"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q115",
+    "part": 5,
+    "test": 7,
+    "question": 115,
+    "stem": "The proposed purchase agreement is _______being evaluated by officials at Corlan Tech.",
+    "options": {
+      "A": "active",
+      "B": "actively",
+      "C": "activity",
+      "D": "activate"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q116",
+    "part": 5,
+    "test": 7,
+    "question": 116,
+    "stem": "Another _______ option for getting to the airport will be available once the subway station at the international terminal is completed.",
+    "options": {
+      "A": "convenient",
+      "B": "receptive",
+      "C": "fortunate",
+      "D": "traditional"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q117",
+    "part": 5,
+    "test": 7,
+    "question": 117,
+    "stem": "Given the forecast for rain on Saturday, the ceremony _______ indoors at the Raheen Gallery.",
+    "options": {
+      "A": "is held",
+      "B": "was held",
+      "C": "will be held",
+      "D": "had been held"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q118",
+    "part": 5,
+    "test": 7,
+    "question": 118,
+    "stem": "As Mr. Rzayev requested, the extra wood pallets have been stacked _______ the old warehouse.",
+    "options": {
+      "A": "between",
+      "B": "across",
+      "C": "over",
+      "D": "behind"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q119",
+    "part": 5,
+    "test": 7,
+    "question": 119,
+    "stem": "Professor McNamara has published books on a _______ range of topics.",
+    "options": {
+      "A": "diversion",
+      "B": "diversely",
+      "C": "diverse",
+      "D": "diversify"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q120",
+    "part": 5,
+    "test": 7,
+    "question": 120,
+    "stem": "A _______ of clearly defined milestones was likely why the software development project failed.",
+    "options": {
+      "A": "consent",
+      "B": "break",
+      "C": "lack",
+      "D": "complex"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q121",
+    "part": 5,
+    "test": 7,
+    "question": 121,
+    "stem": "Rosemont Department Store employees are said to be very well-informed, _______, and responsive.",
+    "options": {
+      "A": "person",
+      "B": "personably",
+      "C": "personify",
+      "D": "personable"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q122",
+    "part": 5,
+    "test": 7,
+    "question": 122,
+    "stem": "The security officer at the front gate will _______ delivery drivers as to where to drop off packages.",
+    "options": {
+      "A": "invite",
+      "B": "instruct",
+      "C": "provide",
+      "D": "present"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q123",
+    "part": 5,
+    "test": 7,
+    "question": 123,
+    "stem": "_______ some tickets to the concert are still available, all the best seats have already been taken.",
+    "options": {
+      "A": "Although",
+      "B": "Except",
+      "C": "Notice",
+      "D": "After"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q124",
+    "part": 5,
+    "test": 7,
+    "question": 124,
+    "stem": "Visitors must park in the designated parking area _______ risk having their vehicle towed.",
+    "options": {
+      "A": "or",
+      "B": "but",
+      "C": "yet",
+      "D": "and"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q125",
+    "part": 5,
+    "test": 7,
+    "question": 125,
+    "stem": "When Ms. Liu was hired, the _______ was to train her to work in the chemistry lab.",
+    "options": {
+      "A": "intend",
+      "B": "intention",
+      "C": "intended",
+      "D": "intentional"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q126",
+    "part": 5,
+    "test": 7,
+    "question": 126,
+    "stem": "A _______ effect of increased tourism in our city has been rapid growth in the number of hospitality-related jobs.",
+    "options": {
+      "A": "tentative",
+      "B": "negotiable",
+      "C": "favorable",
+      "D": "perceptive"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q127",
+    "part": 5,
+    "test": 7,
+    "question": 127,
+    "stem": "The new payroll system will send an e-mail to employees _______ a manager edits their time sheet.",
+    "options": {
+      "A": "now that",
+      "B": "or else",
+      "C": "despite",
+      "D": "whenever"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q128",
+    "part": 5,
+    "test": 7,
+    "question": 128,
+    "stem": "The order of the speakers has been changed _______ Mr. Chen arrives late.",
+    "options": {
+      "A": "so",
+      "B": "as of",
+      "C": "during",
+      "D": "in case"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q129",
+    "part": 5,
+    "test": 7,
+    "question": 129,
+    "stem": "Even though the fuel container can hold up to a _______ of ten liters, the manufacturer recommends putting in only nine.",
+    "options": {
+      "A": "maximum",
+      "B": "potential",
+      "C": "greatness",
+      "D": "collection"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t07-q130",
+    "part": 5,
+    "test": 7,
+    "question": 130,
+    "stem": "Ever since the Unicycle Café opened for business last May, it _______ weekly live music events.",
+    "options": {
+      "A": "to have hosted",
+      "B": "has been hosting",
+      "C": "was hosted",
+      "D": "will be hosting"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q101",
+    "part": 5,
+    "test": 8,
+    "question": 101,
+    "stem": "Sydney Fashion Week drew thousands of _______ visitors to the city last week.",
+    "options": {
+      "A": "excite",
+      "B": "excited",
+      "C": "excites",
+      "D": "excitement"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q102",
+    "part": 5,
+    "test": 8,
+    "question": 102,
+    "stem": "Ms. Choi was pleased to learn that _______ is a finalist in the technology competition.",
+    "options": {
+      "A": "she",
+      "B": "her",
+      "C": "hers",
+      "D": "herself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q103",
+    "part": 5,
+    "test": 8,
+    "question": 103,
+    "stem": "All visitors to the factory should use the _______ on the north side of the building.",
+    "options": {
+      "A": "enter",
+      "B": "entrance",
+      "C": "entering",
+      "D": "entered"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q104",
+    "part": 5,
+    "test": 8,
+    "question": 104,
+    "stem": "Unfortunately, we cannot provide an _______time for the delivery of the new laptops.",
+    "options": {
+      "A": "exact",
+      "B": "obvious",
+      "C": "absent",
+      "D": "inspirational"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q105",
+    "part": 5,
+    "test": 8,
+    "question": 105,
+    "stem": "Tourists visiting Star Island are asked _______the privacy of residents.",
+    "options": {
+      "A": "respects",
+      "B": "have respected",
+      "C": "to respect",
+      "D": "will respect"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q106",
+    "part": 5,
+    "test": 8,
+    "question": 106,
+    "stem": "Rivlyn, Inc., has recycled _______ 11 million kilograms of paper waste over the past decade.",
+    "options": {
+      "A": "firmly",
+      "B": "nearly",
+      "C": "closely",
+      "D": "freely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q107",
+    "part": 5,
+    "test": 8,
+    "question": 107,
+    "stem": "The new Dorvale 500 exercise machine is significantly heavier and sturdier than the previous _______.",
+    "options": {
+      "A": "time",
+      "B": "model",
+      "C": "weight",
+      "D": "class"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q108",
+    "part": 5,
+    "test": 8,
+    "question": 108,
+    "stem": "Beachside Inn is the perfect place to _______an event for your corporate clients.",
+    "options": {
+      "A": "entertain",
+      "B": "gather",
+      "C": "host",
+      "D": "stay"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q109",
+    "part": 5,
+    "test": 8,
+    "question": 109,
+    "stem": "_______ in cloud computing have transformed the gaming industry in many ways.",
+    "options": {
+      "A": "Advance",
+      "B": "Advancing",
+      "C": "Advancement",
+      "D": "Advancements"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q110",
+    "part": 5,
+    "test": 8,
+    "question": 110,
+    "stem": "To provide feedback _______ your recent dental appointment, please respond to this brief survey.",
+    "options": {
+      "A": "about",
+      "B": "below",
+      "C": "near",
+      "D": "onto"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q111",
+    "part": 5,
+    "test": 8,
+    "question": 111,
+    "stem": "If your company computer is not _______functional, please call the IT Department at extension 12.",
+    "options": {
+      "A": "complete",
+      "B": "completed",
+      "C": "completely",
+      "D": "completing"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q112",
+    "part": 5,
+    "test": 8,
+    "question": 112,
+    "stem": "The _______ of electric buses to our current fleet has made commuting much more pleasant.",
+    "options": {
+      "A": "replacement",
+      "B": "addition",
+      "C": "substitution",
+      "D": "building"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q113",
+    "part": 5,
+    "test": 8,
+    "question": 113,
+    "stem": "The Zwick Air Wave generates a powerful blast to cool your workspace _______.",
+    "options": {
+      "A": "quickness",
+      "B": "quicken",
+      "C": "quickens",
+      "D": "quickly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q114",
+    "part": 5,
+    "test": 8,
+    "question": 114,
+    "stem": "The Oak Hill Art Museum offers several _______ exhibits and a series of limited-time exhibits.",
+    "options": {
+      "A": "previous",
+      "B": "permanent",
+      "C": "inevitable",
+      "D": "entire"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q115",
+    "part": 5,
+    "test": 8,
+    "question": 115,
+    "stem": "Any remote employees wanting an additional computer monitor should _______ Ms. Suzuki.",
+    "options": {
+      "A": "participate",
+      "B": "activate",
+      "C": "convene",
+      "D": "notify"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q116",
+    "part": 5,
+    "test": 8,
+    "question": 116,
+    "stem": "Customer loyalty programs are _______ for many retail businesses.",
+    "options": {
+      "A": "profited",
+      "B": "profitable",
+      "C": "profitably",
+      "D": "profitability"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q117",
+    "part": 5,
+    "test": 8,
+    "question": 117,
+    "stem": "Prompt submission of travel vouchers _______the accounts department will expedite refunds.",
+    "options": {
+      "A": "to",
+      "B": "as",
+      "C": "on",
+      "D": "up"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q118",
+    "part": 5,
+    "test": 8,
+    "question": 118,
+    "stem": "After extensively _______ our hiring policies, the consultant recommended a simpler process.",
+    "options": {
+      "A": "be reviewing",
+      "B": "reviewed",
+      "C": "reviewing",
+      "D": "reviews"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q119",
+    "part": 5,
+    "test": 8,
+    "question": 119,
+    "stem": "Under the _______ of Ms. Kenu, the historical society's fund-raiser went very well this year.",
+    "options": {
+      "A": "cover",
+      "B": "field",
+      "C": "direction",
+      "D": "summary"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q120",
+    "part": 5,
+    "test": 8,
+    "question": 120,
+    "stem": "The company decided to proceed _______with plans to expand into new sales territories.",
+    "options": {
+      "A": "caution",
+      "B": "cautionary",
+      "C": "cautious",
+      "D": "cautiously"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q121",
+    "part": 5,
+    "test": 8,
+    "question": 121,
+    "stem": "_______ access the building, enter the code listed on the tenant directory.",
+    "options": {
+      "A": "In order to",
+      "B": "For instance",
+      "C": "Due to",
+      "D": "As a result of"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q122",
+    "part": 5,
+    "test": 8,
+    "question": 122,
+    "stem": "Mr. Davis _______ the marketing department will attend Monday's meeting with the client.",
+    "options": {
+      "A": "when",
+      "B": "into",
+      "C": "so",
+      "D": "from"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q123",
+    "part": 5,
+    "test": 8,
+    "question": 123,
+    "stem": "Several _______ reviews helped make the debut novel a best seller.",
+    "options": {
+      "A": "pending",
+      "B": "resolved",
+      "C": "outstanding",
+      "D": "equivalent"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q124",
+    "part": 5,
+    "test": 8,
+    "question": 124,
+    "stem": "Please _______ us in welcoming Dr. Sito, who brings ten years of experience in the aerospace industry to his new position.",
+    "options": {
+      "A": "join",
+      "B": "joins",
+      "C": "joining",
+      "D": "joined"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q125",
+    "part": 5,
+    "test": 8,
+    "question": 125,
+    "stem": "A survey of new car buyers asked them to _______ features in order from most to least important.",
+    "options": {
+      "A": "opt",
+      "B": "turn",
+      "C": "rank",
+      "D": "guide"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q126",
+    "part": 5,
+    "test": 8,
+    "question": 126,
+    "stem": "As head of the Poels Museum, Mr. Ahuja oversaw the _______ of several significant works of art.",
+    "options": {
+      "A": "acquires",
+      "B": "acquired",
+      "C": "acquisition",
+      "D": "acquisitional"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q127",
+    "part": 5,
+    "test": 8,
+    "question": 127,
+    "stem": "Later today, we will hold a meeting to discuss changes to protocols _______ they go into effect next month.",
+    "options": {
+      "A": "rather than",
+      "B": "as well as",
+      "C": "despite",
+      "D": "before"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q128",
+    "part": 5,
+    "test": 8,
+    "question": 128,
+    "stem": "Customer service representatives can be reached _______ calling 800-555-0121 between 8:00 A.M. and 4:00 P.M.",
+    "options": {
+      "A": "by",
+      "B": "because",
+      "C": "ever",
+      "D": "at"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q129",
+    "part": 5,
+    "test": 8,
+    "question": 129,
+    "stem": "Collaboration between multiple agencies is _______ challenging, but our project-based consulting can simplify the process for you.",
+    "options": {
+      "A": "well",
+      "B": "often",
+      "C": "deliberately",
+      "D": "finally"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t08-q130",
+    "part": 5,
+    "test": 8,
+    "question": 130,
+    "stem": "The desserts we had at Giovanni's Bistro were not as delicious as _______ we enjoyed at Monteverdi's Taverna.",
+    "options": {
+      "A": "whose",
+      "B": "those",
+      "C": "which",
+      "D": "them"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q101",
+    "part": 5,
+    "test": 9,
+    "question": 101,
+    "stem": "Our _______ indicate that your company car is due for regular service next month.",
+    "options": {
+      "A": "records",
+      "B": "recording",
+      "C": "recorded",
+      "D": "recordable"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q102",
+    "part": 5,
+    "test": 9,
+    "question": 102,
+    "stem": "The _______ entrance to our office building will be closed on Tuesday because of construction.",
+    "options": {
+      "A": "next",
+      "B": "main",
+      "C": "sure",
+      "D": "early"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q103",
+    "part": 5,
+    "test": 9,
+    "question": 103,
+    "stem": "Any document marked \"Confidential\" must be handled and stored _______.",
+    "options": {
+      "A": "careful",
+      "B": "carefully",
+      "C": "carefulness",
+      "D": "more careful"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q104",
+    "part": 5,
+    "test": 9,
+    "question": 104,
+    "stem": "The new technology _______ trains to switch quickly between electric and diesel modes.",
+    "options": {
+      "A": "rides",
+      "B": "forms",
+      "C": "allows",
+      "D": "conducts"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q105",
+    "part": 5,
+    "test": 9,
+    "question": 105,
+    "stem": "The Chocobonne Corporation says it plans to open 28 new _______ in the next three years.",
+    "options": {
+      "A": "stores",
+      "B": "storing",
+      "C": "store",
+      "D": "storage"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q106",
+    "part": 5,
+    "test": 9,
+    "question": 106,
+    "stem": "The Lofstrom Shopping Center is _______new tenants to rent vacant retail space.",
+    "options": {
+      "A": "seeking",
+      "B": "growing",
+      "C": "facing",
+      "D": "relating"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q107",
+    "part": 5,
+    "test": 9,
+    "question": 107,
+    "stem": "The painter Marion Settimi developed _______distinctive style during the years she lived in Indonesia.",
+    "options": {
+      "A": "herself",
+      "B": "hers",
+      "C": "her",
+      "D": "she"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q108",
+    "part": 5,
+    "test": 9,
+    "question": 108,
+    "stem": "The company picnic at Floral Park will begin at noon on Saturday and end _______4:00 P.M.",
+    "options": {
+      "A": "around",
+      "B": "until",
+      "C": "outside",
+      "D": "within"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q109",
+    "part": 5,
+    "test": 9,
+    "question": 109,
+    "stem": "Last Monday, the department _______ Mr. Okada's recent promotion to manager.",
+    "options": {
+      "A": "will be celebrating",
+      "B": "celebrated",
+      "C": "is celebrating",
+      "D": "celebrates"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q110",
+    "part": 5,
+    "test": 9,
+    "question": 110,
+    "stem": "Ms. Xuan's _______ for reducing the company's energy consumption is worth considering.",
+    "options": {
+      "A": "revision",
+      "B": "attention",
+      "C": "meaning",
+      "D": "proposal"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q111",
+    "part": 5,
+    "test": 9,
+    "question": 111,
+    "stem": "Dr. Grayston _______ accepted the position of school superintendent.",
+    "options": {
+      "A": "enthusiast",
+      "B": "enthusiastic",
+      "C": "enthusiastically",
+      "D": "enthusiasm"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q112",
+    "part": 5,
+    "test": 9,
+    "question": 112,
+    "stem": "Austina Gallery is located at the northern end of Arch Street, _______ the Verdigris Bistro.",
+    "options": {
+      "A": "opposite",
+      "B": "except",
+      "C": "across",
+      "D": "plus"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q113",
+    "part": 5,
+    "test": 9,
+    "question": 113,
+    "stem": "Mr. Garcia promised _______ a mentor to Ms. Winston after he retired.",
+    "options": {
+      "A": "became",
+      "B": "becoming",
+      "C": "to become",
+      "D": "had become"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q114",
+    "part": 5,
+    "test": 9,
+    "question": 114,
+    "stem": "Once considered a specialty product, shoes made from recycled materials are now _______ available.",
+    "options": {
+      "A": "upward",
+      "B": "widely",
+      "C": "enough",
+      "D": "closely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q115",
+    "part": 5,
+    "test": 9,
+    "question": 115,
+    "stem": "Yuping University has formed _______ with local businesses to create internship opportunities for its students.",
+    "options": {
+      "A": "partner",
+      "B": "partners",
+      "C": "partnering",
+      "D": "partnerships"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q116",
+    "part": 5,
+    "test": 9,
+    "question": 116,
+    "stem": "Our market research shows that buyers with limited _______ of a product often look for information from expert sources.",
+    "options": {
+      "A": "knowledge",
+      "B": "approval",
+      "C": "perception",
+      "D": "consideration"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q117",
+    "part": 5,
+    "test": 9,
+    "question": 117,
+    "stem": "_______ is preventing the graphic artists from accessing the image files in the main database.",
+    "options": {
+      "A": "Many",
+      "B": "Other",
+      "C": "Something",
+      "D": "Whoever"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q118",
+    "part": 5,
+    "test": 9,
+    "question": 118,
+    "stem": "_______ a delay, Thaintech completed the renovation of its warehouse before the target date of April 7.",
+    "options": {
+      "A": "Although",
+      "B": "Despite",
+      "C": "According to",
+      "D": "However"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q119",
+    "part": 5,
+    "test": 9,
+    "question": 119,
+    "stem": "While its credit card system is offline, the Lexler Department Store is _______ closed for business.",
+    "options": {
+      "A": "effect",
+      "B": "effecting",
+      "C": "effective",
+      "D": "effectively"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q120",
+    "part": 5,
+    "test": 9,
+    "question": 120,
+    "stem": "Nearly half of the toy manufacturers surveyed reported increased sales _______the last two years.",
+    "options": {
+      "A": "onto",
+      "B": "under",
+      "C": "against",
+      "D": "over"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q121",
+    "part": 5,
+    "test": 9,
+    "question": 121,
+    "stem": "Nonprofit groups _______ up to three applications for funding consideration during any given calendar year.",
+    "options": {
+      "A": "be submitted",
+      "B": "submitting",
+      "C": "submits",
+      "D": "may submit"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q122",
+    "part": 5,
+    "test": 9,
+    "question": 122,
+    "stem": "Critics reacted _______ to the new musical, praising the exciting design and impressive choreography.",
+    "options": {
+      "A": "intentionally",
+      "B": "favorably",
+      "C": "uncertainly",
+      "D": "continuously"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q123",
+    "part": 5,
+    "test": 9,
+    "question": 123,
+    "stem": "Clausen's Notes is well-known _______ writers and publishers for its in-depth reviews of books.",
+    "options": {
+      "A": "owed to",
+      "B": "because",
+      "C": "among",
+      "D": "in between"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q124",
+    "part": 5,
+    "test": 9,
+    "question": 124,
+    "stem": "The ongoing shortage of hardwood has caused the price of certain furniture items to _______.",
+    "options": {
+      "A": "drain",
+      "B": "loop",
+      "C": "soar",
+      "D": "fling"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q125",
+    "part": 5,
+    "test": 9,
+    "question": 125,
+    "stem": "Attach the _______ tray to any flat steel surface for easy storage of and access to household or automotive tools.",
+    "options": {
+      "A": "magnetic",
+      "B": "magnetize",
+      "C": "magnets",
+      "D": "magnetically"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q126",
+    "part": 5,
+    "test": 9,
+    "question": 126,
+    "stem": "The customer _______ to buy an extended warranty on the dishwasher, so it is not eligible for a free repair.",
+    "options": {
+      "A": "rejected",
+      "B": "neglected",
+      "C": "omitted",
+      "D": "dismissed"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q127",
+    "part": 5,
+    "test": 9,
+    "question": 127,
+    "stem": "Although much of the material was technical in nature, the audience appeared to remain _______ throughout Ms. Sharma's presentation.",
+    "options": {
+      "A": "engage",
+      "B": "engaged",
+      "C": "engagingly",
+      "D": "engagement"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q128",
+    "part": 5,
+    "test": 9,
+    "question": 128,
+    "stem": "_______ fresh fruit and vegetables, vendors at the Wattville Farm Market also sell various handmade goods.",
+    "options": {
+      "A": "Compared with",
+      "B": "In addition to",
+      "C": "Rather than",
+      "D": "As a result of"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q129",
+    "part": 5,
+    "test": 9,
+    "question": 129,
+    "stem": "_______ route they choose, it should take the management team approximately four hours to drive to the hotel in Antibes.",
+    "options": {
+      "A": "What",
+      "B": "Some",
+      "C": "Somewhere",
+      "D": "Whichever"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t09-q130",
+    "part": 5,
+    "test": 9,
+    "question": 130,
+    "stem": "All Baraantec Ltd. hand tools undergo _______ inspections to ensure they are free of defects.",
+    "options": {
+      "A": "rigorous",
+      "B": "negotiated",
+      "C": "returnable",
+      "D": "portable"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q101",
+    "part": 5,
+    "test": 10,
+    "question": 101,
+    "stem": "Sophia Hollinger was commended for _______ work on the Kala account.",
+    "options": {
+      "A": "her",
+      "B": "she",
+      "C": "hers",
+      "D": "herself"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q102",
+    "part": 5,
+    "test": 10,
+    "question": 102,
+    "stem": "Last summer, jazz musician Jay Deswan _______ on the main concert stage at Waterfront Park.",
+    "options": {
+      "A": "located",
+      "B": "requested",
+      "C": "supplied",
+      "D": "performed"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q103",
+    "part": 5,
+    "test": 10,
+    "question": 103,
+    "stem": "The purchasing department ordered six _______ cases of ink toner.",
+    "options": {
+      "A": "add",
+      "B": "additional",
+      "C": "additionally",
+      "D": "adding"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q104",
+    "part": 5,
+    "test": 10,
+    "question": 104,
+    "stem": "Please complete the questionnaire to help our team _______ understand the financial services you are interested in.",
+    "options": {
+      "A": "better",
+      "B": "more",
+      "C": "very",
+      "D": "surely"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q105",
+    "part": 5,
+    "test": 10,
+    "question": 105,
+    "stem": "_______ of the garments will begin two weeks after the contract is signed.",
+    "options": {
+      "A": "junior",
+      "B": "minor English lovers",
+      "C": "soft",
+      "D": "light"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q107",
+    "part": 5,
+    "test": 10,
+    "question": 107,
+    "stem": "Patrons are asked to silence their phones _______ the show begins.",
+    "options": {
+      "A": "when",
+      "B": "which",
+      "C": "what",
+      "D": "why"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q108",
+    "part": 5,
+    "test": 10,
+    "question": 108,
+    "stem": "The majority of the company's employees commute to work _______ train.",
+    "options": {
+      "A": "on",
+      "B": "by",
+      "C": "in",
+      "D": "from"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q109",
+    "part": 5,
+    "test": 10,
+    "question": 109,
+    "stem": "Line 73 is the oldest _______ operating bus line in Raymo City's history.",
+    "options": {
+      "A": "continues",
+      "B": "continued",
+      "C": "continuous",
+      "D": "continuously"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q110",
+    "part": 5,
+    "test": 10,
+    "question": 110,
+    "stem": "This message is a _______ to pick up your package at your local post office as soon as possible.",
+    "options": {
+      "A": "promotion",
+      "B": "reminder",
+      "C": "process",
+      "D": "report"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q111",
+    "part": 5,
+    "test": 10,
+    "question": 111,
+    "stem": "Pet Orbit customers _______ want receipts delivered by e-mail can opt for this service.",
+    "options": {
+      "A": "whose",
+      "B": "who",
+      "C": "those",
+      "D": "whoever"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q112",
+    "part": 5,
+    "test": 10,
+    "question": 112,
+    "stem": "Mr. Takajian may be an entry-level employee, _______ he does not hesitate to take initiative.",
+    "options": {
+      "A": "but",
+      "B": "or",
+      "C": "equally",
+      "D": "accordingly"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q113",
+    "part": 5,
+    "test": 10,
+    "question": 113,
+    "stem": "Carter Department Store allows customers _______ items on hold for up to 24 hours.",
+    "options": {
+      "A": "place",
+      "B": "to place",
+      "C": "placing",
+      "D": "to be placed"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q114",
+    "part": 5,
+    "test": 10,
+    "question": 114,
+    "stem": "Using unique colors and styles, the decor experts at Mamie's Interiors bring a _______look to homes.",
+    "options": {
+      "A": "brief",
+      "B": "dependent",
+      "C": "motivational",
+      "D": "fashionable"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q115",
+    "part": 5,
+    "test": 10,
+    "question": 115,
+    "stem": "_______ efficient project management, Sparksware's latest software program was released on time.",
+    "options": {
+      "A": "Along with",
+      "B": "Regarding",
+      "C": "Because of",
+      "D": "Subsequent"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q116",
+    "part": 5,
+    "test": 10,
+    "question": 116,
+    "stem": "The summer line of outdoor furniture will be available _______ select stores as early as February.",
+    "options": {
+      "A": "until",
+      "B": "at",
+      "C": "over",
+      "D": "before"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q117",
+    "part": 5,
+    "test": 10,
+    "question": 117,
+    "stem": "There has been a _______ decrease in requests for customer support this quarter.",
+    "options": {
+      "A": "notice",
+      "B": "noticing",
+      "C": "noticeable",
+      "D": "noticeably"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q118",
+    "part": 5,
+    "test": 10,
+    "question": 118,
+    "stem": "Bina Dal always wanted to become a diplomat, _______ she studied international relations at university.",
+    "options": {
+      "A": "so",
+      "B": "once",
+      "C": "overall",
+      "D": "whereas"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q119",
+    "part": 5,
+    "test": 10,
+    "question": 119,
+    "stem": "Thank you for responding _______ with information about the T-Max 400 printer and scanner.",
+    "options": {
+      "A": "prompt",
+      "B": "promptly",
+      "C": "prompted",
+      "D": "prompts"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q120",
+    "part": 5,
+    "test": 10,
+    "question": 120,
+    "stem": "Owing to the weather, we need to _______your appointment for tree removal service.",
+    "options": {
+      "A": "reschedule",
+      "B": "borrow",
+      "C": "contain",
+      "D": "reconstruct"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q121",
+    "part": 5,
+    "test": 10,
+    "question": 121,
+    "stem": "It will require a _______ effort between the two countries to complete the railway line.",
+    "options": {
+      "A": "coordinate",
+      "B": "coordinates",
+      "C": "coordinated",
+      "D": "coordination"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q122",
+    "part": 5,
+    "test": 10,
+    "question": 122,
+    "stem": "According to the restaurant's _______, guests must wait to be seated by the front-of-house staff.",
+    "options": {
+      "A": "offerings",
+      "C": "bill",
+      "D": "policy",
+      "B": "funds"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q123",
+    "part": 5,
+    "test": 10,
+    "question": 123,
+    "stem": "Tickets for Saturday's football game sold out on Thursday, much sooner than organizers _______.",
+    "options": {
+      "A": "will anticipate",
+      "B": "had anticipated",
+      "C": "anticipating",
+      "D": "to anticipate"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q124",
+    "part": 5,
+    "test": 10,
+    "question": 124,
+    "stem": "Renewing your auto registration online _______at the motor vehicle office will save you time.",
+    "options": {
+      "A": "just",
+      "B": "neither",
+      "C": "at any rate",
+      "D": "rather than"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q125",
+    "part": 5,
+    "test": 10,
+    "question": 125,
+    "stem": "_______ Latoy**a Model Management's sound reputation, aspiring models can expect a flourishing career.",
+    "options": {
+      "A": "Given",
+      "B": "Ahead of",
+      "C": "Preferably",
+      "D": "Provided that"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q126",
+    "part": 5,
+    "test": 10,
+    "question": 126,
+    "stem": "Employees are asked to update their contact information _______ the staff directory can be finalized.",
+    "options": {
+      "A": "so that",
+      "B": "as though",
+      "C": "namely",
+      "D": "likewise"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q127",
+    "part": 5,
+    "test": 10,
+    "question": 127,
+    "stem": "Glistonford Manufacturing cautions consumers not to buy inferior _______ of its adjustable desks.",
+    "options": {
+      "A": "imitates",
+      "B": "imitative",
+      "C": "imitated",
+      "D": "imitations"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q128",
+    "part": 5,
+    "test": 10,
+    "question": 128,
+    "stem": "_______ the fact that the use of social media is widespread, many people still rely on newspapers for fact-checked information.",
+    "options": {
+      "A": "Opposite",
+      "B": "Without",
+      "C": "Unlike",
+      "D": "Despite"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q129",
+    "part": 5,
+    "test": 10,
+    "question": 129,
+    "stem": "Citing energy efficiency and cost reductions, the presenter made several _______ arguments for installing solar panels.",
+    "options": {
+      "A": "absent",
+      "B": "affordable",
+      "C": "convincing",
+      "D": "intrigued [ S | S | OVE | S"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  },
+  {
+    "id": "p5-t10-q130",
+    "part": 5,
+    "test": 10,
+    "question": 130,
+    "stem": "After leaving his official government role, Dr. Beasly was _______ Director of the Nanboro Youth Farming Program.",
+    "options": {
+      "A": "hired",
+      "B": "named",
+      "C": "admitted",
+      "D": "established"
+    },
+    "answer": null,
+    "difficulty": null,
+    "tags": []
+  }
+]
