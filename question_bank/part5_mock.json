@@ -1,0 +1,142 @@
+[
+  {
+    "id":"p5-mock-t01-q101","part":5,"test":1,"question":101,
+    "stem":"The board of directors _______ their decision at next week's meeting.",
+    "options":{"A":"announce","B":"will announce","C":"announcing","D":"to announce"},
+    "answer":"B","tags":["verb_tense","future"],
+    "explanation":"'Next week' signals future time → use **will + V**. (A) is present simple — wrong tense. (C) is -ing form, needs auxiliary. (D) is infinitive, not a finite verb. Rule: time expressions like *next week / tomorrow / soon* → future simple **will + V**."
+  },
+  {
+    "id":"p5-mock-t01-q102","part":5,"test":1,"question":102,
+    "stem":"All employees are required to submit their expense reports _______ the end of the month.",
+    "options":{"A":"by","B":"until","C":"during","D":"since"},
+    "answer":"A","tags":["preposition","time"],
+    "explanation":"**By** = no later than a deadline. **Until** = continuously up to a point (e.g., *wait until 5pm*). The sentence means 'submit before the deadline' → **by** is correct. Rule: *by + deadline* for tasks that must be completed before a specific time."
+  },
+  {
+    "id":"p5-mock-t01-q103","part":5,"test":1,"question":103,
+    "stem":"The new marketing strategy proved to be _______ effective than the previous one.",
+    "options":{"A":"much","B":"more","C":"most","D":"very"},
+    "answer":"B","tags":["comparison","adjective"],
+    "explanation":"**Than** after the blank = comparative structure → need **more** (comparative of *effective*). (A) *much* intensifies comparatives (*much more*) but can't stand alone before *than*. (C) *most* is superlative, used with *the*. (D) *very* is an intensifier, not comparative. Rule: adjective + *than* → **more + adjective**."
+  },
+  {
+    "id":"p5-mock-t01-q104","part":5,"test":1,"question":104,
+    "stem":"Ms. Park is the _______ who designed the company's new logo.",
+    "options":{"A":"design","B":"designed","C":"designer","D":"designing"},
+    "answer":"C","tags":["word_form","noun"],
+    "explanation":"The blank comes after article *the* and before relative clause *who designed* → needs a **noun** (person). **Designer** = person who designs. (A) *design* is verb/noun but not 'person'. (B) *designed* is past tense verb. (D) *designing* is gerund/participle. Rule: the + **[person noun]** + who → suffix **-er/-or** makes agent nouns."
+  },
+  {
+    "id":"p5-mock-t01-q105","part":5,"test":1,"question":105,
+    "stem":"The shipment was delayed _______ to severe weather conditions in the region.",
+    "options":{"A":"due","B":"because","C":"since","D":"owing"},
+    "answer":"A","tags":["preposition","connector"],
+    "explanation":"**Due to** + noun phrase = because of. (B) *because* needs full clause (*because it rained*). (C) *since* also needs clause. (D) *owing to* is correct too, but this choice shows 'owing' alone — **owing to** works only as a fixed phrase; if the option were 'owing to' it'd be correct. Here (A) **due to** is the cleanest fit. Rule: **due to / owing to** + noun; *because / since* + clause."
+  },
+  {
+    "id":"p5-mock-t01-q106","part":5,"test":1,"question":106,
+    "stem":"The report _______ by the research team will be presented at the conference.",
+    "options":{"A":"prepare","B":"prepares","C":"prepared","D":"to prepare"},
+    "answer":"C","tags":["passive","participle"],
+    "explanation":"The main verb is *will be presented* → the blank is a **reduced relative clause** modifying *the report*. Full form: *the report [that was] prepared*. Drop *that was* → **prepared** (past participle). Rule: noun + **past participle** = passive reduced relative clause (*the letter written by him* = *the letter that was written by him*)."
+  },
+  {
+    "id":"p5-mock-t01-q107","part":5,"test":1,"question":107,
+    "stem":"Customers who purchase three or more items will receive a _______ discount.",
+    "options":{"A":"special","B":"specially","C":"specialize","D":"specialization"},
+    "answer":"A","tags":["word_form","adjective"],
+    "explanation":"Blank is between article *a* and noun *discount* → needs an **adjective**. **Special** (adj) = particular, notable. (B) *specially* is adverb. (C) *specialize* is verb. (D) *specialization* is noun. Rule: a/an + **adjective** + noun. Pattern: *a + adj + noun* is extremely common in TOEIC Part 5."
+  },
+  {
+    "id":"p5-mock-t01-q108","part":5,"test":1,"question":108,
+    "stem":"The finance department has not yet _______ the budget for the next quarter.",
+    "options":{"A":"approve","B":"approved","C":"approving","D":"approval"},
+    "answer":"B","tags":["verb_tense","present_perfect"],
+    "explanation":"*Has not yet* = present perfect structure → **has + past participle**. **Approved** is the past participle of *approve*. (A) *approve* = base form, wrong with *has*. (C) *approving* needs *is* not *has*. (D) *approval* is noun, not a verb. Rule: **has/have + V3 (past participle)** = present perfect. Signal word: *yet, already, just, ever*."
+  },
+  {
+    "id":"p5-mock-t01-q109","part":5,"test":1,"question":109,
+    "stem":"_______ the high cost, the project was completed on schedule.",
+    "options":{"A":"Although","B":"Despite","C":"However","D":"Because"},
+    "answer":"B","tags":["connector","concession"],
+    "explanation":"Blank is followed by a **noun phrase** (*the high cost*), not a full clause → need a preposition, not a conjunction. **Despite** + noun/V-ing = concession preposition. (A) *Although* needs a full clause (*although it was expensive*). (C) *However* is an adverb, can't connect noun phrases directly. (D) *Because* shows reason, not concession. Rule: **Despite / In spite of** + noun; **Although / Even though** + clause."
+  },
+  {
+    "id":"p5-mock-t01-q110","part":5,"test":1,"question":110,
+    "stem":"The company's annual revenue has increased _______ over the past five years.",
+    "options":{"A":"steady","B":"steadied","C":"steadiness","D":"steadily"},
+    "answer":"D","tags":["word_form","adverb"],
+    "explanation":"Blank modifies verb *increased* → needs an **adverb**. **Steadily** = in a steady, consistent manner. (A) *steady* is adjective. (B) *steadied* is past tense verb. (C) *steadiness* is noun. Rule: verb + **adverb** (-ly). Pattern: *has increased + adverb* describes how the increase happened."
+  },
+  {
+    "id":"p5-mock-t01-q111","part":5,"test":1,"question":111,
+    "stem":"Applicants _______ meet the minimum qualifications will be contacted for an interview.",
+    "options":{"A":"who","B":"which","C":"whose","D":"whom"},
+    "answer":"A","tags":["relative_clause","pronoun"],
+    "explanation":"Blank introduces a relative clause modifying *Applicants* (people) and acts as **subject** of *meet* → use **who** (subject relative pronoun for people). (B) *which* is for things. (C) *whose* = possessive (*applicants whose score...*). (D) *whom* = object pronoun (*the applicants whom we contacted*). Rule: person + **who** + verb (subject position)."
+  },
+  {
+    "id":"p5-mock-t01-q112","part":5,"test":1,"question":112,
+    "stem":"The office supplies must be ordered _______ before they run out.",
+    "options":{"A":"in advance","B":"at once","C":"on time","D":"in return"},
+    "answer":"A","tags":["expression","vocabulary"],
+    "explanation":"**In advance** = ahead of time, before something is needed. Combined with *before they run out*, it means ordering early. (B) *at once* = immediately, right now — doesn't fit the planned nature. (C) *on time* = punctually, not late — close but *in advance* is stronger here. (D) *in return* = as an exchange. Rule: learn fixed adverbial expressions: *in advance, on time, at once, in return, for good, by far*."
+  },
+  {
+    "id":"p5-mock-t01-q113","part":5,"test":1,"question":113,
+    "stem":"Mr. Chen was _______ for his outstanding performance during the fiscal year.",
+    "options":{"A":"recognize","B":"recognized","C":"recognition","D":"recognizing"},
+    "answer":"B","tags":["passive","word_form"],
+    "explanation":"Structure: *was + ?* → passive voice **was + past participle** or *was + -ing* (past continuous). Since *was recognized for* = was given recognition, this is **passive** = **was + V3**. (A) *recognize* = base form, wrong with *was*. (C) *recognition* is noun. (D) *recognizing* = active -ing. Rule: **be + past participle** = passive. Common pattern: *was/were + V3 + for/by*."
+  },
+  {
+    "id":"p5-mock-t01-q114","part":5,"test":1,"question":114,
+    "stem":"The new policy applies to _______ employees regardless of their position.",
+    "options":{"A":"all","B":"every","C":"each","D":"whole"},
+    "answer":"A","tags":["determiner","vocabulary"],
+    "explanation":"**All** + plural noun = the entire group (*all employees*). (B) *every* + singular noun (*every employee*, not *every employees*). (C) *each* + singular noun (*each employee*). (D) *whole* + singular uncountable/collective noun (*the whole company*). Rule: **all** + plural countable noun; *every/each* + singular countable noun."
+  },
+  {
+    "id":"p5-mock-t01-q115","part":5,"test":1,"question":115,
+    "stem":"Please ensure that all documents are filed _______ before the audit begins.",
+    "options":{"A":"proper","B":"properly","C":"property","D":"proprietor"},
+    "answer":"B","tags":["word_form","adverb"],
+    "explanation":"Blank modifies verb *filed* → needs **adverb**. **Properly** = in the correct/appropriate manner. (A) *proper* = adjective (*a proper method*). (C) *property* = noun (real estate or possessions). (D) *proprietor* = noun (owner). Rule: verb + **adverb** (-ly suffix). This word form pattern (proper → properly) is very common in TOEIC Part 5."
+  },
+  {
+    "id":"p5-mock-t02-q101","part":5,"test":2,"question":101,
+    "stem":"The factory _______ more than 500 vehicles per day at full capacity.",
+    "options":{"A":"produce","B":"produces","C":"produced","D":"to produce"},
+    "answer":"B","tags":["verb_agreement","present_simple"],
+    "explanation":"Subject *The factory* = third person singular → verb needs **-s** ending in present simple. **Produces** is correct. (A) *produce* = base form, used for I/you/we/they. (C) *produced* = past tense, but no past signal. (D) *to produce* = infinitive, not a finite verb. Rule: He/She/It + **V+s** in present simple. Singular subjects in TOEIC descriptions use this constantly."
+  },
+  {
+    "id":"p5-mock-t02-q102","part":5,"test":2,"question":102,
+    "stem":"Employees should notify _______ supervisors before taking a leave of absence.",
+    "options":{"A":"they","B":"them","C":"their","D":"themselves"},
+    "answer":"C","tags":["pronoun","possessive"],
+    "explanation":"Blank modifies noun *supervisors* → needs a **possessive adjective**. **Their** = belonging to them (employees). (A) *they* = subject pronoun, can't modify a noun. (B) *them* = object pronoun, can't modify a noun. (D) *themselves* = reflexive, used when subject and object are the same person. Rule: possessive adjective (**my/your/his/her/its/our/their**) + noun."
+  },
+  {
+    "id":"p5-mock-t02-q103","part":5,"test":2,"question":103,
+    "stem":"The seminar on financial planning will be held _______ Friday afternoon.",
+    "options":{"A":"in","B":"on","C":"at","D":"by"},
+    "answer":"B","tags":["preposition","time"],
+    "explanation":"**On** is used with specific days and dates: *on Monday, on Friday, on June 5th*. (A) *in* is for months, years, seasons (*in June, in 2026*). (C) *at* is for specific clock times (*at 3pm, at noon*). (D) *by* means 'no later than'. Rule: **on** + day/date; **in** + month/year; **at** + clock time. This is one of the most-tested preposition patterns in TOEIC."
+  },
+  {
+    "id":"p5-mock-t02-q104","part":5,"test":2,"question":104,
+    "stem":"After careful _______, the committee decided to approve the proposal.",
+    "options":{"A":"consider","B":"considered","C":"considerable","D":"consideration"},
+    "answer":"D","tags":["word_form","noun"],
+    "explanation":"Blank follows adjective *careful* → needs a **noun** (*careful* modifies a noun here). **Consideration** = the noun form of *consider* (act of thinking carefully). (A) *consider* = verb. (B) *considered* = past tense/adjective. (C) *considerable* = adjective (large in size/amount). Rule: adjective + **noun**. Suffix **-tion/-sion** = noun. Learn noun forms: consider → **consideration**, decide → **decision**, solve → **solution**."
+  },
+  {
+    "id":"p5-mock-t02-q105","part":5,"test":2,"question":105,
+    "stem":"The merger _______ two of the largest companies in the industry was announced yesterday.",
+    "options":{"A":"between","B":"among","C":"within","D":"beside"},
+    "answer":"A","tags":["preposition","vocabulary"],
+    "explanation":"**Between** = used for exactly two parties. *The merger between A and B* (two companies). (B) *among* = used for three or more (*among the five candidates*). (C) *within* = inside, during a time period (*within 30 days*). (D) *beside* = next to (physical location). Rule: **between** + two items; **among** + three or more. This is a classic TOEIC distinction."
+  }
+]
