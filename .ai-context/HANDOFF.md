@@ -1,5 +1,5 @@
 # AI HANDOFF DOCUMENT
-**Last updated:** 2026-06-24  
+**Last updated:** 2026-06-25  
 **Written for:** AI assistant on a new machine picking up this project  
 **Read this first before doing anything.**
 
@@ -219,3 +219,65 @@ Từ đó cập nhật:
 - `TOEIC_ACHIEVEMENTS.md` — unlock nếu đủ điều kiện
 - `DAILY_QUESTS/DAY2_2026-06-24.md` — tạo mới hoặc cập nhật results section
 - `TOEIC_MISTAKES.md` — log những câu isCorrect: false
+
+---
+
+## 9. Data Engineering Track (2026-06-25 — MAJOR UPDATE)
+
+Dự án đã mở rộng sang **Data Engineering Platform**. AI mới phải biết điều này.
+
+### Vấn đề
+ETS 2026 PDFs là scan (không có text layer). Cần OCR để extract 2,000 câu hỏi.
+
+### Tool đã chọn: Marker (datalab-to/marker)
+- Installed: `.venv-marker/` (Python 3.12)
+- Models cached: `C:\Users\phamd\AppData\Local\datalab\` (~3GB)
+- Đã test thành công trên 5 trang LISTENING.pdf → `raw/marker_test/`
+
+### Architecture docs đã viết (đọc theo thứ tự nếu cần context)
+```
+docs/project_analysis.md    ← audit toàn bộ repo
+docs/ets_format_spec.md     ← page structure per PDF
+docs/toeic_schema.md        ← JSON schema cho 7 parts
+docs/data_architecture.md   ← directory layout + data flow
+docs/etl_pipeline.md        ← pipeline design + commands
+ROADMAP.md                  ← timeline + quick start commands
+```
+
+### Scripts đã viết (production-ready, chưa chạy trên full PDFs)
+```
+scripts/extract/run_marker.py       ← chạy Marker OCR
+scripts/extract/parse_reading.py    ← parse Parts 5/6/7 từ READING.md
+scripts/extract/parse_transcript.py ← parse answer keys + scripts
+scripts/extract/parse_listening.py  ← parse Parts 1/3/4 + extract images
+scripts/extract/inject_answers.py   ← merge answers vào all JSONs
+scripts/validator/validate_bank.py  ← QA check
+scripts/exporter/export_practice_test.py ← generate HTML tests
+```
+
+### Output sẽ ra ở
+```
+question_bank/     ← EMPTY hiện tại, sẽ có sau khi chạy scripts
+├── part1.json ... part7.json
+├── passages.json
+├── answer_keys.json
+└── images/part1/   ← 60 Part 1 photos
+```
+
+### Trạng thái OCR (quan trọng)
+| PDF | Status |
+|-----|--------|
+| ETS 2026 READING.pdf (~304pp) | **CHƯA CHẠY** |
+| ETS 2026 TRANSCRIPT.pdf | **CHƯA CHẠY** |
+| ETS 2026 LISTENING.pdf (~142pp) | Test 5 trang ✓, toàn bộ **CHƯA CHẠY** |
+
+### Lệnh khởi động lại (quick start)
+```powershell
+# Chạy Marker READING (mất 4-6 giờ — chạy ban đêm)
+cd d:\toeic
+.venv-marker\Scripts\python.exe scripts\extract\run_marker.py reading
+
+# Sau khi xong
+.venv-marker\Scripts\python.exe scripts\extract\parse_reading.py
+.venv-marker\Scripts\python.exe scripts\validator\validate_bank.py --part 5
+```

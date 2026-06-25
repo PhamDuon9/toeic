@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-25T09:18:23.864015",
+  "parts": [
+    {
+      "part": 4,
+      "total": 300,
+      "expected": 300,
+      "count_ok": true,
+      "answers": 0,
+      "answers_pct": 0.0,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "answer_keys": {
+    "exists": false,
+    "tests": 0,
+    "complete": false
+  },
+  "cross_duplicate_ids": []
+}

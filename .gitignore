@@ -1,6 +1,11 @@
 # Raw data — too large for git
 raw/
 
+# Python virtual environments
+.venv-marker/
+.venv/
+venv/
+
 # Python cache
 __pycache__/
 *.pyc

@@ -1,5 +1,5 @@
 # TOEIC Learning Lab — Project Memory
-**Last updated:** 2026-06-24
+**Last updated:** 2026-06-25
 
 > **AI mới đọc file này trước tiên.** Sau đó đọc `.ai-context/HANDOFF.md` để có đầy đủ context và workflow.
 
@@ -37,7 +37,27 @@ Score:   ~250–400 (chưa đổi)
 d:\toeic\
 ├── CLAUDE.md                    ← project rules + skills
 ├── MEMORY.md                    ← file này
+├── ROADMAP.md                   ← data engineering roadmap (NEW)
 ├── skills/toeic-{coach,examiner,rpg-gamemaster}/
+├── docs/                        ← architecture docs (NEW — 2026-06-25)
+│   ├── project_analysis.md
+│   ├── ets_format_spec.md
+│   ├── toeic_schema.md
+│   ├── data_architecture.md
+│   └── etl_pipeline.md
+├── scripts/extract/             ← Marker-based ETL (NEW)
+│   ├── run_marker.py            ← runs Marker OCR on PDFs
+│   ├── parse_reading.py         ← Parts 5/6/7
+│   ├── parse_transcript.py      ← answer keys + scripts
+│   ├── parse_listening.py       ← Parts 1/3/4 + images
+│   └── inject_answers.py        ← merge answers into JSONs
+├── scripts/validator/validate_bank.py  ← QA check (NEW)
+├── scripts/exporter/export_practice_test.py  ← HTML generator (NEW)
+├── question_bank/               ← FINAL KNOWLEDGE BASE (empty, to be filled)
+│   ├── part{1-7}.json           ← all 2,000 questions
+│   ├── passages.json            ← Part 6/7 passage texts
+│   ├── answer_keys.json         ← all answers
+│   └── images/part1/            ← 60 Part 1 photos
 └── English/
     ├── 6 tracking .md files
     ├── DAILY_QUESTS/            ← lab HTML + quest logs MD
@@ -46,6 +66,19 @@ d:\toeic\
     ├── RESULTS/                 ← JSON auto-save từ HTML quizzes
     └── WEEKLY_BOSS/             ← trống, cần week1_boss.html vào 2026-06-28
 ```
+
+## Data Engineering Status (2026-06-25)
+
+| PDF | Status | Output |
+|-----|--------|--------|
+| ETS 2026 READING.pdf | **NOT YET RUN** | — |
+| ETS 2026 TRANSCRIPT.pdf | **NOT YET RUN** | — |
+| ETS 2026 LISTENING.pdf | Marker test (5 pages) ✓ | extracted/LISTENING/ |
+
+**Next critical action:** Run `python scripts/extract/run_marker.py reading` (4-6 hours, run overnight)
+
+OCR tool: **Marker** installed in `.venv-marker/` (Python 3.12).  
+Command: `.venv-marker\Scripts\python.exe scripts\extract\run_marker.py [reading|transcript|listening|all]`
 
 ---
 
