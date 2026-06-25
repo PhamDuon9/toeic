@@ -3128,12 +3128,7 @@
     "audio": "audio/part4/Test_06-77-79.mp3",
     "script": null,
     "stem": "What industry does the speaker work in?",
-    "options": {
-      "A": "Technology",
-      "B": "Travel",
-      "C": "Agriculture",
-      "D": "Food service"
-    },
+    "options": {},
     "graphic": null,
     "answer": null,
     "difficulty": null,
@@ -3149,10 +3144,8 @@
     "script": null,
     "stem": "According to the speaker, what would be",
     "options": {
-      "A": "Knowledge of specialized software",
-      "B": "An understanding of consumer trends",
-      "C": "Customer-service training",
-      "D": "Team-building skills"
+      "C": "Customer-service training(D) Team-building skills",
+      "A": "Knowledge of specialized software"
     },
     "graphic": null,
     "answer": null,

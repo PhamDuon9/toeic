@@ -255,29 +255,61 @@ scripts/validator/validate_bank.py  ← QA check
 scripts/exporter/export_practice_test.py ← generate HTML tests
 ```
 
-### Output sẽ ra ở
+### Trạng thái question_bank/ hiện tại
 ```
-question_bank/     ← EMPTY hiện tại, sẽ có sau khi chạy scripts
-├── part1.json ... part7.json
-├── passages.json
-├── answer_keys.json
-└── images/part1/   ← 60 Part 1 photos
+question_bank/
+├── part1.json       ← 60 records ✅ (60/60 images)
+├── part2.json       ← 250 records ✅ (skeleton, chờ answers)
+├── part3.json       ← 390 records ✅ (4 options mỗi câu)
+├── part4.json       ← 300 records ✅ (4 options mỗi câu)
+├── part5.json       ← chưa có (chờ READING)
+├── part6.json       ← chưa có (chờ READING)
+├── part7.json       ← chưa có (chờ READING)
+├── passages.json    ← chưa có (chờ READING)
+├── answer_keys.json ← chưa có (chờ TRANSCRIPT)
+└── images/part1/    ← 60 JPEGs (t01_q001.jpg ... t10_q006.jpg) ✅
 ```
 
-### Trạng thái OCR (quan trọng)
-| PDF | Status |
-|-----|--------|
-| ETS 2026 READING.pdf (~304pp) | **CHƯA CHẠY** |
-| ETS 2026 TRANSCRIPT.pdf | **CHƯA CHẠY** |
-| ETS 2026 LISTENING.pdf (~142pp) | Test 5 trang ✓, toàn bộ **CHƯA CHẠY** |
+### Trạng thái extraction (2026-06-25)
+| PDF | Status | Output |
+|-----|--------|--------|
+| ETS 2026 LISTENING.pdf (142 pp) | **DONE ✅** | question_bank/part1–4.json + images/part1/ (60 ảnh) |
+| ETS 2026 READING.pdf (~304 pp) | **CHƯA CHẠY** | extracted/READING/ (thư mục trống) |
+| ETS 2026 TRANSCRIPT.pdf | **CHƯA CHẠY** | — |
 
-### Lệnh khởi động lại (quick start)
+**Ghi chú LISTENING:**
+- Part 1: 60/60 records, 60/60 images ✅
+  - Nguồn ảnh: Marker output (`extracted/LISTENING/ETS 2026 LISTENING/_page_N_Picture_M.jpeg`)
+  - Filter size >10KB để loại icon trang trí (<2KB); copy sang `question_bank/images/part1/t{NN}_q{NNN}.jpg`
+  - PyMuPDF đã loại bỏ (ảnh extract kèm footer text của sách — không dùng được)
+- Part 2: 250 skeleton (audio-only — transcript sẽ fill script + answer)
+- Part 3: 390/390 questions, 390/390 complete options
+- Part 4: 300/300 questions, 298/300 complete options (2 câu user sửa tay do OCR lỗi scan xấu)
+- Answers: chưa inject (chờ TRANSCRIPT extraction)
+
+**Đã dọn dẹp:**
+- Xoá: `scripts/build_part{1-7}_bank.py`, `crop_part1.py`, `extract_part1.py`, `ocr_engine.py`, `raw/marker_test/`
+- `parse_listening.py` đã rewrite phần extract ảnh: bỏ PyMuPDF, dùng Marker output trực tiếp
+- `question_bank/images/part1/` đã xoá ảnh PyMuPDF xấu, thay bằng ảnh sạch từ Marker
+
+### Lệnh tiếp theo (quick start)
 ```powershell
-# Chạy Marker READING (mất 4-6 giờ — chạy ban đêm)
 cd d:\toeic
+# Bước 1: READING (4-6 giờ — chạy ban đêm)
 .venv-marker\Scripts\python.exe scripts\extract\run_marker.py reading
 
-# Sau khi xong
+# Bước 2: Parse READING → part5/6/7.json
 .venv-marker\Scripts\python.exe scripts\extract\parse_reading.py
-.venv-marker\Scripts\python.exe scripts\validator\validate_bank.py --part 5
+
+# Bước 3: TRANSCRIPT (2-3 giờ)
+.venv-marker\Scripts\python.exe scripts\extract\run_marker.py transcript
+
+# Bước 4: Parse TRANSCRIPT → answer_keys.json
+.venv-marker\Scripts\python.exe scripts\extract\parse_transcript.py
+
+# Bước 5: Inject answers vào tất cả JSONs
+.venv-marker\Scripts\python.exe scripts\extract\inject_answers.py
+
+# Bước 6: Validate
+.venv-marker\Scripts\python.exe scripts\validator\validate_bank.py
 ```

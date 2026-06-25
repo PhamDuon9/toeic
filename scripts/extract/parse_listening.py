@@ -1,7 +1,7 @@
 """
 Parse extracted/LISTENING/ETS 2026 LISTENING/ETS 2026 LISTENING.md
 → question_bank/part1.json, part2.json, part3.json, part4.json
-Part 1 images extracted directly from PDF via PyMuPDF (highest quality).
+Part 1 images copied from Marker output (filter tiny decorative images by size).
 
 Marker output format:
 - Questions: "- **N.** stem"  or "- N. stem"
@@ -12,13 +12,12 @@ Marker output format:
 
 import re
 import json
-import io
+import shutil
 from pathlib import Path
 
 ROOT        = Path(__file__).parent.parent.parent
 MD_FILE     = ROOT / "extracted" / "LISTENING" / "ETS 2026 LISTENING" / "ETS 2026 LISTENING.md"
 IMG_SRC_DIR = ROOT / "extracted" / "LISTENING" / "ETS 2026 LISTENING"
-PDF_PATH    = ROOT / "raw" / "ETS 2026 LISTENING.pdf"
 BANK_DIR    = ROOT / "question_bank"
 IMG_DST_DIR = BANK_DIR / "images" / "part1"
 BANK_DIR.mkdir(parents=True, exist_ok=True)
@@ -82,87 +81,56 @@ def split_tests(md_text: str) -> list[tuple[int, str]]:
     return results
 
 
-# ── Part 1: extract images directly from PDF with PyMuPDF ────────────────────
+# ── Part 1: copy images from Marker output ───────────────────────────────────
 
-def extract_part1_images_pymupdf() -> dict[tuple[int, int], str]:
+RE_PAGE_NUM = re.compile(r"_page_(\d+)_Picture_(\d+)\.jpe?g$", re.IGNORECASE)
+MIN_SIZE_BYTES = 10_000  # real photos >10KB; tiny decorative elements <2KB
+
+def extract_part1_images_from_marker() -> dict[tuple[int, int], str]:
     """
-    Use PyMuPDF to extract Part 1 photos directly from PDF.
-    Each test has 3 photo pages (dir_page+1, +2, +3), 2 photos per page.
-    Returns {(test_num, q_num): dst_path_str}
+    Copy Part 1 images from Marker output into question_bank/images/part1/.
+    Marker names them _page_N_Picture_M.jpeg on known photo pages.
+    Each test: dir_page = 1+(test-1)*14 (0-indexed); photo pages = +1,+2,+3.
+    Each photo page has 2 real photos; filter out tiny (<10KB) decorative images.
+    Returns {(test_num, q_num): relative_path_str}
     """
-    try:
-        import fitz
-    except ImportError:
-        print("[WARN] PyMuPDF not available, skipping Part 1 image extraction")
+    if not IMG_SRC_DIR.exists():
+        print(f"[WARN] Marker output not found: {IMG_SRC_DIR}")
         return {}
 
-    if not PDF_PATH.exists():
-        print(f"[WARN] PDF not found: {PDF_PATH}")
-        return {}
+    # Index all Marker images by page number, sorted by Picture number
+    page_images: dict[int, list[Path]] = {}
+    for f in IMG_SRC_DIR.iterdir():
+        m = RE_PAGE_NUM.match(f.name)
+        if m and f.stat().st_size >= MIN_SIZE_BYTES:
+            pg = int(m.group(1))
+            page_images.setdefault(pg, []).append(f)
+    for pg in page_images:
+        page_images[pg].sort(key=lambda f: int(RE_PAGE_NUM.match(f.name).group(2)))
 
-    print(f"  Extracting Part 1 images from PDF...")
-    doc    = fitz.open(str(PDF_PATH))
     result = {}
-
     for test_idx in range(10):
         test_num = test_idx + 1
-        # Directions page (0-indexed): test 1 = page 1, test 2 = page 15, etc.
-        dir_page = 1 + test_idx * 14
+        dir_page = 1 + test_idx * 14   # 0-indexed
         q_num    = 1
 
-        for offset in range(1, 4):  # photo pages: +1, +2, +3
+        for offset in range(1, 4):      # photo pages: +1, +2, +3
             page_idx = dir_page + offset
-            if page_idx >= len(doc):
-                break
+            imgs     = page_images.get(page_idx, [])
 
-            page   = doc[page_idx]
-            images = page.get_images(full=True)
-
-            # Filter: keep images large enough to be real photos
-            real_imgs = []
-            for img_info in images:
-                xref = img_info[0]
-                try:
-                    base = doc.extract_image(xref)
-                    if base["width"] > 100 and base["height"] > 80:
-                        real_imgs.append((base["width"] * base["height"], xref, base))
-                except Exception:
-                    pass
-
-            # Sort by area descending (largest = actual photo, not decorative)
-            real_imgs.sort(reverse=True)
-
-            # Take up to 2 largest images (2 questions per page)
-            for rank, (_, xref, base) in enumerate(real_imgs[:2]):
+            for src in imgs[:2]:        # at most 2 photos per page
                 if q_num > 6:
                     break
                 dst_name = f"t{test_num:02d}_q{q_num:03d}.jpg"
                 dst_path = IMG_DST_DIR / dst_name
-
                 if not dst_path.exists():
-                    try:
-                        img_data = base["image"]
-                        ext      = base.get("ext", "jpeg")
-                        # Convert to JPEG via PIL if not already JPEG
-                        if ext.lower() not in ("jpg", "jpeg"):
-                            try:
-                                from PIL import Image
-                                img = Image.open(io.BytesIO(img_data)).convert("RGB")
-                                img.save(str(dst_path), "JPEG", quality=92)
-                            except ImportError:
-                                dst_path.write_bytes(img_data)
-                        else:
-                            dst_path.write_bytes(img_data)
-                    except Exception as e:
-                        print(f"  [WARN] Could not save {dst_name}: {e}")
-
+                    shutil.copy2(src, dst_path)
                 result[(test_num, q_num)] = f"images/part1/{dst_name}"
                 q_num += 1
 
-        imgs_saved = sum(1 for (t, q) in result if t == test_num)
+        imgs_saved = sum(1 for (t, _) in result if t == test_num)
         print(f"    Test {test_num}: {imgs_saved}/6 Part 1 images")
 
-    doc.close()
     return result
 
 
@@ -324,9 +292,9 @@ def main():
     md_text = MD_FILE.read_text(encoding="utf-8")
     print(f"  {len(md_text):,} chars, {len(md_text.splitlines())} lines\n")
 
-    # ── Part 1: extract images via PyMuPDF ──
-    print("Step 1: Extract Part 1 images from PDF...")
-    img_mapping = extract_part1_images_pymupdf()
+    # ── Part 1: copy images from Marker output ──
+    print("Step 1: Copy Part 1 images from Marker output...")
+    img_mapping = extract_part1_images_from_marker()
     part1 = build_part1_json(img_mapping)
     print()
 

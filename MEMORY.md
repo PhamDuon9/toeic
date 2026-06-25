@@ -45,19 +45,23 @@ d:\toeic\
 │   ├── toeic_schema.md
 │   ├── data_architecture.md
 │   └── etl_pipeline.md
-├── scripts/extract/             ← Marker-based ETL (NEW)
+├── scripts/extract/             ← Marker-based ETL
 │   ├── run_marker.py            ← runs Marker OCR on PDFs
 │   ├── parse_reading.py         ← Parts 5/6/7
 │   ├── parse_transcript.py      ← answer keys + scripts
 │   ├── parse_listening.py       ← Parts 1/3/4 + images
 │   └── inject_answers.py        ← merge answers into JSONs
-├── scripts/validator/validate_bank.py  ← QA check (NEW)
-├── scripts/exporter/export_practice_test.py  ← HTML generator (NEW)
-├── question_bank/               ← FINAL KNOWLEDGE BASE (empty, to be filled)
-│   ├── part{1-7}.json           ← all 2,000 questions
-│   ├── passages.json            ← Part 6/7 passage texts
-│   ├── answer_keys.json         ← all answers
-│   └── images/part1/            ← 60 Part 1 photos
+├── scripts/validator/validate_bank.py  ← QA check
+├── scripts/exporter/export_practice_test.py  ← HTML generator
+├── question_bank/               ← KNOWLEDGE BASE (Parts 1–4 done)
+│   ├── part1.json               ← 60 records, 60/60 images ✅ (Marker source)
+│   ├── part2.json               ← 250 skeleton records (audio-only) ✅
+│   ├── part3.json               ← 390 records, 390/390 options ✅
+│   ├── part4.json               ← 300 records, 300/300 options ✅
+│   ├── part5–7.json             ← chờ READING extraction
+│   ├── passages.json            ← chờ READING extraction
+│   ├── answer_keys.json         ← chờ TRANSCRIPT extraction
+│   └── images/part1/            ← 60 JPEGs (t01_q001→t10_q006) ✅
 └── English/
     ├── 6 tracking .md files
     ├── DAILY_QUESTS/            ← lab HTML + quest logs MD
@@ -71,11 +75,22 @@ d:\toeic\
 
 | PDF | Status | Output |
 |-----|--------|--------|
-| ETS 2026 READING.pdf | **NOT YET RUN** | — |
-| ETS 2026 TRANSCRIPT.pdf | **NOT YET RUN** | — |
-| ETS 2026 LISTENING.pdf | Marker test (5 pages) ✓ | extracted/LISTENING/ |
+| ETS 2026 LISTENING.pdf (142 pp) | **DONE ✅** | question_bank/part1–4.json + 60 images |
+| ETS 2026 READING.pdf (~304 pp) | **CHƯA CHẠY** | extracted/READING/ (trống) |
+| ETS 2026 TRANSCRIPT.pdf | **CHƯA CHẠY** | — |
 
-**Next critical action:** Run `python scripts/extract/run_marker.py reading` (4-6 hours, run overnight)
+**Ghi chú kỹ thuật — Part 1 images:**  
+- Nguồn ảnh: `extracted/LISTENING/ETS 2026 LISTENING/_page_N_Picture_M.jpeg` (Marker output)  
+- Filter: bỏ ảnh <10KB (icon trang trí), giữ ảnh thật >10KB  
+- Copy vào `question_bank/images/part1/t{NN}_q{NNN}.jpg` với tên semantic  
+- PyMuPDF không còn dùng (ảnh xấu, có footer text)
+
+**Next critical action:** Restart Marker READING (4–6 giờ):  
+```powershell
+.venv-marker\Scripts\python.exe scripts\extract\run_marker.py reading
+```  
+Sau đó: `parse_reading.py` → part5/6/7.json  
+Sau đó: `run_marker.py transcript` → `parse_transcript.py` → answer_keys.json → `inject_answers.py`
 
 OCR tool: **Marker** installed in `.venv-marker/` (Python 3.12).  
 Command: `.venv-marker\Scripts\python.exe scripts\extract\run_marker.py [reading|transcript|listening|all]`
