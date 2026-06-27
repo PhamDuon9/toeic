@@ -333,6 +333,8 @@ def parse_part7(lines: list[str], test_num: int) -> tuple[list[dict], list[dict]
         passage_lines = []
         cur_range     = None
 
+    pending_passage_lines: list[str] = []   # lines seen before a Q-header-less passage
+
     for line in lines:
         raw = line.strip()
         if not raw:
@@ -345,6 +347,7 @@ def parse_part7(lines: list[str], test_num: int) -> tuple[list[dict], list[dict]
             cur_range = [int(m_rng.group(1)), int(m_rng.group(2))]
             cur_ptype = passage_type(raw)
             in_qs     = False
+            pending_passage_lines = []
             continue
 
         result = match_qnum(raw)
@@ -352,9 +355,20 @@ def parse_part7(lines: list[str], test_num: int) -> tuple[list[dict], list[dict]
             qnum, rest = result
             if qnum in PART7_Q:
                 if not in_qs:
+                    # Flush previous passage
                     flush_passage()
+                    # If we accumulated lines without a range header, synthesize passage now
+                    if pending_passage_lines and cur_range is None:
+                        # Range will be set when we see this and following questions
+                        passage_lines = pending_passage_lines[:]
+                    pending_passage_lines = []
                 in_qs = True
                 cur_q = qnum
+                # If no range header was found, start tracking from this question
+                if cur_range is None:
+                    cur_range = [qnum, qnum]
+                else:
+                    cur_range[1] = max(cur_range[1], qnum)
                 questions[qnum] = {
                     "stem":        normalize_blank(rest),
                     "options":     {},
@@ -373,6 +387,8 @@ def parse_part7(lines: list[str], test_num: int) -> tuple[list[dict], list[dict]
             questions[cur_q]["stem"] = (questions[cur_q]["stem"] + " " + raw).strip()
         elif not in_qs and not is_noise(raw) and not RE_T_SEP.match(raw):
             passage_lines.append(raw)
+            if cur_range is None:
+                pending_passage_lines.append(raw)
 
     flush_passage()
 

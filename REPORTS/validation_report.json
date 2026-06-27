@@ -1,20 +1,81 @@
 {
-  "date": "2026-06-25T09:18:23.864015",
+  "date": "2026-06-26T14:10:36.510770",
   "parts": [
+    {
+      "part": 1,
+      "total": 60,
+      "expected": 60,
+      "count_ok": true,
+      "answers": 60,
+      "answers_pct": 100.0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "part": 2,
+      "total": 250,
+      "expected": 250,
+      "count_ok": true,
+      "answers": 250,
+      "answers_pct": 100.0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "part": 3,
+      "total": 390,
+      "expected": 390,
+      "count_ok": true,
+      "answers": 390,
+      "answers_pct": 100.0,
+      "errors": [],
+      "warnings": []
+    },
     {
       "part": 4,
       "total": 300,
       "expected": 300,
       "count_ok": true,
-      "answers": 0,
-      "answers_pct": 0.0,
+      "answers": 300,
+      "answers_pct": 100.0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "part": 5,
+      "total": 300,
+      "expected": 300,
+      "count_ok": true,
+      "answers": 300,
+      "answers_pct": 100.0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "part": 6,
+      "total": 160,
+      "expected": 160,
+      "count_ok": true,
+      "answers": 160,
+      "answers_pct": 100.0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "part": 7,
+      "total": 540,
+      "expected": 540,
+      "count_ok": true,
+      "answers": 540,
+      "answers_pct": 100.0,
       "errors": [],
       "warnings": []
     }
   ],
   "answer_keys": {
-    "exists": false,
-    "tests": 0,
+    "exists": true,
+    "tests": 10,
+    "complete_tests": 8,
     "complete": false
   },
   "cross_duplicate_ids": []
