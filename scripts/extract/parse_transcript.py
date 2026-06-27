@@ -10,19 +10,23 @@ import json
 from pathlib import Path
 
 ROOT     = Path(__file__).parent.parent.parent
-MD_FILE  = ROOT / "extracted" / "TRANSCRIPT" / "ETS 2026 TRANSCRIPT.md"
+MD_FILE  = ROOT / "extracted" / "TRANSCRIPT" / "ETS 2026 TRANSCRIPT" / "ETS 2026 TRANSCRIPT.md"
 BANK_DIR = ROOT / "question_bank"
 BANK_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── Regexes ──────────────────────────────────────────────────────────────────
-RE_ANSWER_INLINE = re.compile(r"(\d+)[.)]\s*([ABCD])")          # "7. B" or "7) B"
-RE_ANSWER_SPACED = re.compile(r"(\d+)\s+([ABCD])(?=\s|$)")      # "7 B" in grid
+RE_ANSWER_INLINE = re.compile(r"(\d+)[.)]\s*([ABCD])")
+RE_ANSWER_SPACED = re.compile(r"(\d+)\s+([ABCD])(?=\s|$)")
 RE_TEST_HDR      = re.compile(r"TEST\s+(\d+)", re.IGNORECASE)
 RE_PART_HDR      = re.compile(r"PART\s+([234])", re.IGNORECASE)
 RE_Q_RANGE       = re.compile(r"Questions?\s+(\d+)[\s\-–]+(\d+)", re.IGNORECASE)
 RE_Q_NUM_SCRIPT  = re.compile(r"^(\d+)\.\s+(.+)")
 RE_SPEAKER       = re.compile(r"^(W|M|Man|Woman|Narrator)[:\s]+(.+)", re.IGNORECASE)
-RE_TABLE_ROW     = re.compile(r"\|\s*(\d+)\s*\|\s*([ABCD])\s*\|")  # markdown table
+RE_TABLE_ROW     = re.compile(r"\|\s*(\d+)\s*\|\s*([ABCD])\s*\|")
+# Format: | <b>7</b> (B) | or | 7 (B) | — actual ETS 2026 TRANSCRIPT format
+RE_HTML_CELL     = re.compile(r"(?:<b>)?(\d+)(?:</b>)?\s*\(([ABCD])\)")
+# Format: | 기출 | TEST | 1 | — actual section header in answer table
+RE_TEST_TBLHDR   = re.compile(r"\|\s*기출.*?\|\s*TEST\s*\|\s*(\d+)\s*\|")
 
 VALID_ANSWERS = {"A", "B", "C", "D"}
 
@@ -42,34 +46,43 @@ def extract_answer_keys(md_text: str) -> dict:
     current_test = None
 
     for line in md_text.splitlines():
-        m_test = RE_TEST_HDR.search(line)
-        if m_test:
-            current_test = int(m_test.group(1))
+        # Priority 1: table section header | 기출 | TEST | N | (actual data blocks)
+        m_tbl = RE_TEST_TBLHDR.search(line)
+        if m_tbl:
+            current_test = int(m_tbl.group(1))
             if current_test not in keys:
                 keys[current_test] = {}
+            continue
+
+        # Priority 2: plain TEST N header (used as fallback for non-table formats)
+        m_test = RE_TEST_HDR.search(line)
+        if m_test and "기출" not in line and "|" not in line:
+            t = int(m_test.group(1))
+            if t not in keys:
+                keys[t] = {}
+            # Don't change current_test here — index lines shouldn't switch context
             continue
 
         if current_test is None:
             continue
 
-        # Try markdown table row first: | 7 | B |
+        # Format: | <b>7</b> (B) | — ETS 2026 actual format
+        for m in RE_HTML_CELL.finditer(line):
+            q, ans = int(m.group(1)), m.group(2)
+            if 1 <= q <= 200 and ans in VALID_ANSWERS:
+                keys[current_test][q] = ans
+
+        # Fallback: markdown table row | 7 | B |
         for m in RE_TABLE_ROW.finditer(line):
             q, ans = int(m.group(1)), m.group(2)
-            if 1 <= q <= 200 and ans in VALID_ANSWERS:
+            if 1 <= q <= 200 and ans in VALID_ANSWERS and q not in keys[current_test]:
                 keys[current_test][q] = ans
 
-        # Try "7. B" or "7) B" pattern
+        # Fallback: "7. B" or "7) B"
         for m in RE_ANSWER_INLINE.finditer(line):
             q, ans = int(m.group(1)), m.group(2)
-            if 1 <= q <= 200 and ans in VALID_ANSWERS:
+            if 1 <= q <= 200 and ans in VALID_ANSWERS and q not in keys[current_test]:
                 keys[current_test][q] = ans
-
-        # Try "7 B" spaced pattern (grid layout OCR)
-        for m in RE_ANSWER_SPACED.finditer(line):
-            q, ans = int(m.group(1)), m.group(2)
-            if 1 <= q <= 200 and ans in VALID_ANSWERS:
-                if q not in keys[current_test]:  # don't overwrite inline matches
-                    keys[current_test][q] = ans
 
     return keys
 
@@ -182,7 +195,7 @@ def main():
             print(f"  [skip] {part_file} not found — run parse_listening.py first")
             continue
 
-        questions = json.loads(part_file.read_text(encoding="utf-8"))
+        questions = json.loads(part_file.read_text(encoding="utf-8-sig"))
         injected = 0
         for q in questions:
             key = (q["test"], q["question"])

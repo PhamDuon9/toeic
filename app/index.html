@@ -264,6 +264,8 @@ nav .logo{font-size:1rem;font-weight:800;color:var(--purple);margin-right:auto;l
 .study-nav button.cur{background:var(--purple);color:#fff;border-color:var(--purple)}
 
 .sq-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:12px}
+.study-audio{width:100%;margin:8px 0;border-radius:8px;accent-color:var(--purple)}
+.study-img{max-width:320px;width:100%;border-radius:8px;margin:8px 0;border:1px solid var(--border)}
 .sq-meta{font-size:.7rem;color:var(--muted);margin-bottom:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .sq-stem{font-size:.98rem;line-height:1.65;margin-bottom:16px}
 .sq-opts{display:grid;gap:7px}
@@ -344,6 +346,26 @@ nav .logo{font-size:1rem;font-weight:800;color:var(--purple);margin-right:auto;l
 
 /* ── PASSAGE BOX (Part 6 / Part 7) ── */
 .passage-box{background:#0d1525;border:1px solid var(--border);border-radius:10px;padding:12px 14px;max-height:220px;overflow-y:auto;font-size:.82rem;line-height:1.75;color:var(--text);margin-bottom:14px;white-space:pre-wrap;word-break:break-word}
+.p7-group{margin-bottom:16px;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.p7-group .p7-passage-block{padding:16px 16px 0}
+.p7-group .passage-box{max-height:none;border-radius:8px;margin-bottom:0}
+.p7-group .sq-card{border:none;border-top:1px solid var(--border);border-radius:0;margin-bottom:0}
+.p7-group .sq-card:last-child{border-bottom-left-radius:12px;border-bottom-right-radius:12px}
+.p7-passage-label{font-size:.78rem;color:var(--muted);margin-bottom:8px;font-style:italic;letter-spacing:.02em}
+.p7-prose p{margin:0 0 .75em;line-height:1.7}
+.p7-prose p:last-child{margin-bottom:0}
+.p7-prose h3,.p7-prose h4,.p7-prose h5{margin:.6em 0 .3em;font-weight:700;color:var(--text)}
+.p7-heading{font-size:.9rem;font-weight:700;margin-bottom:.4em}
+.p7-email-header{border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:12px}
+.p7-email-title{background:#1a2540;text-align:center;padding:5px;font-weight:700;font-size:.82rem;letter-spacing:.05em;border-bottom:1px solid var(--border)}
+.p7-email-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.p7-email-table tr{border-bottom:1px solid #1e2d48}
+.p7-email-table tr:last-child{border-bottom:none}
+.p7-email-key{padding:4px 10px;color:var(--muted);white-space:nowrap;font-weight:600;width:80px}
+.p7-email-table td:last-child{padding:4px 10px}
+.p7-email-body{font-size:.82rem;line-height:1.7}
+.p7-email-body p{margin:0 0 .7em}
+.p7-email-body p:last-child{margin-bottom:0}
 .passage-box::-webkit-scrollbar{width:4px}
 .passage-box::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 .p6-blank{display:inline-block;background:#161d30;border:1px dashed #4a4080;border-radius:4px;padding:0 8px;color:var(--muted);font-size:.8rem;min-width:50px;text-align:center}
@@ -1366,6 +1388,60 @@ function buildPassageHtml(text, blankIdx) {
     });
 }
 
+// Smart renderer for Part 7 passages
+function renderPassageP7(text) {
+  if (!text) return '';
+  const lines = text.split('\n');
+
+  // Detect email: starts with To:/From:/Date:/Subject: header block
+  const emailFields = ['To','From','Date','Subject','CC','BCC'];
+  const headerLines = [];
+  let bodyStart = 0;
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^(To|From|Date|Subject|CC|BCC)\s*:\s*(.*)$/i);
+    if (m) { headerLines.push([m[1], m[2].trim()]); bodyStart = i + 1; }
+    else if (headerLines.length > 0) { bodyStart = i; break; }
+  }
+
+  const inlineFormat = s => s
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/<br>/gi,' ');
+
+  let html = '';
+
+  if (headerLines.length >= 2) {
+    // Email format
+    html += `<div class="p7-email-header">`;
+    html += `<div class="p7-email-title">E-mail</div>`;
+    html += `<table class="p7-email-table">`;
+    headerLines.forEach(([k,v]) => {
+      html += `<tr><td class="p7-email-key">${k}:</td><td>${inlineFormat(v)}</td></tr>`;
+    });
+    html += `</table></div>`;
+    // Body paragraphs
+    const bodyLines = lines.slice(bodyStart);
+    const paras = bodyLines.join('\n').split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+    html += `<div class="p7-email-body">`;
+    paras.forEach(p => { html += `<p>${inlineFormat(p.replace(/\n/g,' '))}</p>`; });
+    html += `</div>`;
+  } else {
+    // Article / notice / memo — paragraphs
+    const paras = text.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+    paras.forEach(p => {
+      if (p.startsWith('#')) {
+        const lvl = p.match(/^#+/)[0].length;
+        const title = inlineFormat(p.replace(/^#+\s*/,''));
+        html += `<h${Math.min(lvl+2,5)} class="p7-heading">${title}</h${Math.min(lvl+2,5)}>`;
+      } else {
+        html += `<p>${inlineFormat(p.replace(/\n/g,' '))}</p>`;
+      }
+    });
+  }
+  return html;
+}
+
 function renderP6(q) {
   const chosen = P.answers[q.id];
   const rv = P.reviewing ? `<div class="review-note">Correct: <strong>${q.answer||'?'}</strong></div>` : '';
@@ -2008,13 +2084,21 @@ function setSF(key, val) {
 
 async function initStudy() {
   if (STUDY.questions.length === 0) {
-    const [p5, p6, p7, passages] = await Promise.all([
+    const [p1, p2, p3, p4, p5, p6, p7, passages] = await Promise.all([
+      fetch('../question_bank/part1.json').then(r=>r.json()).catch(()=>[]),
+      fetch('../question_bank/part2.json').then(r=>r.json()).catch(()=>[]),
+      fetch('../question_bank/part3.json').then(r=>r.json()).catch(()=>[]),
+      fetch('../question_bank/part4.json').then(r=>r.json()).catch(()=>[]),
       fetch('../question_bank/part5.json').then(r=>r.json()).catch(()=>[]),
       fetch('../question_bank/part6.json').then(r=>r.json()).catch(()=>[]),
       fetch('../question_bank/part7.json').then(r=>r.json()).catch(()=>[]),
       fetch('../question_bank/passages.json').then(r=>r.json()).catch(()=>[]),
     ]);
     STUDY.questions = [
+      ...p1.map(q=>({...q,part:1})),
+      ...p2.map(q=>({...q,part:2})),
+      ...p3.map(q=>({...q,part:3})),
+      ...p4.map(q=>({...q,part:4})),
       ...p5.map(q=>({...q,part:5})),
       ...p6.map(q=>({...q,part:6})),
       ...p7.map(q=>({...q,part:7})),
@@ -2054,8 +2138,8 @@ function renderStudy() {
     return;
   }
 
-  area.innerHTML = slice.map((q, i) => {
-    const gi = page * PAGE_SIZE + i;
+  // Helper: render a single question card (without passage)
+  function renderQCard(q, gi) {
     const answered = STUDY.answers[q.id];
     const revealed = STUDY.revealed.has(q.id) || autoReveal;
     const isCorrect = answered === q.answer;
@@ -2064,7 +2148,7 @@ function renderStudy() {
     const opts = Object.entries(q.options||{}).map(([k,v]) => {
       let cls = '';
       if (answered || revealed) {
-        if (k === q.answer) cls = answered ? 'reveal' : 'reveal';
+        if (k === q.answer) cls = 'reveal';
         if (k === answered && answered !== q.answer) cls = 'wrong';
         if (k === answered && answered === q.answer) cls = 'correct';
       }
@@ -2074,7 +2158,6 @@ function renderStudy() {
       </button>`;
     }).join('');
 
-    // Hint — show grammar tag + short tip
     const hintText = {
       verb_tense: '⏱ Look for time signal words (yesterday, now, next week…)',
       word_form: '🔤 Check what slot the blank fills: noun / verb / adj / adv',
@@ -2087,26 +2170,29 @@ function renderStudy() {
       vocabulary: '📖 Business vocabulary — check word family & context',
     };
     const hint = (q.tags||[]).map(t => hintText[t]).filter(Boolean)[0] || '';
-    const hintHTML = showHints && hint
-      ? `<div class="sq-hint">${hint}</div>` : '';
-
+    const hintHTML = showHints && hint ? `<div class="sq-hint">${hint}</div>` : '';
     const explainHTML = showExplain && (answered || revealed) && q.explanation
       ? `<div class="sq-explain">${renderMarkdown(q.explanation)}</div>` : '';
-
     const revealBtn = !answered && !revealed
       ? `<button class="sq-btn sq-btn-reveal" onclick="studyReveal('${q.id}')">👁 Show Answer</button>` : '';
-    const explainBtn = showExplain && (answered || revealed) && !q.explanation
-      ? '' : '';
 
-    let studyPassageHtml = '';
-    if ([6,7].includes(q.part) && q.passage_id && STUDY.passages[q.passage_id]) {
+    let audioHtml = '';
+    if ([1,2,3,4].includes(q.part) && q.audio) {
+      audioHtml = `<audio class="study-audio" controls preload="none"><source src="../${q.audio}" type="audio/mpeg"></audio>`;
+    }
+    let imageHtml = '';
+    if (q.part === 1 && q.image) {
+      const imgSrc = q.image.startsWith('question_bank/') ? '../' + q.image : '../question_bank/' + q.image;
+      imageHtml = `<img class="study-img" src="${imgSrc}" alt="Part 1 image" onerror="this.style.display='none'">`;
+    }
+
+    // Part 6: show passage with blank highlighted per question
+    let p6PassageHtml = '';
+    if (q.part === 6 && q.passage_id && STUDY.passages[q.passage_id]) {
       const psg = STUDY.passages[q.passage_id];
-      if (q.part === 6 && psg.text) {
+      if (psg.text) {
         const bi = q.question - (psg.question_range?.[0] ?? q.question);
-        studyPassageHtml = `<div class="passage-box">${buildPassageHtml(psg.text, bi)}</div>`;
-      } else if (psg.text) {
-        const esc = psg.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        studyPassageHtml = `<div class="passage-box">${esc}</div>`;
+        p6PassageHtml = `<div class="passage-box">${buildPassageHtml(psg.text, bi)}</div>`;
       }
     }
 
@@ -2117,13 +2203,68 @@ function renderStudy() {
         ${tagBadges}
         ${answered ? (isCorrect ? '<span style="color:var(--green)">✓ Correct</span>' : '<span style="color:var(--red)">✗ Wrong</span>') : ''}
       </div>
-      ${studyPassageHtml}
+      ${imageHtml}${audioHtml}${p6PassageHtml}
       ${q.stem ? `<div class="sq-stem selectable-text">${q.stem}</div>` : ''}
       ${hintHTML}
-      <div class="sq-opts">${opts}</div>
+      ${opts
+        ? `<div class="sq-opts">${opts}</div>`
+        : `<div class="sq-opts">${['A','B','C','D'].map(k => {
+            let cls = '';
+            if (answered || revealed) {
+              if (k === q.answer) cls = 'reveal';
+              if (k === answered && answered !== q.answer) cls = 'wrong';
+              if (k === answered && answered === q.answer) cls = 'correct';
+            }
+            const disabled = (answered || revealed) ? 'disabled' : '';
+            return `<button class="sq-opt ${cls}" ${disabled} onclick="studyAnswer('${q.id}','${k}')" style="min-width:52px;justify-content:center">
+              <span class="ok">${k}</span>
+            </button>`;
+          }).join('')}</div>`
+      }
       <div class="sq-actions">${revealBtn}</div>
       ${explainHTML}
     </div>`;
+  }
+
+  // Group Part 7 questions by passage_id; other parts render individually
+  const blocks = [];
+  let i = 0;
+  while (i < slice.length) {
+    const q = slice[i];
+    if (q.part === 7 && q.passage_id) {
+      // Collect all consecutive questions with same passage_id
+      const pid = q.passage_id;
+      const group = [];
+      let j = i;
+      while (j < slice.length && slice[j].part === 7 && slice[j].passage_id === pid) {
+        group.push({q: slice[j], gi: page * PAGE_SIZE + j});
+        j++;
+      }
+      blocks.push({type:'p7group', pid, group});
+      i = j;
+    } else {
+      blocks.push({type:'single', q, gi: page * PAGE_SIZE + i});
+      i++;
+    }
+  }
+
+  area.innerHTML = blocks.map(block => {
+    if (block.type === 'single') return renderQCard(block.q, block.gi);
+
+    // Part 7 group: passage once, then question cards
+    const psg = STUDY.passages[block.pid];
+    let passageHtml = '';
+    if (psg && psg.text) {
+      const qr = psg.question_range || [];
+      const label = qr.length === 2 ? `Questions ${qr[0]}–${qr[1]}` : '';
+      const inner = renderPassageP7(psg.text);
+      passageHtml = `<div class="p7-passage-block">
+        ${label ? `<div class="p7-passage-label">${label}</div>` : ''}
+        <div class="passage-box p7-prose" style="max-height:none">${inner}</div>
+      </div>`;
+    }
+    const qCards = block.group.map(({q, gi}) => renderQCard(q, gi)).join('');
+    return `<div class="p7-group">${passageHtml}${qCards}</div>`;
   }).join('');
 
   // Pagination
